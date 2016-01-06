@@ -1,0 +1,55 @@
+CGLS_CUDA
+=========
+
+This is a GPU implementation of the Conjugate Gradient Least Squares (CGLS) algorithm for 2D data sets. It takes projection data and an initial reconstruction as input, and returns the reconstruction after a specified number of SIRT iterations.
+
+The internal state of the CGLS algorithm is reset every time astra_mex_algorithm('iterate')
+is called. This implies that running CGLS for N iterations and then running it for
+another N iterations may yield different results from running it 2N iterations at once.
+
+Supported geometries: parallel, fanflat, fanflat_vec.
+
+Configuration options
+---------------------
+================================	========	====
+name 					type 		description
+================================	========	====
+cfg.ProjectionDataId 			required 	The astra_mex_data2d ID of the projection data
+cfg.ReconstructionDataId 		required 	The astra_mex_data2d ID of the reconstruction data. The content of this when starting CGLS is used as the initial reconstruction.
+cfg.option.SinogramMaskId 		optional 	If specified, the astra_mex_data2d ID of a projection-data-sized volume to be used as a mask.
+cfg.option.ReconstructionMaskId 	optional 	If specified, the astra_mex_data2d ID of a volume-data-sized volume to be used as a mask.
+cfg.option.GPUindex 			optional 	Specifies which GPU to use. Default = 0.
+cfg.option.DetectorSuperSampling 	optional 	For the forward projection, DetectorSuperSampling rays will be used. This should only be used if your detector pixels are larger than the voxels in the reconstruction volume. Defaults to 1.
+cfg.option.PixelSuperSampling 		optional 	For the backward projection, PixelSuperSampling^2 rays will be used. This should only be used if your voxels in the reconstruction volume are larger than the detector pixels. Defaults to 1.
+================================	========	====
+
+Example
+-------
+
+.. code-block:: matlab
+
+	%% create phantom
+	V_exact = phantom(256);
+
+	%% create geometries
+	proj_geom = astra_create_proj_geom('parallel', 1.0, 256, linspace2(0,pi,180));
+	vol_geom = astra_create_vol_geom(256,256);
+
+	%% create forward projection
+	[sinogram_id, sinogram] = astra_create_sino_cuda(V_exact, proj_geom, vol_geom);
+
+	%% reconstruct
+	recon_id = astra_mex_data2d('create', '-vol', vol_geom, 0);
+	cfg = astra_struct('CGLS_CUDA');
+	cfg.ProjectionDataId = sinogram_id;
+	cfg.ReconstructionDataId = recon_id;
+	cgls_id = astra_mex_algorithm('create', cfg);
+	astra_mex_algorithm('iterate', cgls_id, 100);
+	V = astra_mex_data2d('get', recon_id);
+	imshow(V, []);
+
+	%% garbage disposal
+	astra_mex_data2d('delete', sinogram_id, recon_id);
+	astra_mex_algorithm('delete', cgls_id);
+
+
