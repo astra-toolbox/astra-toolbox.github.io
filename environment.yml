@@ -1,0 +1,6 @@
+name: readthedocs
+channels:
+  - astra-toolbox
+dependencies:
+  - python
+  - astra-toolbox==1.7.1
