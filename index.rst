@@ -52,7 +52,7 @@ Contact
 
 email: astra@uantwerpen.be website: https://astra-toolbox.readthedocs.org
 
-Copyright: 2010-2015, iMinds-Vision Lab, University of Antwerp 2014-2015, CWI, Amsterdam http://visielab.uantwerpen.be/ and http://www.cwi.nl/
+Copyright: 2010-2015, iMinds-Vision Lab, University of Antwerp 2014-2015, http://visielab.uantwerpen.be/ and CWI, Amsterdam  http://www.cwi.nl/
 
 Contents
 --------
