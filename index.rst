@@ -14,6 +14,8 @@ A large number of 2D and 3D algorithms are available, including FBP, SIRT, SART,
 
 The basic forward and backward projection operations are GPU-accelerated, and directly callable from MATLAB and Python to enable building new algorithms.
 
+The source code of the ASTRA Toolbox is available on `GitHub <https://github.com/astra-toolbox/astra-toolbox>`_.
+
 Downloads
 ---------
 
