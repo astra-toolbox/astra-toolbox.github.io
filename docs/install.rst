@@ -26,10 +26,30 @@ Add /usr/local/astra/lib to your LD_LIBRARY_PATH. Add /usr/local/astra/matlab an
 
 NB: Each matlab version only supports a specific range of g++ versions. Despite this, if you have a newer g++ and if you get errors related to missing GLIBCXX_3.4.xx symbols, it is often possible to work around this requirement by deleting the version of libstdc++ supplied by matlab in MATLAB_PATH/bin/glnx86 or MATLAB_PATH/bin/glnxa64 (at your own risk).
 
-Linux, using conda
-------------------
+Linux, using conda for python
+-----------------------------
 
-To build the ASTRA toolbox using `conda <http://conda.pydata.org/>`_, perform the following steps inside the conda environment:
+Requirements: `conda <http://conda.pydata.org/>`_ python environment
+
+There are packages available for the ASTRA Toolbox in the astra-toolbox
+channel for the conda package manager. To use these, run the following
+inside a conda environment.
+
+.. code-block:: bash
+
+  conda install -c astra-toolbox astra-toolbox
+
+Windows, from source using Visual Studio 2008
+---------------------------------------------
+
+Requirements: Visual Studio 2008, boost, CUDA (driver+toolkit), matlab. Note that a .zip with all required (and precompiled) boost files is available from our website.
+
+Set the environment variable MATLAB_ROOT to your matlab install location. Open astra_vc08.sln in Visual Studio. Select the appropriate solution configuration. (typically Release_CUDA|win32 or Release_CUDA|x64) Build the solution. Install by copying AstraCuda32.dll or AstraCuda64.dll from bin/ and all .mexw32 or .mexw64 files from bin/Release_CUDA or bin/Debug_CUDA and the entire matlab/tools directory to a directory to be added to your matlab path.
+
+Linux, building conda packages
+------------------------------
+
+To build your own `conda <http://conda.pydata.org/>`_ packages for the ASTRA toolbox, perform the following steps inside the conda environment:
 
 .. code-block:: bash
 
@@ -49,9 +69,4 @@ The final step includes a test to check whether the build was successful. To be 
       -c file://[/path/to/conda_env]/conda-bld/ \
       -c defaults --override-channels ./ # Build Python interface
 
-Windows, from source using Visual Studio 2008
----------------------------------------------
 
-Requirements: Visual Studio 2008, boost, CUDA (driver+toolkit), matlab. Note that a .zip with all required (and precompiled) boost files is available from our website.
-
-Set the environment variable MATLAB_ROOT to your matlab install location. Open astra_vc08.sln in Visual Studio. Select the appropriate solution configuration. (typically Release_CUDA|win32 or Release_CUDA|x64) Build the solution. Install by copying AstraCuda32.dll or AstraCuda64.dll from bin/ and all .mexw32 or .mexw64 files from bin/Release_CUDA or bin/Debug_CUDA and the entire matlab/tools directory to a directory to be added to your matlab path.
