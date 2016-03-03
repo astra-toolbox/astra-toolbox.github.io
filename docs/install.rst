@@ -26,6 +26,29 @@ Add /usr/local/astra/lib to your LD_LIBRARY_PATH. Add /usr/local/astra/matlab an
 
 NB: Each matlab version only supports a specific range of g++ versions. Despite this, if you have a newer g++ and if you get errors related to missing GLIBCXX_3.4.xx symbols, it is often possible to work around this requirement by deleting the version of libstdc++ supplied by matlab in MATLAB_PATH/bin/glnx86 or MATLAB_PATH/bin/glnxa64 (at your own risk).
 
+Linux, using conda
+------------------
+
+To build the ASTRA toolbox using `conda <http://conda.pydata.org/>`_, perform the following steps inside the conda environment:
+
+.. code-block:: bash
+
+  cd python/conda/libastra
+  CUDA_ROOT=/path/to/cuda conda-build ./ # Build C++ library
+  cd ../
+  CUDA_ROOT=/path/to/cuda conda-build ./ # Build Python interface
+
+The final step includes a test to check whether the build was successful. To be able to perform this test, conda should be able to find the ASTRA C++ library package of the second step. One way of accomplishing this is to temporarily add the conda build directory as a custom channel. To do this, the following steps can be used:
+
+.. code-block:: bash
+
+  cd python/conda/libastra
+  CUDA_ROOT=/path/to/cuda conda-build ./ # Build C++ library
+  cd ../
+  CUDA_ROOT=/path/to/cuda conda-build \
+      -c file://[/path/to/conda_env]/conda-bld/ \
+      -c defaults --override-channels ./ # Build Python interface
+
 Windows, from source using Visual Studio 2008
 ---------------------------------------------
 
