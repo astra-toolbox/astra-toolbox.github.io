@@ -69,4 +69,10 @@ The final step includes a test to check whether the build was successful. To be 
       -c file://[/path/to/conda_env]/conda-bld/ \
       -c defaults --override-channels ./ # Build Python interface
 
+To directly install these packages in a local conda environment:
+
+.. code-block:: bash
+
+  conda install -c file://[/path/to/conda_env]/conda-bld/ astra-toolbox
+
 
