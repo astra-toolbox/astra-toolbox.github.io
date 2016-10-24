@@ -1,11 +1,11 @@
-* ASTRA v1.6 for Windows 64 bit CUDA/MATLAB: `astra-1.6-matlab-win-x64.zip <http://sourceforge.net/projects/astra-toolbox/files/astra-1.6/astra-1.6-matlab-win-x64.zip/download>`_
-* ASTRA v1.6 for Windows 64 bit CUDA/Python 2.7: `astra-1.6-python27-win-x64.zip <http://sourceforge.net/projects/astra-toolbox/files/astra-1.6/astra-1.6-python27-win-x64.zip/download>`_
-* ASTRA v1.6 for Windows 64 bit CUDA/Python 3.4: `astra-1.6-python34-win-x64.zip <http://sourceforge.net/projects/astra-toolbox/files/astra-1.6/astra-1.6-python34-win-x64.zip/download>`_
-* ASTRA v1.6 Source Code for Linux: `astra-1.6.tar.bz2 <http://sourceforge.net/projects/astra-toolbox/files/astra-1.6/astra-1.6.tar.bz2/download>`_
+* ASTRA v1.6 for Windows 64 bit CUDA/MATLAB: `astra-1.6-matlab-win-x64.zip </files/astra-1.6/astra-1.6-matlab-win-x64.zip>`_
+* ASTRA v1.6 for Windows 64 bit CUDA/Python 2.7: `astra-1.6-python27-win-x64.zip </files/astra-1.6/astra-1.6-python27-win-x64.zip>`_
+* ASTRA v1.6 for Windows 64 bit CUDA/Python 3.4: `astra-1.6-python34-win-x64.zip </files/astra-1.6/astra-1.6-python34-win-x64.zip>`_
+* ASTRA v1.6 Source Code for Linux: `astra-1.6.tar.bz2 </files/astra-1.6/astra-1.6.tar.bz2>`_
 
 For compiling on Windows we only provide Visual Studio 2008 and 2012 project files. We have also packaged a set of external libraries and headers for all the build dependencies:
 
-* ASTRA v1.6 Source Code for Windows/VS2008/2012: `astra-1.6.zip <http://sourceforge.net/projects/astra-toolbox/files/astra-1.6/astra-1.6.zip/download>`_
-* ASTRA v1.6 Compilation Support files for Windows/VS2008/2012: `astra-1.6-windows_build_support.zip <http://sourceforge.net/projects/astra-toolbox/files/astra-1.6/astra-1.6-windows_build_support.zip/download>`_
+* ASTRA v1.6 Source Code for Windows/VS2008/2012: `astra-1.6.zip </files/astra-1.6/astra-1.6.zip>`_
+* ASTRA v1.6 Compilation Support files for Windows/VS2008/2012: `astra-1.6-windows_build_support.zip </files/astra-1.6/astra-1.6-windows_build_support.zip>`_
 
 
