@@ -3,4 +3,4 @@ channels:
   - astra-toolbox
 dependencies:
   - python
-  - astra-toolbox==1.7.1
+  - astra-toolbox==1.8

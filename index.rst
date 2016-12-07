@@ -16,12 +16,20 @@ The basic forward and backward projection operations are GPU-accelerated, and di
 
 The source code of the ASTRA Toolbox is available on `GitHub <https://github.com/astra-toolbox/astra-toolbox>`_.
 
+Latest News
+-----------
+
+* From 5 to 7 April 2017, the Vision Lab organizes an ASTRA Toolbox training session at the University of Antwerp. For more information, please contact Vincent Van Nieuwenhove <vincent.vannieuwenhove@uantwerpen.be>.
+
+* 7 dec 2016: ASTRA v1.8 released
+
+
 Downloads
 ---------
 
 Main downloads:
 
-.. include:: downloads/1.7.1beta/downloads.txt
+.. include:: downloads/1.8/downloads.txt
 
 References
 ----------
