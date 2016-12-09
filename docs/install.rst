@@ -9,7 +9,7 @@ Add the mex and tools subdirectories to your MATLAB path, or copy the Python ast
 Linux/Windows, using conda for python
 -------------------------------------
 
-Requirements: `conda <http://conda.pydata.org/>`_ python environment. In Linux, a 64 bit Python 2.7 or 3.5. In Windows, a 64 bit Python 3.5.
+Requirements: `conda <http://conda.pydata.org/>`_ python environment, with 64 bit Python 2.7 or 3.5.
 
 There are packages available for the ASTRA Toolbox in the astra-toolbox
 channel for the conda package manager. To use these, run the following
