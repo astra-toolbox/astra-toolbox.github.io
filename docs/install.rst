@@ -11,7 +11,7 @@ We require the Microsoft Visual Studio 2015 redistributable package. If this is 
 Linux/Windows, using conda for python
 -------------------------------------
 
-Requirements: `conda <http://conda.pydata.org/>`_ python environment, with 64 bit Python 2.7 or 3.5.
+Requirements: `conda <http://conda.pydata.org/>`_ python environment, with 64 bit Python 2.7, 3.5 or 3.6.
 
 There are packages available for the ASTRA Toolbox in the astra-toolbox
 channel for the conda package manager. To use these, run the following
