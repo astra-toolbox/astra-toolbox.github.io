@@ -19,7 +19,7 @@ The source code of the ASTRA Toolbox is available on `GitHub <https://github.com
 Latest News
 -----------
 
-* From 5 to 7 April 2017, the Vision Lab organizes an ASTRA Toolbox training session at the University of Antwerp. For more information, please contact Vincent Van Nieuwenhove <vincent.vannieuwenhove@uantwerpen.be>.
+* From 5 to 7 April 2017, the Vision Lab organizes an ASTRA Toolbox training session at the University of Antwerp. For more information, please go to http://www.visielab.uantwerpen.be/events/astra-toolbox-training-school .
 
 * 7 dec 2016: ASTRA v1.8 released
 
