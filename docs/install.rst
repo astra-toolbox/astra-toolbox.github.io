@@ -82,18 +82,18 @@ Using the Visual Studio IDE
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Set the environment variable MATLAB_ROOT to your matlab install location.
-* Copy boost headers to lib\include\boost, and boost libraries to bin\x64.
+* Copy boost headers to lib\\include\\boost (i.e., copy the boost subdirectory from the boost source archive to lib\\include), and boost libraries to lib\\x64.
 * Open astra_vc14.sln in Visual Studio.
 * Select the appropriate solution configuration (typically Release_CUDA|x64).
 * Build the solution.
-* Install by copying AstraCuda64.dll and all .mexw64 files from bin\x64\Release_CUDA and the entire matlab/tools directory to a directory to be added to your matlab path.
+* Install by copying AstraCuda64.dll and all .mexw64 files from bin\\x64\\Release_CUDA and the entire matlab\\tools directory to a directory to be added to your matlab path.
 
-Using .bat scripts in build\msvc
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Using .bat scripts in build\\msvc
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Edit build_env.bat and set up the correct directories.
 * Run build_setup.bat to automatically copy the boost headers and libraries.
-* For matlab: Run build_matlab.bat. The .dll and .mexw64 files will be in bin\x64\Release_Cuda.
+* For matlab: Run build_matlab.bat. The .dll and .mexw64 files will be in bin\\x64\\Release_Cuda.
 * For python 2.7/3.5: Run build_python27.bat or build_python35.bat. ASTRA will be directly installed into site-packages.
 
 
@@ -109,5 +109,4 @@ To build your own `conda <http://conda.pydata.org/>`_ packages for the ASTRA too
   CUDA_ROOT=/path/to/cuda conda-build ./ # Build C++ library
   cd ../
   CUDA_ROOT=/path/to/cuda conda-build ./ # Build Python interface
-
 
