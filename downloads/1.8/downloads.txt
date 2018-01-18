@@ -1,0 +1,6 @@
+* ASTRA v1.8 for Windows 64 bit CUDA/MATLAB: `astra-1.8-matlab-win-x64.zip </files/astra-1.8/astra-1.8-matlab-win-x64.zip>`_
+* ASTRA v1.8 for Windows 64 bit CUDA/Python 2.7: `astra-1.8-python27-win-x64.zip </files/astra-1.8/astra-1.8-python27-win-x64.zip>`_
+* ASTRA v1.8 for Windows 64 bit CUDA/Python 3.5: `astra-1.8-python35-win-x64.zip </files/astra-1.8/astra-1.8-python35-win-x64.zip>`_
+* ASTRA v1.8 Source Code for Linux: `astra-1.8.tar.bz2 </files/astra-1.8/astra-1.8.tar.bz2>`_
+* ASTRA v1.7.1beta(!) Source Code for Linux, with MPI support: `astra-1.7.1beta_MPI.tar.bz2 </files/astra-1.7.1beta/astra-1.7.1beta_MPI.tar.bz2>`_
+* ASTRA v1.8 Source Code for Windows (Visual Studio 2015): `astra-1.8.zip </files/astra-1.8/astra-1.8.zip>`_

@@ -4,6 +4,13 @@ News and version history
 News
 ----
 
+* 2016-12-07: New version 1.8 released.
+  New features:
+  * Reduce restrictions on data sizes for 3D GPU FDK reconstructions.
+  * Add multi-GPU support for 3D GPU FP, BP, FDK
+  * Add support for relaxation factors in SIRT, SART
+  * Further reduced restrictions on volume geometries: voxels no longer have to be cubes
+  * The Windows release now requires CUDA 8.0, so you may need to update CUDA.
 * 2015-12-23: New version 1.7.1beta released. This is a small bugfix release after v1.7beta. ASTRA version 1.7beta contains a few large experimental new features, which is why we have given it the beta tag. 
   If it does not work properly for you, all files for astra-1.6 are also still available for download: astra-1.6 downloads.
   New features:
@@ -21,6 +28,19 @@ News
 
 Version history
 ---------------
+
+* 1.8 (2016-12-05)
+
+  * the Windows binary release now requires CUDA 8.0
+  * major changes to the way 'make install' works when building from source
+  * removed GPU memory size restrictions for FDK
+  * added multi-GPU support to 3D FP/BP/FDK
+  * added relaxation factor option to SIRT, SART
+  * fixed certain projections parallel to XZ or YZ planes
+  * fixed accumulating multiple raylengths in SART
+  * for matlab OpTomo, make output type match input type
+  * for python OpTomo, add FP/BP functions with optional 'out' argument
+  * fixed problems with non-US locales
 
 * 1.7.1beta (2015-12-23)
 

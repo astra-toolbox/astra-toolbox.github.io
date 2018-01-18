@@ -16,23 +16,33 @@ The basic forward and backward projection operations are GPU-accelerated, and di
 
 The source code of the ASTRA Toolbox is available on `GitHub <https://github.com/astra-toolbox/astra-toolbox>`_.
 
+Latest News
+-----------
+
+* From 5 to 7 April 2017, the Vision Lab organizes an ASTRA Toolbox training session at the University of Antwerp. For more information, please go to http://www.visielab.uantwerpen.be/events/astra-toolbox-training-school .
+
+* 7 dec 2016: ASTRA v1.8 released
+
+
 Downloads
 ---------
 
 Main downloads:
 
-.. include:: downloads/1.7.1beta/downloads.txt
+.. include:: downloads/1.8/downloads.txt
 
 References
 ----------
 
-If you use the ASTRA Toolbox for your research, we would appreciate it if you would refer to the following paper:
+If you use the ASTRA Toolbox for your research, we would appreciate it if you would refer to the following papers:
 
-* W\. van Aarle, W. J. Palenstijn, J. De Beenhouwer, T. Altantzis, S. Bals, K. J. Batenburg, and J. Sijbers, "The ASTRA Toolbox: A platform for advanced algorithm development in electron tomography", *Ultramicroscopy* (2015), http://dx.doi.org/10.1016/j.ultramic.2015.05.002
+* W\. van Aarle, W. J. Palenstijn, J. Cant, E. Janssens, F. Bleichrodt, A. Dabravolski, J. De Beenhouwer, K. J. Batenburg, and J. Sijbers, "Fast and Flexible X-ray Tomography Using the ASTRA Toolbox", *Optics Express*, 24(22), 25129-25147, (2016), http://dx.doi.org/10.1364/OE.24.025129
+
+* W\. van Aarle, W. J. Palenstijn, J. De Beenhouwer, T. Altantzis, S. Bals, K. J. Batenburg, and J. Sijbers, "The ASTRA Toolbox: A platform for advanced algorithm development in electron tomography", *Ultramicroscopy*, 157, 35–47, (2015), http://dx.doi.org/10.1016/j.ultramic.2015.05.002
 
 Additionally, if you use parallel beam GPU code, we would appreciate it if you would refer to the following paper:
 
-* W\. J. Palenstijn, K J. Batenburg, and J. Sijbers, "Performance improvements for iterative electron tomography reconstruction using graphics processing units (GPUs)", *Journal of Structural Biology*, vol. 176, issue 2, pp. 250-253, 2011, http://dx.doi.org/10.1016/j.jsb.2011.07.017
+* W\. J. Palenstijn, K. J. Batenburg, and J. Sijbers, "Performance improvements for iterative electron tomography reconstruction using graphics processing units (GPUs)", *Journal of Structural Biology*, vol. 176, issue 2, pp. 250-253, 2011, http://dx.doi.org/10.1016/j.jsb.2011.07.017
 
 License
 -------
@@ -42,9 +52,9 @@ The ASTRA Toolbox is open source under the GPLv3 license.
 Contact
 -------
 
-email: astra@uantwerpen.be website: https://astra-toolbox.readthedocs.org
+email: astra@uantwerpen.be website: http://www.astra-toolbox.com/
 
-Copyright: 2010-2015, iMinds-Vision Lab, University of Antwerp 2014-2015, http://visielab.uantwerpen.be/ and CWI, Amsterdam  http://www.cwi.nl/
+Copyright: 2010-2016, iMinds-Vision Lab, University of Antwerp http://visielab.uantwerpen.be/ and 2014-2016, CWI, Amsterdam  http://www.cwi.nl/
 
 Contents
 --------
