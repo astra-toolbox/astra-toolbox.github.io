@@ -19,7 +19,14 @@ The source code of the ASTRA Toolbox is available on `GitHub <https://github.com
 Latest News
 -----------
 
-* From 5 to 7 April 2017, the Vision Lab organizes an ASTRA Toolbox training session at the University of Antwerp. For more information, please go to http://www.visielab.uantwerpen.be/events/astra-toolbox-training-school .
+* For those visiting `ICTMS 2019 <http://ictms2019.org/>`_ in Australia, we will host `an ASTRA workshop <ictms.html>`_ there on 22 July 2019.
+
+* Windows Matlab/Python packages of the current 1.9.0.dev version of ASTRA
+  git master are now available for download below. These require CUDA 9.0+.
+
+* We now have development Python packages available from ASTRA git master on conda. Quick installation instructions: ``conda install -c astra-toolbox/label/dev astra-toolbox`` .
+
+* From 5 to 7 April 2017, the Vision Lab organizes an ASTRA Toolbox training session at the University of Antwerp.
 
 * 7 dec 2016: ASTRA v1.8 released
 
@@ -27,9 +34,13 @@ Latest News
 Downloads
 ---------
 
-Main downloads:
+Main downloads of the latest development and official releases. We
+recommend the development release currently.
 
-.. include:: downloads/1.8/downloads.txt
+
+.. include:: downloads/1.9.0.dev11/downloads.txt
+
+.. include:: downloads/1.8.3/downloads.txt
 
 References
 ----------

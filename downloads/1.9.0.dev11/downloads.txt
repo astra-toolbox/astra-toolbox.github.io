@@ -1,0 +1,6 @@
+* ASTRA v1.9.0.dev11 for Windows 64 bit CUDA/MATLAB: `astra-1.9.0.dev11-matlab-win-x64.zip </files/astra-1.9.0.dev11/astra-1.9.0.dev11-matlab-win-x64.zip>`_
+* ASTRA v1.9.0.dev11 for Windows 64 bit CUDA/Python 2.7: `astra-1.9.0.dev11-python27-win-x64.zip </files/astra-1.9.0.dev11/astra-1.9.0.dev11-python27-win-x64.zip>`_
+* ASTRA v1.9.0.dev11 for Windows 64 bit CUDA/Python 3.7: `astra-1.9.0.dev11-python37-win-x64.zip </files/astra-1.9.0.dev11/astra-1.9.0.dev11-python37-win-x64.zip>`_
+* ASTRA v1.9.0.dev11 Source Code for Windows (Visual Studio 2017): `astra-1.9.0.dev11.zip </files/astra-1.9.0.dev11/astra-1.9.0.dev11.zip>`_
+* ASTRA v1.9.0.dev Source Code for Linux: https://github.com/astra-toolbox/astra-toolbox
+* Python packages also available in Conda: ``conda install -c astra-toolbox/label/dev astra-toolbox``
