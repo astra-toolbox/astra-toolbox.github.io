@@ -4,6 +4,26 @@ News and version history
 News
 ----
 
+* 2020-01-17: Consistency changes in development version of ASTRA
+
+ We have changed the way gray values in forward projections, backprojections and reconstructions scale with the size of detector pixels.  This does not impact geometries where the detector pixels have size 1 in 2D, or 1x1 in 3D.
+
+ In the upcoming ASTRA 2.0, and starting from version 1.9.9.dev, for all geometries and projectors, the value of a pixel in a forward projection is approximately the value of the line integral of the corresponding ray through the volume.
+
+ Of course the interpolation/projection method used will still determine the exact set of pixels contributing to a ray and the exact value as before.
+
+ All backprojectors and reconstruction algorithms have been adapted to match the forward projection.
+
+ Before this change, a decision made in the early pre-1.0 days of ASTRA to make detector values scale linearly with the area of detector pixels led to some in hindsight mathematically unresolvable inconsistencies in behaviour between parallel and fan/cone geometries, and behaviour with oblique projections. The new definition resolves this inherent inconsistency.
+
+ Specific changes:
+
+ * all parallel beam 2D projectors (CPU and CUDA) have been changed as above
+ * the 2D fan beam CPU projectors have been changed as above
+ * the 2D fan beam CUDA projector did not require changing
+ * the 3D CUDA backprojectors have been changed as above. The forward projectors did not require changing
+ * the 2D fan beam and 3D cone beam CUDA backprojectors now have an improved approximate match with the respective forward projectors
+
 * 2019-07-09: Development packages of 1.9.0.dev are now available for download.
 
   The Windows packages now require CUDA 9.0 or higher.
