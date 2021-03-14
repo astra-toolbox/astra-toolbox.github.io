@@ -77,6 +77,7 @@ Contents
    downloads/index
    docs/index
    apiref/index
+   python_gallery/index
 
 
 
