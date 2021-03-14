@@ -1,4 +1,4 @@
 conda:
     file: environment.yml
 python:
-    version: 3.8
+    version: 2
