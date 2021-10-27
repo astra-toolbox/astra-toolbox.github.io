@@ -4,6 +4,12 @@ News and version history
 News
 ----
 
+* 2021-10-27: New version 2.0 released:
+
+ * Improve output scaling consistency of all projectors. See the 2020-01-17 news entry below.
+ * Improve compatibility with modern Python, CUDA, Linux and Windows versions.
+ * Add experimental Python interfaces to FP3D, BP3D, FDK to make ASTRA calls by 3rd party toolboxes more efficient and flexible.
+
 * 2020-01-17: Consistency changes in development version of ASTRA
 
  We have changed the way gray values in forward projections, backprojections and reconstructions scale with the size of detector pixels.  This does not impact geometries where the detector pixels have size 1 in 2D, or 1x1 in 3D.
