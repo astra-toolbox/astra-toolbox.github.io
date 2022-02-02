@@ -4,6 +4,13 @@ News and version history
 News
 ----
 
+* 2022-01-31: New version 2.1 released:
+
+ * Improve conda package compatibility with the conda-forge and nvidia channels
+ * Fix rare hang in our CUDA FFT code in FBP_CUDA and FDK_CUDA (and speed it up)
+ * Fix GPULink support with unpadded rows
+ * Fix output scaling in short-scan FDK
+
 * 2021-10-27: New version 2.0 released:
 
  * Improve output scaling consistency of all projectors. See the 2020-01-17 news entry below.
