@@ -1,10 +1,10 @@
-* ASTRA v1.7.1beta for Windows 64 bit CUDA/MATLAB: `astra-1.7.1beta-matlab-win-x64.zip </files/astra-1.7.1beta/astra-1.7.1beta-matlab-win-x64.zip>`_
-* ASTRA v1.7.1beta for Windows 64 bit CUDA/Python 2.7: `astra-1.7.1beta-python27-win-x64.zip </files/astra-1.7.1beta/astra-1.7.1beta-python27-win-x64.zip>`_
-* ASTRA v1.7.1beta for Windows 64 bit CUDA/Python 3.4: `astra-1.7.1beta-python34-win-x64.zip </files/astra-1.7.1beta/astra-1.7.1beta-python34-win-x64.zip>`_
-* ASTRA v1.7.1beta Source Code for Linux: `astra-1.7.1beta.tar.bz2 </files/astra-1.7.1beta/astra-1.7.1beta.tar.bz2>`_
-* ASTRA v1.7.1beta Source Code for Linux, with MPI support: `astra-1.7.1beta_MPI.tar.bz2 </files/astra-1.7.1beta/astra-1.7.1beta_MPI.tar.bz2>`_
+* ASTRA v1.7.1beta for Windows 64 bit CUDA/MATLAB: `astra-1.7.1beta-matlab-win-x64.zip <https://github.com/astra-toolbox/astra-toolbox/releases/download/v1.7.1/astra-1.7.1beta-matlab-win-x64.zip>`_
+* ASTRA v1.7.1beta for Windows 64 bit CUDA/Python 2.7: `astra-1.7.1beta-python27-win-x64.zip <https://github.com/astra-toolbox/astra-toolbox/releases/download/v1.7.1/astra-1.7.1beta-python27-win-x64.zip>`_
+* ASTRA v1.7.1beta for Windows 64 bit CUDA/Python 3.4: `astra-1.7.1beta-python34-win-x64.zip <https://github.com/astra-toolbox/astra-toolbox/releases/download/v1.7.1/astra-1.7.1beta-python34-win-x64.zip>`_
+* ASTRA v1.7.1beta Source Code for Linux: `astra-toolbox-1.7.1.tar.gz <https://github.com/astra-toolbox/astra-toolbox/archive/refs/tags/v1.7.1.tar.gz>`_
+* ASTRA v1.7.1beta Source Code for Linux, with MPI support: `astra-1.7.1beta_MPI.tar.bz2 <https://github.com/astra-toolbox/astra-toolbox/releases/download/v1.7.1/astra-1.7.1beta_MPI.tar.bz2>`_
 
 For compiling on Windows we only provide Visual Studio 2008 and 2012 project files. We have also packaged a set of external libraries and headers for all the build dependencies:
 
-* ASTRA v1.7.1beta Source Code for Windows/VS2008/2012: `astra-1.7.1beta.zip </files/astra-1.7.1beta/astra-1.7.1beta.zip>`_
-* ASTRA v1.7.1beta Compilation Support files for Windows/VS2008/2012: `astra-1.7.1beta-windows_build_support.zip </files/astra-1.7.1beta/astra-1.7.1beta-windows_build_support.zip>`_
+* ASTRA v1.7.1beta Source Code for Windows/VS2008/2012: `astra-toolbox-1.7.1.zip <https://github.com/astra-toolbox/astra-toolbox/archive/refs/tags/v1.7.1.zip>`_
+* ASTRA v1.7.1beta Compilation Support files for Windows/VS2008/2012: `astra-1.7.1beta-windows_build_support.zip <https://github.com/astra-toolbox/astra-toolbox/releases/download/v1.7.1/astra-1.7.1beta-windows_build_support.zip>`_

@@ -1,6 +1,6 @@
-* ASTRA v1.8.3 for Windows 64 bit CUDA/MATLAB: `astra-1.8.3-matlab-win-x64.zip </files/astra-1.8.3/astra-1.8.3-matlab-win-x64.zip>`_
-* ASTRA v1.8.3 for Windows 64 bit CUDA/Python 2.7: `astra-1.8.3-python27-win-x64.zip </files/astra-1.8.3/astra-1.8.3-python27-win-x64.zip>`_
-* ASTRA v1.8.3 for Windows 64 bit CUDA/Python 3.6: `astra-1.8.3-python36-win-x64.zip </files/astra-1.8.3/astra-1.8.3-python36-win-x64.zip>`_
-* ASTRA v1.8.3 Source Code for Windows (Visual Studio 2015): `astra-1.8.3.zip </files/astra-1.8.3/astra-1.8.3.zip>`_
-* ASTRA v1.8.3 Source Code for Linux: https://github.com/astra-toolbox/astra-toolbox/releases/tag/v1.8.3
+* ASTRA v1.8.3 for Windows 64 bit CUDA/MATLAB: `astra-1.8.3-matlab-win-x64.zip <https://github.com/astra-toolbox/astra-toolbox/releases/download/v1.8.3/astra-1.8.3-matlab-win-x64.zip>`_
+* ASTRA v1.8.3 for Windows 64 bit CUDA/Python 2.7: `astra-1.8.3-python27-win-x64.zip <https://github.com/astra-toolbox/astra-toolbox/releases/download/v1.8.3/astra-1.8.3-python27-win-x64.zip>`_
+* ASTRA v1.8.3 for Windows 64 bit CUDA/Python 3.6: `astra-1.8.3-python36-win-x64.zip <https://github.com/astra-toolbox/astra-toolbox/releases/download/v1.8.3/astra-1.8.3-python36-win-x64.zip>`_
+* ASTRA v1.8.3 Source Code for Windows (Visual Studio 2015): `astra-toolbox-1.8.3.zip <https://github.com/astra-toolbox/astra-toolbox/archive/refs/tags/v1.8.3.zip>`_
+* ASTRA v1.8.3 Source Code for Linux: `astra-toolbox-1.8.3.tar.gz <https://github.com/astra-toolbox/astra-toolbox/archive/refs/tags/v1.8.3.tar.gz>`_
 * Python packages also available in Conda: ``conda install -c astra-toolbox astra-toolbox``

@@ -1,5 +1,5 @@
-* ASTRA v2.1.0 for Windows 64 bit CUDA/MATLAB: `astra-2.1.0-matlab-win-x64.zip </files/astra-2.1.0/astra-2.1.0-matlab-win-x64.zip>`_
-* ASTRA v2.1.0 for Windows 64 bit CUDA/Python 3.9: `astra-2.1.0-python39-win-x64.zip </files/astra-2.1.0/astra-2.1.0-python39-win-x64.zip>`_
-* ASTRA v2.1.0 Source Code for Windows (Visual Studio 2017): `astra-2.1.0.zip </files/astra-2.1.0/astra-2.1.0.zip>`_
-* ASTRA v2.1.0 Source Code for Linux: https://github.com/astra-toolbox/astra-toolbox/releases/tag/v2.1.0
+* ASTRA v2.1.0 for Windows 64 bit CUDA/MATLAB: `astra-toolbox-2.1.0-matlab-win-x64.zip <https://github.com/astra-toolbox/astra-toolbox/releases/download/v2.1.0/astra-toolbox-2.1.0-matlab-win-x64.zip>`_
+* ASTRA v2.1.0 for Windows 64 bit CUDA/Python 3.9: `astra-toolbox-2.1.0-python39-win-x64.zip <https://github.com/astra-toolbox/astra-toolbox/releases/download/v2.1.0/astra-toolbox-2.1.0-python39-win-x64.zip>`_
+* ASTRA v2.1.0 Source Code for Windows (Visual Studio 2017): `astra-toolbox-2.1.0.zip <https://github.com/astra-toolbox/astra-toolbox/archive/refs/tags/v2.1.0.zip>`_
+* ASTRA v2.1.0 Source Code for Linux: `astra-toolbox-2.1.0.tar.gz <https://github.com/astra-toolbox/astra-toolbox/archive/refs/tags/v2.1.0.tar.gz>`_
 * Python packages also available in Conda: ``conda install -c astra-toolbox astra-toolbox``
