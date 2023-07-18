@@ -1,6 +1,7 @@
 name: build-astra-doc
 channels:
   - astra-toolbox
+  - conda-forge
 dependencies:
   - astra-toolbox
   - sphinx
