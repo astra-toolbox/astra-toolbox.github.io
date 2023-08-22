@@ -6,3 +6,4 @@ dependencies:
   - astra-toolbox
   - sphinx
   - sphinx_rtd_theme
+  - sphinx-tabs
