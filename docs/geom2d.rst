@@ -30,7 +30,7 @@ Create a 2D parallel beam geometry:
 
 .. code-block:: matlab
 
- proj_geom = astra_create_proj_geom('parallel', det_width, det_count, angles);
+ proj_geom = astra_create_proj_geom('parallel', det_spacing, det_count, angles);
 
 * det_spacing: distance between the centers of two adjacent detector pixels
 * det_count: number of detector pixels in a single projection
@@ -42,9 +42,9 @@ Create a 2D flat fan beam geometry:
 
 .. code-block:: matlab
 
- proj_geom = astra_create_proj_geom('fanflat', det_width, det_count, angles, source_origin, origin_det);
+ proj_geom = astra_create_proj_geom('fanflat', det_spacing, det_count, angles, source_origin, origin_det);
 
-* det_width: distance between the centers of two adjacent detector pixels
+* det_spacing: distance between the centers of two adjacent detector pixels
 * det_count: number of detector pixels in a single projection
 * angles: projection angles in radians
 * source_origin: distance between the source and the center of rotation
