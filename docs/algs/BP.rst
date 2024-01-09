@@ -3,7 +3,7 @@ BP
 
 This is a CPU implementation of a simple backprojection algorithm for 2D data sets. It takes a projector and projection data as input, and returns the backprojection of this data.
 
-Supported geometries: parallel, fanflat, fanflat_vec, matrix.
+Supported geometries: parallel, parallel_vec, fanflat, fanflat_vec, matrix.
 
 Configuration options
 ---------------------

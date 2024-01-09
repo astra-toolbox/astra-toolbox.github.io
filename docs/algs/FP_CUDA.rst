@@ -3,7 +3,7 @@ FP_CUDA
 
 This is a GPU implementation of a simple forward projection algorithm for 2D data sets. It takes a volume as input, and returns the projection data.
 
-Supported geometries: parallel, fanflat, fanflat_vec.
+Supported geometries: parallel, parallel_vec, fanflat, fanflat_vec.
 
 Configuration options
 ---------------------

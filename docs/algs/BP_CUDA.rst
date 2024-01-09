@@ -3,7 +3,7 @@ BP_CUDA
 
 This is a GPU implementation of a simple backprojection algorithm for 2D data sets. It takes projection data as input, and returns the backprojection of this data.
 
-Supported geometries: parallel, fanflat, fanflat_vec.
+Supported geometries: parallel, parallel_vec, fanflat, fanflat_vec.
 
 Configuration options
 ---------------------

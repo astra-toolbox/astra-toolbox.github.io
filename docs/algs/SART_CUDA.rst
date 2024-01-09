@@ -3,7 +3,7 @@ SART_CUDA
 
 This is a GPU implementation of the Simultaneous Algebraic Reconstruction Technique (SART) for 2D data sets. It takes projection data and an initial reconstruction as input, and returns the reconstruction after a specified number of SART iterations. Each iteration of SART consists of an FP and BP of one single projection direction. The order of the projections can be specified.
 
-Supported geometries: parallel, fanflat, fanflat_vec.
+Supported geometries: parallel, parallel_vec, fanflat, fanflat_vec.
 
 Configuration options
 ---------------------
