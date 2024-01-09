@@ -1,7 +1,7 @@
 FBP_CUDA
 ========
 
-This is a CPU implementation of the Filtered Backprojection (FBP) algorithm for 2D data sets. It takes projection data as input, and returns the reconstruction.
+This is a GPU implementation of the Filtered Backprojection (FBP) algorithm for 2D data sets. It takes projection data as input, and returns the reconstruction.
 
 Supported geometries: parallel, fanflat
 

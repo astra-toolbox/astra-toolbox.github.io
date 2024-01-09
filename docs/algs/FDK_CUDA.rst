@@ -5,7 +5,7 @@ This is a GPU implementation of the FDK algorithm for 3D circular cone beam data
 
 It takes projection data as input, and returns the reconstruction.
 
-Supported geometries: only cone. (cone_vec is not supported.)
+Supported geometries: cone (note, cone_vec geometry is not supported).
 
 Configuration options
 ---------------------

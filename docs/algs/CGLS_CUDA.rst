@@ -1,7 +1,7 @@
 CGLS_CUDA
 =========
 
-This is a GPU implementation of the Conjugate Gradient Least Squares (CGLS) algorithm for 2D data sets. It takes projection data and an initial reconstruction as input, and returns the reconstruction after a specified number of SIRT iterations.
+This is a GPU implementation of the Conjugate Gradient Least Squares (CGLS) algorithm for 2D data sets. It takes projection data and an initial reconstruction as input, and returns the reconstruction after a specified number of iterations.
 
 The internal state of the CGLS algorithm is reset every time astra_mex_algorithm('iterate')
 is called. This implies that running CGLS for N iterations and then running it for
