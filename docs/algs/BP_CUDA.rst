@@ -13,6 +13,6 @@ name 				type 		description
 cfg.ProjectionDataId 		required 	The astra_mex_data2d ID of the projection data
 cfg.ReconstructionDataId 	required 	The astra_mex_data2d ID for the backprojection data.
 cfg.option.GPUindex 		optional 	Specifies which GPU to use. Default = 0.
-cfg.option.PixelSuperSampling 	optional 	Specifiec the amount of pixel supersampling, i.e., how many (one dimension) subpixels are generated from a single parent pixel.
+cfg.option.PixelSuperSampling 	optional 	Specifies the amount of pixel supersampling, i.e., how many (one dimension) subpixels are generated from a single parent pixel.
 ============================= 	======== 	==
 

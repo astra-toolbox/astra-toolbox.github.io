@@ -19,7 +19,7 @@ cfg.option.MinConstraint 		optional 	If specified, all values below MinConstrain
 cfg.option.MaxConstraint 		optional 	If specified, all values above MaxConstraint will be set to MaxConstraint.
 cfg.option.GPUindex 			optional 	Specifies which GPU to use. Default = 0.
 cfg.option.DetectorSuperSampling 	optional 	Specifies the amount of detector supersampling, i.e. how many rays are cast per detector.
-cfg.option.PixelSuperSampling 		optional 	Specifiec the amount of pixel supersampling, i.e. how many (one dimension) subpixels are generated from a single parent pixel.
+cfg.option.PixelSuperSampling 		optional 	Specifies the amount of pixel supersampling, i.e. how many (one dimension) subpixels are generated from a single parent pixel.
 ================================	========	======
 
 Example
