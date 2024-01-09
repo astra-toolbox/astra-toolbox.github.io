@@ -10,7 +10,6 @@ Configuration options
 ==============================	========	==
 name 				type 		description
 ==============================	========	==
-cfg.ProjectorId 		required 	The astra_mex_projector ID of the projector.
 cfg.ProjectionDataId 		required 	The astra_mex_data2d ID of the projection data
 cfg.ReconstructionDataId 	required 	The astra_mex_data2d ID of the reconstruction data. The content of this is overwritten.
 cfg.FilterType 			optional 	Type of projection filter. Options: 'ram-lak' (default), 'shepp-logan', 'cosine', 'hamming', 'hann', 'none', 'tukey', 'lanczos', 'triangular', 'gaussian', 'barlett-hann', 'blackman', 'nuttall', 'blackman-harris', 'blackman-nuttall', 'flat-top', 'kaiser', 'parzen', 'projection', 'sinogram', 'rprojection', 'rsinogram'.

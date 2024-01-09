@@ -10,7 +10,6 @@ Configuration options
 ================================	========	====
 name 					type 		description
 ================================	========	====
-cfg.ProjectorId 			required 	The astra_mex_projector ID of the projector.
 cfg.ProjectionDataId 			required 	The astra_mex_data2d ID of the projection data
 cfg.ReconstructionDataId 		required 	The astra_mex_data2d ID of the reconstruction data. The content of this when starting SART is used as the initial reconstruction.
 cfg.option.ReconstructionMaskId 	optional 	If specified, the astra_mex_data2d ID of a volume-data-sized volume to be used as a mask.
