@@ -34,12 +34,11 @@ Example
 	[sinogram_id, sinogram] = astra_create_sino_cuda(V_exact, proj_geom, vol_geom);
 
 	%% reconstruct
-	recon_id = astra_mex_data2d('create', '-vol', vol_geom, 0);
+	recon_id = astra_mex_data2d('create', '-vol', vol_geom, 1.0);  % initialize with
+	% ones to allow for multiplicative updates
 	cfg = astra_struct('EM_CUDA');
 	cfg.ProjectionDataId = sinogram_id;
 	cfg.ReconstructionDataId = recon_id;
-	cfg.option.MinConstraint = 0;
-	cfg.option.MaxConstraint = 255;
 	em_id = astra_mex_algorithm('create', cfg);
 	astra_mex_algorithm('iterate', em_id, 15);
 	V = astra_mex_data2d('get', recon_id);
