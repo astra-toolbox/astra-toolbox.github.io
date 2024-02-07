@@ -27,7 +27,7 @@ Linux, from source
 For Matlab
 ^^^^^^^^^^
 
-Requirements: g++, boost, CUDA (5.5 or higher), Matlab (R2012a or higher)
+Requirements: g++ (7.1 or higher), CUDA (5.5 or higher), Matlab (R2012a or higher)
 
 .. code-block:: bash
 
@@ -58,7 +58,7 @@ matlab.
 For Python
 ^^^^^^^^^^
 
-Requirements: g++, boost, CUDA (5.5 or higher), Python (2.7 or 3.x)
+Requirements: g++ (7.1 or higher), CUDA (5.5 or higher), Python (2.7 or 3.x), Cython, six, scipy
 
 .. code-block:: bash
 
