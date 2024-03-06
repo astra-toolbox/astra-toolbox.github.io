@@ -8,12 +8,12 @@ Create a 2D volume geometry:
 
 .. code-block:: matlab
 
- vol_geom = astra_create_vol_geom(rows_and_cols);
- vol_geom = astra_create_vol_geom([rows cols]);
- vol_geom = astra_create_vol_geom(rows, cols);
- vol_geom = astra_create_vol_geom(rows, cols, min_x, max_x, min_y, max_y);
+ vol_geom = astra_create_vol_geom(n_rows_and_cols);
+ vol_geom = astra_create_vol_geom([n_rows n_cols]);
+ vol_geom = astra_create_vol_geom(n_rows, n_cols);
+ vol_geom = astra_create_vol_geom(n_rows, n_cols, min_x, max_x, min_y, max_y);
 
-In the first form, the volume contains an equal number of rows and columns. In the first, second and third forms, volume pixels are squares with sides of unit length, and the volume is centered around the origin. In the fourth, longer form, the extents of the volume can be specified arbitrarily. The long form corresponding to the default short form is:
+In the first form, the volume contains an equal number of rows and columns. In the first, second and third forms, volume pixels are squares with sides of unit length, and the volume is centered around the origin. In the fourth, longer form, the extents of the volume can be specified arbitrarily (note that rows are oriented along Y axis, and columns along X axis). The long form corresponding to the default short form is:
 
 .. code-block:: matlab
 
@@ -72,11 +72,11 @@ To illustrate, this is a matlab script to convert a single projection in a proje
 
  % source
  vectors(i,1) = sin(proj_geom.ProjectionAngles(i)) * proj_geom.DistanceOriginSource;
- vectors(i,2) = -cos(proj_geom.ProjectionAngles(i)) * proj_geom.DistanceOriginSource;    
+ vectors(i,2) = -cos(proj_geom.ProjectionAngles(i)) * proj_geom.DistanceOriginSource;
 
  % center of detector
  vectors(i,3) = -sin(proj_geom.ProjectionAngles(i)) * proj_geom.DistanceOriginDetector;
- vectors(i,4) = cos(proj_geom.ProjectionAngles(i)) * proj_geom.DistanceOriginDetector;   
+ vectors(i,4) = cos(proj_geom.ProjectionAngles(i)) * proj_geom.DistanceOriginDetector;
 
  % vector from detector pixel 0 to 1
  vectors(i,5) = cos(proj_geom.ProjectionAngles(i)) * proj_geom.DetectorWidth;

@@ -8,11 +8,19 @@ All dimensions in the projection geometries are relative to this unit length.
 Volume geometries
 -----------------
 
+Create a 3D volume geometry:
+
 .. code-block:: matlab
 
-  vol_geom = astra_create_vol_geom(y,x,z);
+  vol_geom = astra_create_vol_geom(n_rows, n_cols, n_slices);
 
-Create a 3D volume geometry.
+Specify the extent of the 3D volume (note that rows are oriented along the Y axis, columns along the X axis and slices along the Z axis):
+
+.. code-block:: matlab
+
+  vol_geom = astra_create_vol_geom(n_rows, n_cols, n_slices, min_x, max_x, min_y, max_y, min_z, max_z);
+
+This can be used to control the voxel size, including specifying anisotropic voxels (note that the FDK algorithm does not currently support anisotropic voxels and will raise an exception).
 
 Projection geometries
 ---------------------
