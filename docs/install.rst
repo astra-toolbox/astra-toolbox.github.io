@@ -4,7 +4,7 @@ Installation instructions
 Linux/Windows, using conda for Python
 -------------------------------------
 
-Requirements: `conda <https://docs.conda.io/en/latest/>`_ Python environment, with 64 bit Python 3.5-3.11 or 2.7.
+Requirements: `conda <https://docs.conda.io/en/latest/>`_ Python environment, with 64 bit Python 3.9-3.12.
 
 Conda packages for ASTRA Toolbox are available from the ``astra-toolbox`` channel, whereas CUDA-related packages can be installed from ``nvidia`` channel. To install ASTRA into the desired conda environment, run:
 
@@ -15,8 +15,10 @@ Conda packages for ASTRA Toolbox are available from the ``astra-toolbox`` channe
 Windows, binary
 ---------------
 
-Add the ``mex/`` and ``tools/`` subdirectories to your MATLAB path, or copy the Python astra module to your Python site-packages directory.
-We require the Microsoft Visual Studio 2015 redistributable package. If this is not already installed on your system, it is included as vc_redist.x64.exe in the ASTRA zip file.
+Add the ``mex/`` and ``tools/`` subdirectories to your MATLAB path, or install
+the Python wheel using pip. We require the Microsoft Visual Studio 2017
+redistributable package. If this is not already installed on your system, it is
+included as vc_redist.x64.exe in the ASTRA zip file.
 
 Linux, from source
 ------------------
@@ -24,7 +26,7 @@ Linux, from source
 For MATLAB
 ^^^^^^^^^^
 
-Requirements: g++ (7.1 or higher), CUDA (5.5 or higher), MATLAB (R2012a or higher)
+Requirements: g++, CUDA (10.2 or higher), MATLAB (R2012a or higher)
 
 .. code-block:: bash
 
@@ -55,7 +57,7 @@ MATLAB.
 For Python
 ^^^^^^^^^^
 
-Requirements: g++ (7.1 or higher), CUDA (5.5 or higher), Python (2.7 or 3.x), Cython, six, scipy
+Requirements: g++, CUDA (10.2 or higher), Python (3.x), Cython, six, scipy
 
 .. code-block:: bash
 
@@ -70,10 +72,10 @@ Requirements: g++ (7.1 or higher), CUDA (5.5 or higher), Python (2.7 or 3.x), Cy
 This will install ASTRA into your current Python environment.
 
 
-Windows, from source using Visual Studio 2015
+Windows, from source using Visual Studio 2017
 ---------------------------------------------
 
-Requirements: Visual Studio 2015 (full or community), boost (recent), CUDA 8.0, MATLAB (R2012a or higher) and/or WinPython 2.7/3.x.
+Requirements: Visual Studio 2017 (full or community), boost (recent), CUDA (10.2 or higher), MATLAB (R2012a or higher) and/or WinPython 3.x.
 
 Using the Visual Studio IDE
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -91,7 +93,7 @@ Using .bat scripts in build\\msvc
 * Edit build_env.bat and set up the correct directories.
 * Run build_setup.bat to automatically copy the boost headers and libraries.
 * For MATLAB: Run build_matlab.bat. The .dll and .mexw64 files will be in bin\\x64\\Release_Cuda.
-* For Python 2.7/3.5: Run build_python27.bat or build_python35.bat. ASTRA will be directly installed into site-packages.
+* For Python 3.12: Run build_python312.bat. ASTRA will be directly installed into site-packages.
 
 
 
@@ -102,8 +104,8 @@ To build your own `conda <https://docs.conda.io/en/latest/>`_ packages for the A
 
 .. code-block:: bash
 
-  cd python/conda/libastra
-  CUDA_ROOT=/path/to/cuda conda-build ./ # Build C++ library
-  cd ../
+  cd build/conda/libastra
+  CUDA_ROOT=/path/to/cuda conda-build --no-test ./ # Build C++ library
+  cd ../astra-toolbox
   CUDA_ROOT=/path/to/cuda conda-build ./ # Build Python interface
 
