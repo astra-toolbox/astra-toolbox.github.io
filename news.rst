@@ -4,6 +4,18 @@ News and version history
 News
 ----
 
+* 2024-07-12: New version 2.2 released:
+
+ * Add support for Python 3.12, CUDA 12.5, and NumPy 2.0
+ * ASTRA conda packages for CUDA 11.6 and above now depend on Nvidia's
+   modular CUDA packages instead of on the monolithic cudatoolkit package.
+   This improves compatibility of our conda packages with PyTorch and reduces
+   the installation size.
+ * Speed up FDK, especially when using multiple GPUs
+ * Improve error reporting
+ * Add Shepp-Logan phantom generator.
+ * Update the build infrastructure and instructions.
+
 * 2022-01-31: New version 2.1 released:
 
  * Improve conda package compatibility with the conda-forge and nvidia channels
