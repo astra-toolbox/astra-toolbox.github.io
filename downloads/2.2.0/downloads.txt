@@ -1,0 +1,5 @@
+* ASTRA v2.2.0 for Windows 64 bit CUDA/MATLAB: `astra-toolbox-2.2.0-matlab-win-x64.zip <https://github.com/astra-toolbox/astra-toolbox/releases/download/v2.2.0/astra-toolbox-2.2.0-matlab-win-x64.zip>`_
+* ASTRA v2.2.0 for Windows 64 bit CUDA/Python 3.12: `astra-toolbox-2.2.0-python312-win-x64.zip <https://github.com/astra-toolbox/astra-toolbox/releases/download/v2.2.0/astra-toolbox-2.2.0-python312-win-x64.zip>`_
+* ASTRA v2.2.0 Source Code (.zip): `astra-toolbox-2.2.0.zip <https://github.com/astra-toolbox/astra-toolbox/archive/refs/tags/v2.2.0.zip>`_
+* ASTRA v2.2.0 Source Code (.tar.gz): `astra-toolbox-2.2.0.tar.gz <https://github.com/astra-toolbox/astra-toolbox/archive/refs/tags/v2.2.0.tar.gz>`_
+* Python packages also available in Conda: ``conda install -c astra-toolbox -c nvidia astra-toolbox``
