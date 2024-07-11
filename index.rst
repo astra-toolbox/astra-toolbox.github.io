@@ -27,6 +27,8 @@ The source code of the ASTRA Toolbox is available on `GitHub <https://github.com
 Latest News
 -----------
 
+* 12 Jul 2024: ASTRA v2.2 released. See the `News section <news.html>`_ for the release notes.
+
 * 31 Jan 2022: ASTRA v2.1 released. This is the official release of the 2.0.9 development version.
 
 * 23 Dec 2021: There are now conda packages for development version 2.0.9 available in the ``astra-toolbox/label/dev`` conda channel to prepare for 2.1.0 in early 2022. This fixes a rare hang in our CUDA FFT code (and also speeds it up) in FBP_CUDA and FDK_CUDA, fixes GPULink support with unpadded rows, output gray value scaling for short-scan FDK, and conda compatibility issues with the conda-forge and nvidia conda channels.
@@ -45,7 +47,7 @@ Downloads
 Main downloads of the latest official release.
 
 
-.. include:: downloads/2.1.0/downloads.txt
+.. include:: downloads/2.2.0/downloads.txt
 
 References
 ----------
