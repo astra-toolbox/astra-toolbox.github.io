@@ -10,15 +10,29 @@ Volume geometries
 
 Create a 3D volume geometry:
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
-  vol_geom = astra_create_vol_geom(n_rows, n_cols, n_slices);
+     vol_geom = astra.create_vol_geom(n_rows, n_cols, n_slices)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+     vol_geom = astra_create_vol_geom(n_rows, n_cols, n_slices);
 
 Specify the extent of the 3D volume (note that rows are oriented along the Y axis, columns along the X axis and slices along the Z axis):
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
-  vol_geom = astra_create_vol_geom(n_rows, n_cols, n_slices, min_x, max_x, min_y, max_y, min_z, max_z);
+      vol_geom = astra.create_vol_geom(n_rows, n_cols, n_slices, min_x, max_x, min_y, max_y, min_z, max_z)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      vol_geom = astra_create_vol_geom(n_rows, n_cols, n_slices, min_x, max_x, min_y, max_y, min_z, max_z);
 
 This can be used to control the voxel size, including specifying anisotropic voxels (note that the FDK algorithm does not currently support anisotropic voxels and will raise an exception).
 
@@ -27,9 +41,16 @@ Projection geometries
 
 **parallel3d**
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- proj_geom = astra_create_proj_geom('parallel3d', det_spacing_x, det_spacing_y, det_row_count, det_col_count, angles);
+      proj_geom = astra.create_proj_geom('parallel3d', det_spacing_x, det_spacing_y, det_row_count, det_col_count, angles)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      proj_geom = astra_create_proj_geom('parallel3d', det_spacing_x, det_spacing_y, det_row_count, det_col_count, angles);
 
 Create a 3D parallel beam geometry.
 
@@ -41,9 +62,16 @@ Create a 3D parallel beam geometry.
 
 **cone**
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- proj_geom = astra_create_proj_geom('cone',  det_spacing_x, det_spacing_y, det_row_count, det_col_count, angles, source_origin, origin_det);
+      proj_geom = astra.create_proj_geom('cone',  det_spacing_x, det_spacing_y, det_row_count, det_col_count, angles, source_origin, origin_det)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      proj_geom = astra_create_proj_geom('cone',  det_spacing_x, det_spacing_y, det_row_count, det_col_count, angles, source_origin, origin_det);
 
 Create a 3D cone beam geometry.
 
@@ -57,9 +85,16 @@ Create a 3D cone beam geometry.
 
 **parallel3d_vec**
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- proj_geom = astra_create_proj_geom('parallel3d_vec',  det_row_count, det_col_count, vectors);
+      proj_geom = astra.create_proj_geom('parallel3d_vec',  det_row_count, det_col_count, vectors)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      proj_geom = astra_create_proj_geom('parallel3d_vec',  det_row_count, det_col_count, vectors);
 
 Create a 3D parallel beam geometry specified by 3D vectors.
 
@@ -71,7 +106,7 @@ Each row of vectors corresponds to a single projection, and consists of:
 
 .. code-block:: matlab
 
- ( rayX, rayY, rayZ, dX, dY, dZ, uX, uY, uZ, vX, vY, vZ )
+  ( rayX, rayY, rayZ, dX, dY, dZ, uX, uY, uZ, vX, vY, vZ )
 
 * ray : the ray direction
 * d   : the center of the detector
@@ -81,39 +116,78 @@ Each row of vectors corresponds to a single projection, and consists of:
 To illustrate, this is a matlab script to convert a single projection in a
 projection geometry of type "parallel3d" into such a 12-element row:
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- % ray direction
- vectors(i,1) = sin(proj_geom.ProjectionAngles(i));
- vectors(i,2) = -cos(proj_geom.ProjectionAngles(i));
- vectors(i,3) = 0;
+      # ray direction
+      vectors[i,0] = numpy.sin(proj_geom['ProjectionAngles'][i])
+      vectors[i,1] = -numpy.cos(proj_geom['ProjectionAngles'][i])
+      vectors[i,2] = 0
 
- % center of detector
- vectors(i,4) = 0;
- vectors(i,5) = 0;
- vectors(i,6) = 0;
+      # center of detector
+      vectors[i,3] = 0
+      vectors[i,4] = 0
+      vectors[i,5] = 0
 
- % vector from detector pixel (0,0) to (0,1)
- vectors(i,7) = cos(proj_geom.ProjectionAngles(i)) * proj_geom.DetectorSpacingX;
- vectors(i,8) = sin(proj_geom.ProjectionAngles(i)) * proj_geom.DetectorSpacingX;
- vectors(i,9) = 0;
+      # vector from detector pixel (0,0) to (0,1)
+      vectors[i,6] = numpy.cos(proj_geom['ProjectionAngles'][i]) * proj_geom['DetectorSpacingX']
+      vectors[i,7] = numpy.sin(proj_geom['ProjectionAngles'][i]) * proj_geom['DetectorSpacingX']
+      vectors[i,8] = 0
 
- % vector from detector pixel (0,0) to (1,0)
- vectors(i,10) = 0;
- vectors(i,11) = 0;
- vectors(i,12) = proj_geom.DetectorSpacingY;
+      # vector from detector pixel (0,0) to (1,0)
+      vectors[i, 9] = 0
+      vectors[i,10] = 0
+      vectors[i,11] = proj_geom['DetectorSpacingY']
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      % ray direction
+      vectors(i,1) = sin(proj_geom.ProjectionAngles(i));
+      vectors(i,2) = -cos(proj_geom.ProjectionAngles(i));
+      vectors(i,3) = 0;
+
+      % center of detector
+      vectors(i,4) = 0;
+      vectors(i,5) = 0;
+      vectors(i,6) = 0;
+
+      % vector from detector pixel (0,0) to (0,1)
+      vectors(i,7) = cos(proj_geom.ProjectionAngles(i)) * proj_geom.DetectorSpacingX;
+      vectors(i,8) = sin(proj_geom.ProjectionAngles(i)) * proj_geom.DetectorSpacingX;
+      vectors(i,9) = 0;
+
+      % vector from detector pixel (0,0) to (1,0)
+      vectors(i,10) = 0;
+      vectors(i,11) = 0;
+      vectors(i,12) = proj_geom.DetectorSpacingY;
 
 This conversion is also available as a function in the toolbox:
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- proj_geom_vec = astra_geom_2vec(proj_geom);
+      proj_geom_vec = astra.geom_2vec(proj_geom)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      proj_geom_vec = astra_geom_2vec(proj_geom);
 
 **cone_vec**
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- proj_geom = astra_create_proj_geom('cone_vec',  det_row_count, det_col_count, vectors);
+      proj_geom = astra.create_proj_geom('cone_vec',  det_row_count, det_col_count, vectors)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      proj_geom = astra_create_proj_geom('cone_vec',  det_row_count, det_col_count, vectors);
 
 Create a 3D cone beam geometry specified by 3D vectors.
 
@@ -134,26 +208,51 @@ Each row of vectors corresponds to a single projection, and consists of:
 
 To illustrate, this is a matlab script to convert a single projection in a projection geometry of type "cone" into such a 12-element row:
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- % source
- vectors(i,1) = sin(proj_geom.ProjectionAngles(i)) * proj_geom.DistanceOriginSource;
- vectors(i,2) = -cos(proj_geom.ProjectionAngles(i)) * proj_geom.DistanceOriginSource;
- vectors(i,3) = 0;
+      # source
+      vectors[i,0] = numpy.sin(proj_geom['ProjectionAngles'][i]) * proj_geom['DistanceOriginSource']
+      vectors[i,1] = -numpy.cos(proj_geom['ProjectionAngles'][i]) * proj_geom['DistanceOriginSource']
+      vectors[i,2] = 0
 
- % center of detector
- vectors(i,4) = -sin(proj_geom.ProjectionAngles(i)) * proj_geom.DistanceOriginDetector;
- vectors(i,5) = cos(proj_geom.ProjectionAngles(i)) * proj_geom.DistanceOriginDetector;
- vectors(i,6) = 0;
+      # center of detector
+      vectors[i,3] = -numpy.sin(proj_geom['ProjectionAngles'][i]) * proj_geom['DistanceOriginDetector']
+      vectors[i,4] = numpy.cos(proj_geom['ProjectionAngles'][i]) * proj_geom['DistanceOriginDetector']
+      vectors[i,5] = 0
 
- % vector from detector pixel (0,0) to (0,1)
- vectors(i,7) = cos(proj_geom.ProjectionAngles(i)) * proj_geom.DetectorSpacingX;
- vectors(i,8) = sin(proj_geom.ProjectionAngles(i)) * proj_geom.DetectorSpacingX;
- vectors(i,9) = 0;
+      # vector from detector pixel (0,0) to (0,1)
+      vectors[i,6] = numpy.cos(proj_geom['ProjectionAngles'][i]) * proj_geom['DetectorSpacingX']
+      vectors[i,7] = numpy.sin(proj_geom['ProjectionAngles'][i]) * proj_geom['DetectorSpacingX']
+      vectors[i,8] = 0
 
- % vector from detector pixel (0,0) to (1,0)
- vectors(i,10) = 0;
- vectors(i,11) = 0;
- vectors(i,12) = proj_geom.DetectorSpacingY;
+      # vector from detector pixel (0,0) to (1,0)
+      vectors[i, 9] = 0
+      vectors[i,10] = 0
+      vectors[i,11] = proj_geom['DetectorSpacingY']
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      % source
+      vectors(i,1) = sin(proj_geom.ProjectionAngles(i)) * proj_geom.DistanceOriginSource;
+      vectors(i,2) = -cos(proj_geom.ProjectionAngles(i)) * proj_geom.DistanceOriginSource;
+      vectors(i,3) = 0;
+
+      % center of detector
+      vectors(i,4) = -sin(proj_geom.ProjectionAngles(i)) * proj_geom.DistanceOriginDetector;
+      vectors(i,5) = cos(proj_geom.ProjectionAngles(i)) * proj_geom.DistanceOriginDetector;
+      vectors(i,6) = 0;
+
+      % vector from detector pixel (0,0) to (0,1)
+      vectors(i,7) = cos(proj_geom.ProjectionAngles(i)) * proj_geom.DetectorSpacingX;
+      vectors(i,8) = sin(proj_geom.ProjectionAngles(i)) * proj_geom.DetectorSpacingX;
+      vectors(i,9) = 0;
+
+      % vector from detector pixel (0,0) to (1,0)
+      vectors(i,10) = 0;
+      vectors(i,11) = 0;
+      vectors(i,12) = proj_geom.DetectorSpacingY;
 
 
