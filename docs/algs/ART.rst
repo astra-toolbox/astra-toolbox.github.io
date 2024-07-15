@@ -67,7 +67,7 @@ Example
       astra.algorithm.delete(art_id)
 
 
- .. group-tab:: Matlab
+  .. group-tab:: Matlab
     .. code-block:: matlab
 
 	%% create phantom
