@@ -23,7 +23,47 @@ cfg.option.MaxConstraint 	optional 	If specified, all values above MaxConstraint
 Example
 -------
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      import astra
+      import matplotlib.pyplot as plt
+      import numpy
+
+      # create geometries and projector
+      proj_geom = astra.create_proj_geom('parallel', 1.0, 256, numpy.linspace(0, numpy.pi, 180, endpoint=False))
+      vol_geom = astra.create_vol_geom(256,256)
+      proj_id = astra.create_projector('linear', proj_geom, vol_geom)
+
+      # generate phantom image
+      V_exact_id, V_exact = astra.data2d.shepp_logan(vol_geom)
+
+      # create forward projection
+      sinogram_id, sinogram = astra.create_sino(V_exact, proj_id)
+
+      # reconstruct
+      recon_id = astra.data2d.create('-vol', vol_geom, 0)
+      cfg = astra.astra_dict('SIRT')
+      cfg['ProjectorId'] = proj_id
+      cfg['ProjectionDataId'] = sinogram_id
+      cfg['ReconstructionDataId'] = recon_id
+      cfg['option'] = { 'MinConstraint': 0, 'MaxConstraint': 1 }
+      sirt_id = astra.algorithm.create(cfg)
+      astra.algorithm.run(sirt_id, 100)
+      V = astra.data2d.get(recon_id)
+      plt.gray()
+      plt.imshow(V)
+      plt.show()
+
+      # garbage disposal
+      astra.data2d.delete([sinogram_id, recon_id, V_exact_id])
+      astra.projector.delete(proj_id)
+      astra.algorithm.delete(sirt_id)
+
+
+ .. group-tab:: Matlab
+    .. code-block:: matlab
 
 	%% create phantom
 	V_exact = phantom(256);

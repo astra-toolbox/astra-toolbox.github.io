@@ -24,7 +24,51 @@ cfg.option.RayOrderList 	optional 	Required if option.RayOrder = 'custom', ignor
 Example
 -------
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      import astra
+      import matplotlib.pyplot as plt
+      import numpy
+
+      # create geometries and projector
+      proj_geom = astra.create_proj_geom('parallel', 1.0, 256, numpy.linspace(0, numpy.pi, 180, endpoint=False))
+      vol_geom = astra.create_vol_geom(256,256)
+      proj_id = astra.create_projector('linear', proj_geom, vol_geom)
+
+      # generate phantom image
+      V_exact_id, V_exact = astra.data2d.shepp_logan(vol_geom)
+
+      # create forward projection
+      sinogram_id, sinogram = astra.create_sino(V_exact, proj_id)
+
+      # reconstruct
+      recon_id = astra.data2d.create('-vol', vol_geom, 0)
+      cfg = astra.astra_dict('ART')
+      cfg['ProjectorId'] = proj_id
+      cfg['ProjectionDataId'] = sinogram_id
+      cfg['ReconstructionDataId'] = recon_id
+      cfg['option'] = { }
+      cfg['option']['RayOrder'] =  'custom'
+      fullRayList = numpy.array(numpy.meshgrid(range(180), range(256))).reshape(2,-1).T
+      cfg['option']['RayOrderList'] = numpy.random.permutation(fullRayList).reshape(-1)
+
+      art_id = astra.algorithm.create(cfg)
+      astra.algorithm.run(art_id, 3*180*256)
+      V = astra.data2d.get(recon_id)
+      plt.gray()
+      plt.imshow(V)
+      plt.show()
+
+      # garbage disposal
+      astra.data2d.delete([sinogram_id, recon_id, V_exact_id])
+      astra.projector.delete(proj_id)
+      astra.algorithm.delete(art_id)
+
+
+ .. group-tab:: Matlab
+    .. code-block:: matlab
 
 	%% create phantom
 	V_exact = phantom(256);
