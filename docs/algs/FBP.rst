@@ -23,17 +23,16 @@ Example
     .. code-block:: python
 
       import astra
-      import scipy.io
       import matplotlib.pyplot as plt
       import numpy
-
-      # Load phantom (from samples/python directory)
-      V_exact = scipy.io.loadmat('phantom.mat')['phantom256']
 
       # create geometries and projector
       proj_geom = astra.create_proj_geom('parallel', 1.0, 256, numpy.linspace(0, numpy.pi, 180, endpoint=False))
       vol_geom = astra.create_vol_geom(256,256)
       proj_id = astra.create_projector('linear', proj_geom, vol_geom)
+
+      # generate phantom image
+      V_exact_id, V_exact = astra.data2d.shepp_logan(vol_geom)
 
       # create forward projection
       sinogram_id, sinogram = astra.create_sino(V_exact, proj_id)
@@ -52,7 +51,7 @@ Example
       plt.show()
 
       # garbage disposal
-      astra.data2d.delete([sinogram_id, recon_id])
+      astra.data2d.delete([sinogram_id, recon_id, V_exact_id])
       astra.projector.delete(proj_id)
       astra.algorithm.delete(fbp_id)
 
