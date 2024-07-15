@@ -3,7 +3,7 @@ ART
 
 This is a CPU implementation of the Iterative Reconstruction Technique (ART) for 2D data sets. It takes projection data and an initial reconstruction as input, and returns the reconstruction after a specified number of ART iterations. Each iteration of ART consists of an FP and BP of one single projection ray. The order of the rays can be specified.
 
-Supported geometries: parallel, fanflat, fanflat_vec, matrix.
+Supported geometries: parallel, parallel_vec, fanflat, fanflat_vec, matrix.
 
 Configuration options
 ---------------------

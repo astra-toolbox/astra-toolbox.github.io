@@ -5,7 +5,7 @@ This is a CPU implementation of the Conjugate Gradient Least Squares (CGLS) algo
 
 The internal state of the CGLS algorithm is **NOT** reset between astra_mex_algorithm('iterate') calls. Updating the contents of the projection data and reconstruction data astra_mex_data2d objects between astra_mex_algorithm('iterate') calls will produce undefined behaviour.
 
-Supported geometries: parallel, fanflat, fanflat_vec, matrix.
+Supported geometries: parallel, parallel_vec, fanflat, fanflat_vec, matrix.
 
 Configuration options
 ---------------------

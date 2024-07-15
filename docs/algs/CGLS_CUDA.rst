@@ -7,7 +7,7 @@ The internal state of the CGLS algorithm is reset every time astra_mex_algorithm
 is called. This implies that running CGLS for N iterations and then running it for
 another N iterations may yield different results from running it 2N iterations at once.
 
-Supported geometries: parallel, fanflat, fanflat_vec.
+Supported geometries: parallel, parallel_vec, fanflat, fanflat_vec.
 
 Configuration options
 ---------------------
