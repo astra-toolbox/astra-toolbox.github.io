@@ -12,105 +12,165 @@ astra_mex_data3d has the following commands.
 
 *    create
 *    get
-*    get_single
+*    get_single (matlab)
 *    set / store
 *    dimensions
 *    delete
 *    clear
 *    info
 *    link
+*    get_shared (python)
 
 **create**
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- id = astra_mex_data3d('create', '-vol', vol_geom);
- id = astra_mex_data3d('create', '-vol', vol_geom, initializer);
+      id = astra.data3d.create('-vol', vol_geom)
+      id = astra.data3d.create('-vol', vol_geom, initializer)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      id = astra_mex_data3d('create', '-vol', vol_geom);
+      id = astra_mex_data3d('create', '-vol', vol_geom, initializer);
 
 This creates an initialized 3D volume data object for the geometry vol_geom.
 
 Initializer may be:
 
 *    a scalar: the object is initialized with this constant value.
-*    a matrix: the object is initialized with the contents of this matrix. The matrix must be of size (x,y,z) as defined in the volume geometry. It must be of class single, double or logical.
+*    a matrix: the object is initialized with the contents of this matrix. The matrix must be of size (z,y,x) in Python, or (x,y,z) in Matlab, as defined in the volume geometry. In Python, it must be convertible to dtype float32. In Matlab, it must be of class single, double or logical.
 
 If an initializer is not present, the volume is initialized to zero.
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- id = astra_mex_data3d('create', '-proj3d', proj_geom);
- id = astra_mex_data3d('create', '-proj3d', proj_geom, initializer);
+     id = astra.data3d.create('-proj3d', proj_geom)
+     id = astra.data3d.create('-proj3d', proj_geom, initializer)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+     id = astra_mex_data3d('create', '-proj3d', proj_geom);
+     id = astra_mex_data3d('create', '-proj3d', proj_geom, initializer);
 
 This creates an initialized 3D projection data object for the geometry proj_geom.
 
 Initializer may be:
 
 *    a scalar: the object is initialized with this constant value.
-*    a matrix: the object is initialized with the contents of this matrix. The matrix must be of size (u,angles,v), where u is the number of columns of the detector and v the number of rows as defined in the projection geometry. It must be of class single, double or logical.
+*    a matrix: the object is initialized with the contents of this matrix. The matrix must be of size (v,angles,u) in Python, or (u,angles,v) in Matlab, where u is the number of columns of the detector and v the number of rows as defined in the projection geometry. In Python, it must be convertible to dtype float32. In Matlab, it must be of class single, double or logical.
 
 If an initializer is not present, the volume is initialized to zero.
 
 **get**
 
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      A = astra.data3d.get(id)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      A = astra_mex_data3d('get', id);
+
+This fetches the data object as a 3D matrix. In Matlab, it will be of class double. In Python, of dtype float32.
+
+**matlab get_single**
+
 .. code-block:: matlab
 
- A = astra_mex_data3d('get', id);
-
-This fetches the data object as a 3D matrix of class double.
-
-**get_single**
-
-.. code-block:: matlab
-
- A = astra_mex_data3d('get_single', id);
+  A = astra_mex_data3d('get_single', id);
 
 This fetches the data object as a 3D matrix of class single.
 
 **set / store**
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- astra_mex_data3d('set', id, A);
- astra_mex_data3d('store', id, A);
+      astra.data3d.store(id, A)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      astra_mex_data3d('set', id, A);
+      astra_mex_data3d('store', id, A);
 
 This stores the matrix A in the data object. The dimensions of A
 must be the same as when used as an initializer in astra_mex_data3d('create').
 
-Set and store are synonyms.
+Set and store are synonyms in the Matlab interface.
 
 **dimensions**
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- s = astra_mex_data3d('dimensions', id);
+      s = astra.data3d.dimensions(id)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      s = astra_mex_data3d('dimensions', id);
 
 Get the dimensions of a data object.
 
 **delete**
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- astra_mex_data3d('delete', id);
+      astra.data3d.delete(id)
+      astra.data3d.delete([id1, id2, ...])
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      astra_mex_data3d('delete', id);
 
 Free the memory of a data object.
 
 **clear**
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- astra_mex_data3d('clear');
+      astra.data3d.clear()
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      astra_mex_data3d('clear');
 
 Free all data objects.
 
 **info**
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- astra_mex_data3d('info')
+      astra.data3d.info()
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      astra_mex_data3d('info')
 
 Print basic information about all allocated data objects.
 
-**link**
+**matlab link**
 
 .. code-block:: matlab
 
@@ -155,3 +215,31 @@ be visible in Matlab.
 If the passed array is modified in Matlab, this link is broken (by matlab's
 reference counting mechanism), and the changes will not be visible to
 the astra data object.
+
+**python link**
+
+.. code-block:: python
+
+  id = astra.data3d.link('-vol', vol_geom, data)
+  id = astra.data3d.link('-proj3d', proj_geom, data)
+
+This creates an Astra data object that shares its memory with the numpy.ndarray data.
+The ndarray must be contiguous and of dtype float32, and of the right shape.
+
+Changes to the ndarray will be visible to Astra, and vice versa.
+
+This increments the reference count of the underlying memory, so it is safe to
+delete the data ndarray while the Astra object still exists.
+
+**python get_shared**
+
+.. code-block:: python
+
+  A = astra.data3d.get_shared(id)
+
+This fetches the data object as a numpy.ndarray that shares its memory with the Astra object.
+
+Changes to the returned ndarray will be visible to Astra, and vice versa.
+
+Deleting the Astra object while the resulting Python object still exists will
+lead to undefined behaviour and potentially memory corruption and crashes.
