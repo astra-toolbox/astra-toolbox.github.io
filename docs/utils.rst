@@ -6,8 +6,18 @@ astra_create_sino
 
 .. code-block:: matlab
 
- id = astra_create_sino(data, projector_id);
- [id, sinogram] = astra_create_sino(data, projector_id);
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      id, sinogram = astra.create_sino(data, projector_id)
+      id = astra.create_sino(data, projector_id, returnData=False)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      id = astra_create_sino(data, projector_id);
+      [id, sinogram] = astra_create_sino(data, projector_id);
 
 Compute a sinogram from a 2D volume using the given projector.
 See the documentation for astra_create_projector for details on projectors.
@@ -27,10 +37,18 @@ the sinogram itself.
 astra_create_backprojection
 ---------------------------
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- id = astra_create_backprojection(data, projector_id);
- [id, volume] = astra_create_backprojection(data, projector_id);
+      id, volume = astra.create_backprojection(data, projector_id)
+      id = astra.create_backprojection(data, projector_id, returnData=False)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      id = astra_create_backprojection(data, projector_id);
+      [id, volume] = astra_create_backprojection(data, projector_id);
 
 Compute a backprojection of a 2D sinogram using the given projector.
 See the documentation for astra_create_projector for details on projectors.
@@ -52,8 +70,8 @@ astra_create_sino_cuda
 
 .. code-block:: matlab
 
- id = astra_create_sino(data, proj_geom, vol_geom);
- [id, sinogram] = astra_create_sino(data, proj_geom, vol_geom);
+ id = astra_create_sino_cuda(data, proj_geom, vol_geom);
+ [id, sinogram] = astra_create_sino_cuda(data, proj_geom, vol_geom);
 
 Compute a sinogram from a 2D volume and the given geometry, using a GPU.
 
@@ -90,8 +108,18 @@ argument signature than the other astra_create_backprojection* functions.
 astra_create_sino3d_cuda
 ------------------------
 
- id = astra_create_sino3d_cuda(data, proj_geom, vol_geom);
- [id, projdata] = astra_create_sino3d_cuda(data, proj_geom, vol_geom);
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      id, volume = astra.create_sino3d_gpu(data, proj_geom, vol_geom)
+      id = astra.create_sino3d_gpu(data, proj_geom, vol_geom, returnData=False)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      id = astra_create_sino3d_cuda(data, proj_geom, vol_geom);
+      [id, projdata] = astra_create_sino3d_cuda(data, proj_geom, vol_geom);
 
 Compute projection data from a 3D volume and the given geometry, using a GPU.
 
@@ -109,10 +137,18 @@ the projection data itself.
 astra_create_backprojection3d_cuda
 ----------------------------------
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- id = astra_create_backprojection3d_cuda(data, proj_geom, vol_geom);
- [id, volume] = astra_create_backprojection(data, proj_geom, vol_geom);
+      id, volume = astra.create_backprojection3d_gpu(data, proj_geom, vol_geom)
+      id = astra.create_backprojection3d_gpu(data, proj_geom, vol_geom, returnData=False)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      id = astra_create_backprojection3d_cuda(data, proj_geom, vol_geom);
+      [id, volume] = astra_create_backprojection(data, proj_geom, vol_geom);
 
 Compute a backprojection of 3D projection data and the given geometry, using
 a GPU.
@@ -132,9 +168,16 @@ additionally returns the volume data itself.
 astra_geom_2vec
 ---------------
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- proj_geom_vec = astra_geom_2vec(proj_geom);
+      proj_geom_vec = astra.geom_2vec(proj_geom)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      proj_geom_vec = astra_geom_2vec(proj_geom);
 
 Convert a projection geometry of type fanflat, cone, or parallel3d into
 an equivalent geometry of type fanflat_vec, cone_vec, or parallel3d_vec,
@@ -143,10 +186,18 @@ respectively.
 astra_geom_size
 ---------------
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- s = astra_geom_size(geom);
- s = astra_geom_size(geom, dim);
+      s = astra.geom_size(geom)
+      s = astra.geom_size(geom, dim)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      s = astra_geom_size(geom);
+      s = astra_geom_size(geom, dim);
 
 Get the size of Matlab arrays for data objects with a given geometry.
 All geometries (2D, 3D, volume, projection) are supported.
