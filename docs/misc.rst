@@ -1,6 +1,44 @@
 Miscellaneous
 =============
 
+Testing the ASTRA installation
+------------------------------
+
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      astra.test()
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      astra_test
+
+This will run quick tests of basic CPU/GPU functionality, and report on
+the results. As a part of this it will report if GPU functionality is
+available.
+
+Setting GPU index
+-----------------
+
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      astra.set_gpu_index(index)
+      astra.set_gpu_index([index1, index2, ...])
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      astra_mex('set_gpu_index', index);
+      astra_mex('set_gpu_index', [index1 index2 ...]);
+
+This lets ASTRA use the GPU with the specified index or indices. Not all ASTRA functionality supports
+using multiple GPUs. In that case the GPU specified first will be used.
+
+
 Masks
 -----
 
