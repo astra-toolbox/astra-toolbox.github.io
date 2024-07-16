@@ -62,18 +62,33 @@ NB: MinConstraint/MaxConstraint will affect even masked voxels.
 astra_struct
 ------------
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- cfg = astra_struct('NAME');
+      cfg = astra.astra_dict('NAME')
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      cfg = astra_struct('NAME');
 
 This is the basic script to create a configuration struct for many astra objects.
 The returned struct is usually filled with more options after creating it, and then
 passed to astra functions such as
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- id = astra_mex_algorithm('create', cfg);
- id = astra_mex_projector('create', cfg);
+      id = astra.algorithm.create(cfg)
+      id = astra.projector.create(cfg)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      id = astra_mex_algorithm('create', cfg);
+      id = astra_mex_projector('create', cfg);
 
 The most common usage is for creating algorithm configuration structs. See the pages
 on [2D CPU Algorithms], [2D GPU Algorithms], [3D GPU Algorithms] for available
@@ -99,34 +114,61 @@ astra_mex_matrix contains the following commands:
 
 **create**
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- id = astra_mex_matrix('create', S);
+      id = astra.matrix.create(S)
 
-Create an ASTRA sparse matrix object from a Matlab sparse matrix.
-get
+  .. group-tab:: Matlab
+    .. code-block:: matlab
 
-.. code-block:: matlab
+      id = astra_mex_matrix('create', S);
 
- S = astra_mex_matrix('get', id);
+Create an ASTRA sparse matrix object from a Python sparse matrix of type scipy.sparse.csr_matrix or a Matlab sparse matrix.
 
-Return an ASTRA sparse matrix object as a Matlab sparse matrix.
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      S = astra.matrix.get(id)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      S = astra_mex_matrix('get', id);
+
+Return an ASTRA sparse matrix object as a Python sparse matrix of type scipy.sparse.csr_matrix or a Matlab sparse matrix.
 
 **get_size**
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- s = astra_mex_matrix('get_size', id);
+      s = astra.matrix.get_size(id)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      s = astra_mex_matrix('get_size', id);
 
 Get the size (rows,columns) of the sparse matrix object.
 
 **store**
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- astra_mex_matrix('store', id, S)
+      astra.matrix.store(id, S)
 
-Store a new Matlab sparse matrix in an ASTRA sparse matrix object.
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      astra_mex_matrix('store', id, S);
+
+Store a new Python or Matlab sparse matrix in an ASTRA sparse matrix object.
 
 NB: This does not re-allocate memory: the number of rows and
 non-zero entries may not be larger than they were when
@@ -134,25 +176,47 @@ the object was first created.
 
 **delete**
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- astra_mex_matrix('delete', id)
+      astra.matrix.delete(id)
+      astra.matrix.delete([id1, id2, ...])
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      astra_mex_matrix('delete', id)
 
 Free a single sparse matrix.
 
 **clear**
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- astra_mex_matrix('clear')
+      astra.matrix.clear()
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      astra_mex_matrix('clear')
 
 Free all sparse matrices.
 
 **info**
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
- astra_mex_matrix('info')
+      astra.matrix.info()
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      astra_mex_matrix('info')
 
 Print basic information about all allocated sparse matrix objects.
 
