@@ -41,7 +41,7 @@ This creates an initialized 3D volume data object for the geometry vol_geom.
 Initializer may be:
 
 *    a scalar: the object is initialized with this constant value.
-*    a matrix: the object is initialized with the contents of this matrix. The matrix must be of size (z,y,x) in Python, or (x,y,z) in Matlab, as defined in the volume geometry. In Python, it must be convertible to dtype float32. In Matlab, it must be of class single, double or logical.
+*    a matrix: the object is initialized with the contents of this matrix. The matrix must be of size (n_slices, n_rows, n_cols) in Python, or (n_cols, n_rows, n_slices) in Matlab, as defined in the volume geometry. In Python, it must be convertible to dtype float32. In Matlab, it must be of class single, double or logical.
 
 If an initializer is not present, the volume is initialized to zero.
 
@@ -63,7 +63,7 @@ This creates an initialized 3D projection data object for the geometry proj_geom
 Initializer may be:
 
 *    a scalar: the object is initialized with this constant value.
-*    a matrix: the object is initialized with the contents of this matrix. The matrix must be of size (v,angles,u) in Python, or (u,angles,v) in Matlab, where u is the number of columns of the detector and v the number of rows as defined in the projection geometry. In Python, it must be convertible to dtype float32. In Matlab, it must be of class single, double or logical.
+*    a matrix: the object is initialized with the contents of this matrix. The matrix must be of size (det_row_count, n_angles, det_col_count) in Python, or (det_col_count, n_angles, det_row_count) in Matlab, as defined in the projection geometry. In Python, it must be convertible to dtype float32. In Matlab, it must be of class single, double or logical.
 
 If an initializer is not present, the volume is initialized to zero.
 
