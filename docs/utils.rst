@@ -183,6 +183,31 @@ Convert a projection geometry of type fanflat, cone, or parallel3d into
 an equivalent geometry of type fanflat_vec, cone_vec, or parallel3d_vec,
 respectively.
 
+astra_geom_postalignment
+------------------------
+
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      proj_geom = astra.geom_postalignment(proj_geom, factorU)
+      proj_geom = astra.geom_postalignment(proj_geom, [factorU, factorV])
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      proj_geom = astra_geom_postalignment(proj_geom, factorU)
+      proj_geom = astra_geom_postalignment(proj_geom, [factorU factorV])
+
+Apply a postalignment to a projection geometry. Can be used to model the
+rotation axis offset.
+
+For 2D geometries, the argument factor is a single float specifying the
+distance to shift the detector (measured in detector pixels).
+For 3D geometries, factor is a pair of floats specifying the horizontal
+resp. vertical distances to shift the detector. If only a single float is
+specified, this is treated as an horizontal shift.
+
 astra_geom_size
 ---------------
 
