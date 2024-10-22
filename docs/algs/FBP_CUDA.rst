@@ -49,7 +49,6 @@ Example
       cfg['ProjectorId'] = proj_id
       cfg['ProjectionDataId'] = sinogram_id
       cfg['ReconstructionDataId'] = recon_id
-      cfg['option'] = { 'MinConstraint': 0, 'MaxConstraint': 1 }
       fbp_id = astra.algorithm.create(cfg)
       astra.algorithm.run(fbp_id)
       V = astra.data2d.get(recon_id)
