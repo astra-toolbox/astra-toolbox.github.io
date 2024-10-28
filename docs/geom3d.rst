@@ -14,11 +14,13 @@ Create a 3D volume geometry:
   .. group-tab:: Python
     .. code-block:: python
 
+     vol_geom = astra.create_vol_geom([n_rows, n_cols, n_slices])
      vol_geom = astra.create_vol_geom(n_rows, n_cols, n_slices)
 
   .. group-tab:: Matlab
     .. code-block:: matlab
 
+     vol_geom = astra_create_vol_geom([n_rows, n_cols, n_slices]);
      vol_geom = astra_create_vol_geom(n_rows, n_cols, n_slices);
 
 Specify the extent of the 3D volume (note that rows are oriented along the Y axis, columns along the X axis and slices along the Z axis):
