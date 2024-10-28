@@ -81,6 +81,76 @@ Create a 2D flat fan beam geometry:
 * source_origin: distance between the source and the center of rotation
 * origin_det: distance between the center of rotation and the detector array
 
+**parallel_vec**
+
+Create a 2D parallel beam geometry specified by 2D vectors:
+
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      proj_geom = astra.create_proj_geom('parallel_vec', det_count, vectors)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      proj_geom = astra_create_proj_geom('parallel_vec', det_count, vectors);
+
+* det_count: number of detectors in a single projection
+* vectors: a matrix containing the actual geometry.
+  Each row of vectors corresponds to a single projection, and consists of:
+  ( rayX, rayY, dX, dY, uX, uY )
+* ray : the ray direction
+* d : the center of the detector
+* u : the vector between the centers of detector pixels 0 and 1
+
+To illustrate this, here is a script to convert a single projection in a projection geometry of
+type "parallel" into such a 6-element row:
+
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      # ray direction
+      vectors[i,0] = numpy.sin(proj_geom['ProjectionAngles'][i])
+      vectors[i,1] = -numpy.cos(proj_geom['ProjectionAngles'][i])
+
+      # center of detector
+      vectors[i,2] = 0
+      vectors[i,3] = 0
+
+      # vector from detector pixel 0 to 1
+      vectors[i,4] = numpy.cos(proj_geom['ProjectionAngles'][i]) * proj_geom['DetectorWidth']
+      vectors[i,5] = numpy.sin(proj_geom['ProjectionAngles'][i]) * proj_geom['DetectorWidth']
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      % source
+      vectors(i,1) = sin(proj_geom.ProjectionAngles(i));
+      vectors(i,2) = -cos(proj_geom.ProjectionAngles(i));
+
+      % center of detector
+      vectors(i,3) = 0;
+      vectors(i,4) = 0;
+
+      % vector from detector pixel 0 to 1
+      vectors(i,5) = cos(proj_geom.ProjectionAngles(i)) * proj_geom.DetectorWidth;
+      vectors(i,6) = sin(proj_geom.ProjectionAngles(i)) * proj_geom.DetectorWidth;
+
+This conversion is also available as a function in the toolbox:
+
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      proj_geom_vec = astra.geom_2vec(proj_geom)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      proj_geom_vec = astra_geom_2vec(proj_geom);
+
 **fanflat_vec**
 
 Create a 2D flat fan beam geometry specified by 2D vectors:

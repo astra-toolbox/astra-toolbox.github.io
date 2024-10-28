@@ -113,8 +113,8 @@ Each row of vectors corresponds to a single projection, and consists of:
 * u   : the vector from detector pixel (0,0) to (0,1)
 * v   : the vector from detector pixel (0,0) to (1,0)
 
-To illustrate, this is a matlab script to convert a single projection in a
-projection geometry of type "parallel3d" into such a 12-element row:
+To illustrate this, here is a script to convert a single projection in a projection geometry of
+type "parallel3d" into such a 12-element row:
 
 .. tabs::
   .. group-tab:: Python
@@ -206,7 +206,8 @@ Each row of vectors corresponds to a single projection, and consists of:
 * u   : the vector from detector pixel (0,0) to (0,1)
 * v   : the vector from detector pixel (0,0) to (1,0)
 
-To illustrate, this is a matlab script to convert a single projection in a projection geometry of type "cone" into such a 12-element row:
+To illustrate this, here is a script to convert a single projection in a projection geometry of
+type "cone" into such a 12-element row:
 
 .. tabs::
   .. group-tab:: Python
