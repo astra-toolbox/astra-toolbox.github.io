@@ -20,6 +20,7 @@ astra_mex_data3d has the following commands.
 *    delete
 *    clear
 *    info
+*    shepp_logan (python)
 
 **create**
 
@@ -244,6 +245,21 @@ Free all data objects.
       astra_mex_data3d('info')
 
 Print basic information about all allocated data objects.
+
+**shepp_logan**
+
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      id, data = astra.data3d.shepp_logan(vol_geom, modified)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      N/A
+
+Creates a Shepp-Logan transform. ``modified=True`` creates a phantom with improved contrast (default).
 
 
 .. _matlab_linking:
