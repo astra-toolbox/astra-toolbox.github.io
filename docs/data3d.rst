@@ -11,15 +11,15 @@ astra_mex_data3d is used to manage 3D data objects. It is a wrapper around the M
 astra_mex_data3d has the following commands.
 
 *    create
+*    link (python)
 *    get
+*    get_shared (python)
 *    get_single (matlab)
 *    set / store
 *    dimensions
 *    delete
 *    clear
 *    info
-*    link
-*    get_shared (python)
 
 **create**
 
@@ -67,6 +67,24 @@ Initializer may be:
 
 If an initializer is not present, the volume is initialized to zero.
 
+**link**
+
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      id = astra.data3d.link('-sino', proj_geom, array)
+      id = astra.data3d.link('-vol', vol_geom, array)
+
+  .. group-tab:: Matlab
+
+    :ref:`matlab_linking`
+
+Creates an Astra data object that shares its memory with the specified numpy.ndarray. The ndarray
+must be contiguous, have float32 dtype, and be of the right shape. Changes to the ndarray will be
+visible to Astra, and vice versa. This increments the reference count of the underlying memory, so
+it is safe to delete the linked ndarray while the Astra object still exists.
+
 **get**
 
 .. tabs::
@@ -82,11 +100,34 @@ If an initializer is not present, the volume is initialized to zero.
 
 This fetches the data object as a 3D matrix. In Matlab, it will be of class double. In Python, of dtype float32.
 
-**matlab get_single**
+**get_shared**
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
-  A = astra_mex_data3d('get_single', id);
+      A = astra.data2d.get_shared(id)
+
+    This fetches the data object as a 2D numpy array sharing its memory with the Astra object.
+    Changes to the returned array will be visible to Astra, and vice versa. Deleting the Astra
+    object while the resulting Python object still exists will lead to undefined behaviour and
+    potentially memory corruption and crashes.
+
+  .. group-tab:: Matlab
+
+    N/A
+
+**get_single**
+
+.. tabs::
+  .. group-tab:: Python
+
+    N/A
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+       A = astra_mex_data3d('get_single', id);
 
 This fetches the data object as a 3D matrix of class single.
 
@@ -105,7 +146,7 @@ This fetches the data object as a 3D matrix of class single.
       astra_mex_data3d('store', id, A);
 
 This stores the matrix A in the data object. The dimensions of A
-must be the same as when used as an initializer in astra_mex_data3d('create').
+must be the same as when used as the existing data object.
 
 Set and store are synonyms in the Matlab interface.
 
@@ -123,6 +164,40 @@ Set and store are synonyms in the Matlab interface.
       s = astra_mex_data3d('dimensions', id);
 
 Get the dimensions of a data object.
+
+**get_geometry**
+
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      geom = astra.data3d.get_geometry(id)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      geom = astra_mex_data3d('get_geometry', id);
+
+This gets the (volume or projection) geometry attached to the object.
+
+NB: This is not fully implemented yet and the return value may not accurately represent the geometry.
+
+**change_geometry**
+
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      astra.data3d.change_geometry(id, geom)
+
+  .. group-tab:: Matlab
+    .. code-block:: matlab
+
+      astra_mex_data3d('change_geometry', id, geom);
+
+This changes the (volume or projection) geometry attached to the object.
+It cannot change the dimensions of the data object. This can be used
+to change the pixel dimensions or projection angles, for example.
 
 **delete**
 
@@ -170,7 +245,11 @@ Free all data objects.
 
 Print basic information about all allocated data objects.
 
-**matlab link**
+
+.. _matlab_linking:
+
+Linking data in Matlab
+----------------------
 
 .. code-block:: matlab
 
@@ -215,31 +294,3 @@ be visible in Matlab.
 If the passed array is modified in Matlab, this link is broken (by matlab's
 reference counting mechanism), and the changes will not be visible to
 the astra data object.
-
-**python link**
-
-.. code-block:: python
-
-  id = astra.data3d.link('-vol', vol_geom, data)
-  id = astra.data3d.link('-proj3d', proj_geom, data)
-
-This creates an Astra data object that shares its memory with the numpy.ndarray data.
-The ndarray must be contiguous and of dtype float32, and of the right shape.
-
-Changes to the ndarray will be visible to Astra, and vice versa.
-
-This increments the reference count of the underlying memory, so it is safe to
-delete the data ndarray while the Astra object still exists.
-
-**python get_shared**
-
-.. code-block:: python
-
-  A = astra.data3d.get_shared(id)
-
-This fetches the data object as a numpy.ndarray that shares its memory with the Astra object.
-
-Changes to the returned ndarray will be visible to Astra, and vice versa.
-
-Deleting the Astra object while the resulting Python object still exists will
-lead to undefined behaviour and potentially memory corruption and crashes.
