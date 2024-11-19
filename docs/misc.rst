@@ -39,6 +39,52 @@ This lets ASTRA use the GPU with the specified index or indices. Not all ASTRA f
 using multiple GPUs. In that case the GPU specified first will be used.
 
 
+Multithreading
+--------------
+
+In Python, Astra supports concurrent execution of its algorithms in multiple threads. This
+functionality can be used in scenarios such as executing an algorithm with different inputs on
+different GPUs simultaneously, or even on the same GPU in case it's under-utilized by default. For
+instance, here is how one can compute a fan-parallel projection using multithreaded execution to
+accelerate sequential computation:
+
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      import astra
+      import numpy as np
+      from concurrent.futures import ThreadPoolExecutor
+
+      N = 512
+      vol_geometry_full = astra.create_vol_geom(N, N, N)
+      vol_geom_slice = astra.create_vol_geom(N, N)
+      angles = np.linspace(0, 2*np.pi, N, endpoint=False)
+      proj_geom_slice = astra.create_proj_geom('fanflat', 1.0, N, angles, N, N)
+      projector = astra.create_projector('cuda', proj_geom_slice, vol_geom_slice)
+
+      phantom_id, phantom_data = astra.data3d.shepp_logan(vol_geometry_full)
+
+      def forward_project_slice(vol_slice):
+          slice_proj_id, slice_proj_data = astra.create_sino(vol_slice, projector)
+          astra.data2d.delete(slice_proj_id)
+          return slice_proj_data
+
+      with ThreadPoolExecutor(max_workers=16) as executor:
+          projections = list(executor.map(forward_project_slice, phantom_data))
+      projections = np.stack(projections, axis=0)
+
+  .. group-tab:: Matlab
+
+      Matlab doesn't support executing external libraries in multithreaded environments.
+
+**WARNING!** No special care is taken about race conditions, so the user has to ensure that the
+outputs of algorithms are not accessed simultaneously.
+
+Matlab, on the other hand, doesn't support executing external libraries in multithreaded
+environments, so the only option is much less lightweight process-based concurrent execution. The
+simplest approach is to just start several copies of Matlab in batch mode.
+
 Masks
 -----
 
