@@ -1,11 +1,13 @@
 FDK_CUDA
 ========
 
-This is a GPU implementation of the FDK algorithm for 3D circular cone beam data sets.
+This is a GPU implementation of the FDK algorithm for 3D circular cone beam data sets. It takes
+projection data as input, and returns the reconstruction.
 
-It takes projection data as input, and returns the reconstruction.
+Supported geometries: cone, cone_vec.
 
-Supported geometries: cone, cone_vec. Note: cone_vec geometries that are not relatively close to (non-vec) cone geometries may give unexpected results.
+**Note:** cone_vec geometries that significantly deviate from
+a circular scanning geometry will likely lead to artifacts in the reconstruction.
 
 Configuration options
 ---------------------
