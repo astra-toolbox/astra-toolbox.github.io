@@ -7,13 +7,57 @@ Supported geometries: parallel.
 
 Configuration options
 ---------------------
-========================	========	=============================================================================================
-name 				type 		description
-========================	========	=============================================================================================
-cfg.ProjectorId 		required 	The astra_mex_projector ID of the projector.
-cfg.ProjectionDataId 		required 	The astra_mex_data2d ID of the projection data
-cfg.ReconstructionDataId 	required 	The astra_mex_data2d ID of the reconstruction data. The content of this data is overwritten.
-========================	========	=============================================================================================
++-------------------------------+----------+---------------------------------------------------------+
+| name                          | type     | description                                             |
++===============================+==========+=========================================================+
+| cfg.ProjectionDataId          | required | The astra_mex_data2d ID of the projection data          |
++-------------------------------+----------+---------------------------------------------------------+
+| cfg.ReconstructionDataId      | required | The astra_mex_data2d ID of the reconstruction data.     |
+|                               |          |                                                         |
+|                               |          | The content of this is overwritten.                     |
++-------------------------------+----------+---------------------------------------------------------+
+| cfg.FilterType                | optional | | Type of projection filter. Options:                   |
+|                               |          | | * 'none'                                              |
+|                               |          | | * 'ram-lak' (default)                                 |
+|                               |          | | * 'shepp-logan'                                       |
+|                               |          | | * 'cosine'                                            |
+|                               |          | | * 'hamming'                                           |
+|                               |          | | * 'hann'                                              |
+|                               |          | | * 'tukey'                                             |
+|                               |          | | * 'lanczos'                                           |
+|                               |          | | * 'triangular'                                        |
+|                               |          | | * 'gaussian'                                          |
+|                               |          | | * 'barlett-hann'                                      |
+|                               |          | | * 'blackman'                                          |
+|                               |          | | * 'nuttall'                                           |
+|                               |          | | * 'blackman-harris'                                   |
+|                               |          | | * 'blackman-nuttall'                                  |
+|                               |          | | * 'flat-top'                                          |
+|                               |          | | * 'kaiser'                                            |
+|                               |          | | * 'parzen'                                            |
+|                               |          | | * 'projection' (Fourier space filter, all projection  |
+|                               |          | | directions share one filter)                          |
+|                               |          | | * 'sinogram' (Fourier space filter, every projection  |
+|                               |          | | direction has its own filter)                         |
+|                               |          | | * 'rprojection' (real space filter, all projection    |
+|                               |          | | directions share one filter)                          |
+|                               |          | | * 'rsinogram' (real space filter, every projection    |
+|                               |          | | direction has its own filter)                         |
++-------------------------------+----------+---------------------------------------------------------+
+| cfg.FilterSinogramId          | optional | The astra_mex_data2d ID of the filter data for          |
+|                               |          |                                                         |
+|                               |          | 'projection', 'sinogram', 'rprojection'  and            |
+|                               |          |                                                         |
+|                               |          | 'rsinogram' filter types.                               |
++-------------------------------+----------+---------------------------------------------------------+
+| cfg.FilterParameter           | optional | Parameter value for the 'tukey', 'gaussian',            |
+|                               |          |                                                         |
+|                               |          | 'blackman' and 'kaiser' filter types.                   |
++-------------------------------+----------+---------------------------------------------------------+
+| cfg.FilterD                   | optional | "D" parameter value for 'shepp-logan', 'cosine',        |
+|                               |          |                                                         |
+|                               |          | 'hamming' and 'hann'  filter types.                     |
++-------------------------------+----------+---------------------------------------------------------+
 
 Example
 -------
