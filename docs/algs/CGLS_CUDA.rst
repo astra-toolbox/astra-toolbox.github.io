@@ -16,7 +16,6 @@ name 					type 		description
 ================================	========	====
 cfg.ProjectionDataId 			required 	The astra_mex_data2d ID of the projection data
 cfg.ReconstructionDataId 		required 	The astra_mex_data2d ID of the reconstruction data. The content of this when starting CGLS is used as the initial reconstruction.
-cfg.option.SinogramMaskId 		optional 	If specified, the astra_mex_data2d ID of a projection-data-sized volume to be used as a mask.
 cfg.option.ReconstructionMaskId 	optional 	If specified, the astra_mex_data2d ID of a volume-data-sized volume to be used as a mask.
 cfg.option.GPUindex 			optional 	Specifies which GPU to use. Default = 0.
 cfg.option.DetectorSuperSampling 	optional 	For the forward projection, DetectorSuperSampling rays will be used. This should only be used if your detector pixels are larger than the voxels in the reconstruction volume. Defaults to 1.
