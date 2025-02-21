@@ -20,21 +20,53 @@ Configuration options
 |                               |          |                                                           |
 |                               |          | The content of this is overwritten.                       |
 +-------------------------------+----------+-----------------------------------------------------------+
+| cfg.FilterType                | optional | | Type of projection filter. Options:                     |
+|                               |          | | * 'none'                                                |
+|                               |          | | * 'ram-lak' (default)                                   |
+|                               |          | | * 'shepp-logan'                                         |
+|                               |          | | * 'cosine'                                              |
+|                               |          | | * 'hamming'                                             |
+|                               |          | | * 'hann'                                                |
+|                               |          | | * 'tukey'                                               |
+|                               |          | | * 'lanczos'                                             |
+|                               |          | | * 'triangular'                                          |
+|                               |          | | * 'gaussian'                                            |
+|                               |          | | * 'barlett-hann'                                        |
+|                               |          | | * 'blackman'                                            |
+|                               |          | | * 'nuttall'                                             |
+|                               |          | | * 'blackman-harris'                                     |
+|                               |          | | * 'blackman-nuttall'                                    |
+|                               |          | | * 'flat-top'                                            |
+|                               |          | | * 'kaiser'                                              |
+|                               |          | | * 'parzen'                                              |
+|                               |          | | * 'projection' (Fourier space filter, all projection    |
+|                               |          | | directions share one filter)                            |
+|                               |          | | * 'sinogram' (Fourier space filter, every projection    |
+|                               |          | | direction has its own filter)                           |
+|                               |          | | * 'rprojection' (real space filter, all projection      |
+|                               |          | | directions share one filter)                            |
+|                               |          | | * 'rsinogram' (real space filter, every projection      |
+|                               |          | | direction has its own filter)                           |
++-------------------------------+----------+-----------------------------------------------------------+
+| cfg.FilterSinogramId          | optional | The astra_mex_data2d ID of the filter data for            |
+|                               |          |                                                           |
+|                               |          | 'projection', 'sinogram', 'rprojection'  and              |
+|                               |          |                                                           |
+|                               |          | 'rsinogram' filter types.                                 |
++-------------------------------+----------+-----------------------------------------------------------+
+| cfg.FilterParameter           | optional | Parameter value for the 'tukey', 'gaussian',              |
+|                               |          |                                                           |
+|                               |          | 'blackman' and 'kaiser' filter types.                     |
++-------------------------------+----------+-----------------------------------------------------------+
+| cfg.FilterD                   | optional | "D" parameter value for 'shepp-logan', 'cosine',          |
+|                               |          |                                                           |
+|                               |          | 'hamming' and 'hann'  filter types.                       |
++-------------------------------+----------+-----------------------------------------------------------+
 | cfg.option.ShortScan          | optional | If enabled, do Parker weighting to support non-360-degree |
 |                               |          |                                                           |
 |                               |          | data. This needs an angle range of at least 180 degrees   |
 |                               |          |                                                           |
 |                               |          | plus twice the cone angle. (default: false)               |
-+-------------------------------+----------+-----------------------------------------------------------+
-| cfg.FilterSinogramId          | optional | The astra_mex_data2d ID of the custom filter data. The    |
-|                               |          |                                                           |
-|                               |          | filter is applied in Fourier space, and every projection  |
-|                               |          |                                                           |
-|                               |          | direction has its own filter (see 'sinogram' filter type  |
-|                               |          |                                                           |
-|                               |          | for :doc:`FBP_CUDA <FBP_CUDA>`).                          |
-+-------------------------------+----------+-----------------------------------------------------------+
-| cfg.option.GPUindex           | optional | The index (zero-based) of the GPU to use. (default: 0)    |
 +-------------------------------+----------+-----------------------------------------------------------+
 | cfg.option.VoxelSuperSampling | optional | For the backward projection, VoxelSuperSampling^3 rays    |
 |                               |          |                                                           |
@@ -43,4 +75,6 @@ Configuration options
 |                               |          | reconstruction volume are larger than the detector        |
 |                               |          |                                                           |
 |                               |          | pixels. (default: 1)                                      |
++-------------------------------+----------+-----------------------------------------------------------+
+| cfg.option.GPUindex           | optional | The index (zero-based) of the GPU to use. (default: 0)    |
 +-------------------------------+----------+-----------------------------------------------------------+
