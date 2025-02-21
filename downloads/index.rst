@@ -3,11 +3,12 @@ Downloads
 
 Below is the latest released version. For older versions, see the links in the sidebar.
 
-.. include:: 2.2.0/downloads.txt
+.. include:: 2.3.0/downloads.txt
 
 .. toctree::
    :hidden:
 
+   2.3.0/index
    2.2.0/index
    2.1.0/index
    2.0.0/index

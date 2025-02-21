@@ -3,6 +3,25 @@ News and version history
 
 News
 ----
+* 2025-02-22: New version 2.3 released:
+
+ * Add support for zero-copy linking of GPU/CPU arrays from Python libraries supporting the DLPack
+   standard, including PyTorch, TensorFlow, CuPy and JAX. See ``astra.data3d.link`` documentation
+   in :doc:`docs/data3d` for more information. Note that linking of 2D data is still only
+   implemented for NumPy arrays.
+ * Add support for using different filter types in :doc:`docs/algs/FDK_CUDA`. The filter
+   configuration for FDK_CUDA now matches that for FBP/FBP_CUDA.
+ * Add conda packages for Python 3.13, CUDA 12.6, 12.8, and NumPy 2.
+ * Add automatic asynchronous execution to ``astra.experimental`` functions in Python.
+ * Add automatic splitting of FDK execution along angular dimension, allowing for larger maximum
+   number of projections.
+ * Add error reporting in ``astra.algorithm.run`` function.
+ * Add an extensive Python unit test suite.
+ * Fix incorrect results with GPUs with more than 48GB of memory.
+ * Fix multiple minor bugs.
+ * Require C++17, raising minimum system requirements to CUDA 11.
+ * Deprecate Python 3.7 conda packages.
+ * Remove boost and six dependencies.
 
 * 2024-07-12: New version 2.2 released:
 
@@ -52,7 +71,7 @@ News
 * 2019-07-09: Development packages of 1.9.0.dev are now available for download.
 
   The Windows packages now require CUDA 9.0 or higher.
-  
+
 * 2016-12-07: New version 1.8 released. New features:
 
  * Reduce restrictions on data sizes for 3D GPU FDK reconstructions.
@@ -61,7 +80,7 @@ News
  * Further reduced restrictions on volume geometries: voxels no longer have to be cubes
  * The Windows release now requires CUDA 8.0, so you may need to update CUDA.
 
-* 2015-12-23: New version 1.7.1beta released. This is a small bugfix release after v1.7beta. ASTRA version 1.7beta contains a few large experimental new features, which is why we have given it the beta tag. 
+* 2015-12-23: New version 1.7.1beta released. This is a small bugfix release after v1.7beta. ASTRA version 1.7beta contains a few large experimental new features, which is why we have given it the beta tag.
   If it does not work properly for you, all files for astra-1.6 are also still available for download in the Downloads section.
   New features:
 
@@ -92,7 +111,7 @@ Version history
    * add astra_test / astra.test() functions to test basic CPU/GPU functionality
    * enable use of the cone_vec geometry for FDK_CUDA. NB: This lets you do
      things that are not mathematically sensible, and should only be used for
-     geometries that are effectively circular cone beam geometries.     
+     geometries that are effectively circular cone beam geometries.
    * compatibility fixes for new Windows, Linux, CUDA versions
 
 * 1.8.3 (2017-11-06)
