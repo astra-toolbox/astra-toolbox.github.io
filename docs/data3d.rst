@@ -81,10 +81,12 @@ If an initializer is not present, the volume is initialized to zero.
 
     :ref:`matlab_linking`
 
-Creates an Astra data object that shares its memory with the specified numpy.ndarray. The ndarray
-must be contiguous, have float32 dtype, and be of the right shape. Changes to the ndarray will be
-visible to Astra, and vice versa. This increments the reference count of the underlying memory, so
-it is safe to delete the linked ndarray while the Astra object still exists.
+Creates an Astra data object that shares its memory with the specified CPU or GPU array supporting
+`DLPack interface <https://github.com/dmlc/dlpack>`_, which includes data from NumPy, PyTorch, JAX,
+TensorFlow and CuPy libraries. The array must be contiguous, have float32 dtype, and be of the
+shape valid for the specified geometry. No copying is performed, so changes to the linked array
+will be visible to Astra, and vice versa. Linking the array increments the reference count of the
+underlying memory, so deleting the original array will not destroy the created Astra object.
 
 **get**
 
