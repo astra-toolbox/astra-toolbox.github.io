@@ -4,13 +4,26 @@ Installation instructions
 Linux/Windows, using conda for Python
 -------------------------------------
 
-Requirements: `conda <https://docs.conda.io/en/latest/>`_ Python environment, with 64 bit Python 3.9-3.12.
+Requirements: `conda <https://docs.conda.io/en/latest/>`_ Python environment, with 64 bit Python 3.9-3.13.
 
 Conda packages for ASTRA Toolbox are available from the ``astra-toolbox`` channel, whereas CUDA-related packages can be installed from ``nvidia`` channel. To install ASTRA into the desired conda environment, run:
 
 .. code-block:: bash
 
   conda install astra-toolbox -c astra-toolbox -c nvidia
+
+Linux, using pip for Python
+---------------------------
+
+Requirements: Python environment with 64 bit Python 3.9-3.13.
+
+.. code-block:: bash
+
+  pip install astra-toolbox
+
+Note that, unlike conda packages, we only provide packages built for Linux platform, and only with
+a single reasonably recent version of CUDA toolkit. These packages depend on PyPI CUDA distribution
+provided by NVIDIA.
 
 Windows, binary
 ---------------
@@ -26,7 +39,7 @@ Linux, from source
 For MATLAB
 ^^^^^^^^^^
 
-Requirements: g++, CUDA (10.2 or higher), MATLAB (R2012a or higher)
+Requirements: g++, CUDA (11 or higher), MATLAB (R2012a or higher)
 
 .. code-block:: bash
 
@@ -57,7 +70,7 @@ MATLAB.
 For Python
 ^^^^^^^^^^
 
-Requirements: g++, CUDA (10.2 or higher), Python (3.x), Cython, six, scipy
+Requirements: g++, CUDA (11 or higher), Python (3.x), setuptools, Cython, scipy
 
 .. code-block:: bash
 
@@ -75,25 +88,23 @@ This will install ASTRA into your current Python environment.
 Windows, from source using Visual Studio 2017
 ---------------------------------------------
 
-Requirements: Visual Studio 2017 (full or community), boost (recent), CUDA (10.2 or higher), MATLAB (R2012a or higher) and/or WinPython 3.x.
+Requirements: Visual Studio 2017 (full or community), CUDA (11 or higher), MATLAB (R2012a or higher) and/or Python 3.x + setuptools + Cython + SciPy.
 
 Using the Visual Studio IDE
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Set the environment variable MATLAB_ROOT to your MATLAB install location.
-* Copy boost headers to lib\\include\\boost (i.e., copy the boost subdirectory from the boost source archive to lib\\include), and boost libraries to lib\\x64.
-* Open astra_vc14.sln in Visual Studio.
+* Open build\\msvc\\astra_vc14.sln in Visual Studio.
 * Select the appropriate solution configuration (typically Release_CUDA|x64).
 * Build the solution.
-* Install by copying AstraCuda64.dll and all .mexw64 files from bin\\x64\\Release_CUDA and the entire matlab\\tools directory to a directory to be added to your MATLAB path.
+* Install by copying AstraCuda64.dll and all .mexw64 files from build\\msvc\\bin\\x64\\Release_CUDA and the entire matlab\\tools directory to a directory to be added to your MATLAB path.
 
 Using .bat scripts in build\\msvc
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Edit build_env.bat and set up the correct directories.
-* Run build_setup.bat to automatically copy the boost headers and libraries.
+* Edit build_env.bat and set up the correct library versions and paths.
 * For MATLAB: Run build_matlab.bat. The .dll and .mexw64 files will be in bin\\x64\\Release_Cuda.
-* For Python 3.12: Run build_python312.bat. ASTRA will be directly installed into site-packages.
+* For Python: Run build_python3.bat. ASTRA will be directly installed into site-packages.
 
 
 
