@@ -49,7 +49,7 @@ Downloads
 Main downloads of the latest official release.
 
 
-.. include:: downloads/2.2.0/downloads.txt
+.. include:: downloads/2.3.0/downloads.txt
 
 References
 ----------
