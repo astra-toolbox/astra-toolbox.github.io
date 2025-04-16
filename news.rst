@@ -3,6 +3,12 @@ News and version history
 
 News
 ----
+* 2025-04-16: New version 2.3.1 released:
+
+ * Fix GPULink missing in astra.data3d module
+ * Fix crash in Matlab when calling astra_mex_direct
+ * Fix missing accelerated virtual GPU code for CUDA architectures > 8.6 in Linux packages
+
 * 2025-02-22: New version 2.3 released:
 
  * Add support for zero-copy linking of GPU/CPU arrays from Python libraries supporting the DLPack
