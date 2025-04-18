@@ -120,3 +120,20 @@ To build your own `conda <https://docs.conda.io/en/latest/>`_ packages for the A
   cd ../astra-toolbox
   CUDA_ROOT=/path/to/cuda conda-build ./ # Build Python interface
 
+The final step includes a test to check whether the build was successful. To be able to perform this test, conda should be able to find the ASTRA C++ library package of the second step. One way of accomplishing this is to temporarily add the conda build directory as a custom channel. To do this, the following steps can be used:
+
+.. code-block:: bash
+
+  cd python/conda/libastra
+  CUDA_ROOT=/path/to/cuda conda-build ./ # Build C++ library
+  cd ../
+  CUDA_ROOT=/path/to/cuda conda-build \
+      -c file://[/path/to/conda_env]/conda-bld/ \
+      -c defaults --override-channels ./ # Build Python interface
+
+To directly install these packages in a local conda environment:
+
+.. code-block:: bash
+
+  conda install -c file://[/path/to/conda_env]/conda-bld/ astra-toolbox
+
