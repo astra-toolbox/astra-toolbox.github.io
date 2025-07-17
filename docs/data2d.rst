@@ -237,6 +237,8 @@ Print basic information about all allocated data objects.
 
 **shepp_logan**
 
+.. versionadded:: 2.2
+
 .. tabs::
   .. group-tab:: Python
     .. code-block:: python

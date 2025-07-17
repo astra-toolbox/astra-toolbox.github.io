@@ -1,6 +1,9 @@
 FDK_CUDA
 ========
 
+.. versionadded:: 2.2
+   Add support for flexible filter type configuration. Before, only 'ram-lak' and 'sinorgam' filter types were supported.
+
 This is a GPU implementation of the FDK algorithm for 3D circular cone beam data sets. It takes
 projection data as input, and returns the reconstruction.
 

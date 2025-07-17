@@ -88,6 +88,9 @@ shape valid for the specified geometry. No copying is performed, so changes to t
 will be visible to Astra, and vice versa. Linking the array increments the reference count of the
 underlying memory, so deleting the original array will not destroy the created Astra object.
 
+.. versionchanged:: 2.2
+   Accept any 3D array supporting DLPack protocol. Before, only NumPy arrays were supported.
+
 **get**
 
 .. tabs::
@@ -249,6 +252,8 @@ Free all data objects.
 Print basic information about all allocated data objects.
 
 **shepp_logan**
+
+.. versionadded:: 2.2
 
 .. tabs::
   .. group-tab:: Python
