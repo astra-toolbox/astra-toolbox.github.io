@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="144" height="20" aria-label="PyPI downloads: 44k" role="img" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <title>PyPI downloads: 44k</title>
+ <linearGradient id="s" x2="0" y2="53.666" gradientTransform="scale(2.6833 .37268)" gradientUnits="userSpaceOnUse">
+  <stop stop-color="#bbb" stop-opacity=".1" offset="0"/>
+  <stop stop-opacity=".1" offset="1"/>
+ </linearGradient>
+ <clipPath id="r">
+  <rect width="144" height="20" rx="3" fill="#fff"/>
+ </clipPath>
+ <g clip-path="url(#r)">
+  <rect width="107" height="20" fill="#555555"/>
+  <rect x="107" width="37" height="20" fill="#e05b5bff"/>
+  <rect width="144" height="20" fill="url(#s)"/>
+ </g>
+ <g font-family="Verdana, Geneva, 'DejaVu Sans', sans-serif" font-size="110px" text-anchor="middle" text-rendering="geometricPrecision">
+  <text transform="scale(.1)" x="545" y="150" fill="#010101" fill-opacity=".3" aria-hidden="true" textLength="970">PyPI downloads</text>
+  <text transform="scale(.1)" x="545" y="140" fill="#ffffff" textLength="970">PyPI downloads</text>
+  <text transform="scale(.1)" x="1245" y="150" fill="#010101" fill-opacity=".3" aria-hidden="true" textLength="180">44k</text>
+  <text transform="scale(.1)" x="1245" y="140" fill="#ffffff" textLength="180">44k</text>
+ </g>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:title>PyPI downloads: 44k</dc:title>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+</svg>

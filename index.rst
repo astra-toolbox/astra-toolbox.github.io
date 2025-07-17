@@ -12,6 +12,9 @@ The ASTRA Toolbox
 .. image:: images/conda-downloads-shield.svg
    :target: https://anaconda.org/search?q=astra-toolbox
 
+.. image:: images/pypi-downloads-shield.svg
+   :target: https://pypi.org/project/astra-toolbox/
+
 .. image:: images/license-shield.svg
 
 The ASTRA Toolbox is a MATLAB and Python toolbox of high-performance GPU primitives for 2D and 3D tomography.
