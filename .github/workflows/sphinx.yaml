@@ -30,10 +30,12 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-    - name: Install Conda
-      uses: conda-incubator/setup-miniconda@v3
+    - name: Set up Python
+      uses: actions/setup-python@v5
       with:
-        environment-file: environment.yml
+        python-version: '3.13'
+    - name: Install dependencies
+      run: pip install astra-toolbox sphinx sphinx-rtd-theme sphinx-tabs
     - name: Build docs
       run: 'make html'
     - name: Setup Pages
