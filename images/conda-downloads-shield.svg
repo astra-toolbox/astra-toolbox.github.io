@@ -1,1 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="144" height="20" role="img" aria-label="conda downloads: 267k"><title>conda downloads: 267k</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="144" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="107" height="20" fill="#555"/><rect x="107" width="37" height="20" fill="#4c1"/><rect width="144" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text aria-hidden="true" x="545" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="970">conda downloads</text><text x="545" y="140" transform="scale(.1)" fill="#fff" textLength="970">conda downloads</text><text aria-hidden="true" x="1245" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="270">267k</text><text x="1245" y="140" transform="scale(.1)" fill="#fff" textLength="270">267k</text></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="144" height="20" aria-label="conda downloads: 390k" role="img" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <title>conda downloads: 390k</title>
+ <linearGradient id="s" x2="0" y2="53.666" gradientTransform="scale(2.6833 .37268)" gradientUnits="userSpaceOnUse">
+  <stop stop-color="#bbb" stop-opacity=".1" offset="0"/>
+  <stop stop-opacity=".1" offset="1"/>
+ </linearGradient>
+ <clipPath id="r">
+  <rect width="144" height="20" rx="3" fill="#fff"/>
+ </clipPath>
+ <g clip-path="url(#r)">
+  <rect width="107" height="20" fill="#555555"/>
+  <rect x="107" width="37" height="20" fill="#44cc11"/>
+  <rect width="144" height="20" fill="url(#s)"/>
+ </g>
+ <g font-family="Verdana, Geneva, 'DejaVu Sans', sans-serif" font-size="110px" text-anchor="middle" text-rendering="geometricPrecision">
+  <text transform="scale(.1)" x="545" y="150" fill="#010101" fill-opacity=".3" aria-hidden="true" textLength="970">conda downloads</text>
+  <text transform="scale(.1)" x="545" y="140" fill="#ffffff" textLength="970">conda downloads</text>
+  <text transform="scale(.1)" x="1245" y="150" fill="#010101" fill-opacity=".3" aria-hidden="true" textLength="270">390k</text>
+  <text transform="scale(.1)" x="1245" y="140" fill="#ffffff" textLength="270">390k</text>
+ </g>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:title>conda downloads: 390k</dc:title>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+</svg>
