@@ -30,21 +30,21 @@ The source code of the ASTRA Toolbox is available on `GitHub <https://github.com
 Latest News
 -----------
 
-* 16 Apr 2025: ASTRA v2.3.1 released. See the `News section <news.html>`_ for the release notes.
+* 16 Apr 2025: `ASTRA v2.3.1 <news.html#version-2-3-1>`_ released.
 
-* 22 Feb 2025: ASTRA v2.3 released. See the `News section <news.html>`_ for the release notes.
+* 22 Feb 2025: `ASTRA v2.3 <news.html#version-2-3>`_ released.
 
-* 12 Jul 2024: ASTRA v2.2 released. See the `News section <news.html>`_ for the release notes.
+* 12 Jul 2024: `ASTRA v2.2 <news.html#version-2-2>`_ released.
 
-* 31 Jan 2022: ASTRA v2.1 released. This is the official release of the 2.0.9 development version.
+* 31 Jan 2022: `ASTRA v2.1 <news.html#version-2-1>`_ released. This is the official release of the 2.0.9 development version.
 
 * 23 Dec 2021: There are now conda packages for development version 2.0.9 available in the ``astra-toolbox/label/dev`` conda channel to prepare for 2.1.0 in early 2022. This fixes a rare hang in our CUDA FFT code (and also speeds it up) in FBP_CUDA and FDK_CUDA, fixes GPULink support with unpadded rows, output gray value scaling for short-scan FDK, and conda compatibility issues with the conda-forge and nvidia conda channels.
 
-* 27 Oct 2021: ASTRA v2.0 released. This official release wraps up all the consistency and compatibility improvements from the development releases over the past few years. See the entry for 17 Jan 2020 in our `News section <news.html>`_ for more information on these gray value output range consistency improvements.
+* 27 Oct 2021: `ASTRA v2.0 <news.html#version-2-0>`_ released. This official release wraps up all the consistency and compatibility improvements from the development releases over the past few years. See the news entry for more information on these gray value output range consistency improvements.
 
-* 17 Jan 2020: In the latest development version of ASTRA (1.9.9.dev), we have made some consistency improvements to the grey value output ranges of the FP and BP operations. See the `News section <news.html>`_ for more information.
+* 17 Jan 2020: In the latest development version of ASTRA (`1.9.9.dev <news.html#version-1-9-9dev-changes-in-output-scaling-of-projectors>`_), we have made some consistency improvements to the grey value output ranges of the FP and BP operations.
 
-* 9 Jul 2019: Windows Matlab/Python packages of the current 1.9.0.dev version of ASTRA git master are now available for download below. These require CUDA 9.0+.
+* 9 Jul 2019: Windows Matlab/Python packages of the current `1.9.0.dev <news.html#version-1-9-0-dev>`_ version of ASTRA git master are now available for download below. These require CUDA 9.0+.
 
 * We now have development Python packages available from ASTRA git master on conda. Quick installation instructions: ``conda install -c astra-toolbox/label/dev astra-toolbox`` .
 
