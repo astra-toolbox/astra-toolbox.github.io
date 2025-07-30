@@ -179,14 +179,8 @@ with parallel, parallel_vec, fanflat and fanflat_vec projection geometries.
 
 NB: This functionality has not yet been implemented everywhere.
 
-astra_mex_projector
--------------------
-
-astra_mex_projector is used to manage projector objects.
-
-It is a wrapper around the MEX file astra_mex_projector_c.
-
-astra_mex_projector contains the following commands.
+API
+---
 
 *    create
 *    matrix
@@ -210,9 +204,9 @@ astra_mex_projector contains the following commands.
 
      id = astra_mex_projector('create', cfg);
 
-Create a projector from a config object. This is called internally
-by the script [[astra_create_projector]], which is the recommended way
-to create most projectors. 
+Create a projector from a config object. This is called internally by
+`astra.create_projector/astra_create_projector <#creation>`_, which is the
+recommended way to create most projectors.
 
 **matrix**
 
@@ -232,8 +226,9 @@ projector.
 
 This is only implemented for 2D CPU projectors.
 
-The returned matrix_id can be further manipulated with [astra_mex_matrix].
-In particular, it can be retrieved as a Python scipy or Matlab sparse matrix with
+The returned matrix_id can be further manipulated with
+`astra.matrix/astra_mex_matrix <misc.html#projection-matrix-objects>`_. In
+particular, it can be retrieved as a Python scipy or Matlab sparse matrix with
 
 .. tabs::
   .. group-tab:: Python

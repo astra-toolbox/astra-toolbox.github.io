@@ -13,10 +13,10 @@ Configuration options
 ================================	========	====
 name 					type 		description
 ================================	========	====
-cfg.ProjectionDataId 			required	The astra_mex_data3d ID of the projection data
-cfg.ReconstructionDataId 		required	The astra_mex_data3d ID of the reconstruction data. The content of this when starting SIRT3D_CUDA is used as the initial reconstruction.
-cfg.option.SinogramMaskId 		optional	If specified, the astra_mex_data3d ID of a projection-data-sized volume to be used as a mask. It should only have values 0.0 and 1.0. See the section on [Masks] for details.
-cfg.option.ReconstructionMaskId 	optional	If specified, the astra_mex_data3d ID of a volume-data-sized volume to be used as a mask. It should only have values 0.0 and 1.0. See the section on [Masks] for details.
+cfg.ProjectionDataId 			required	`Projection data object ID <../concepts.html#data>`_
+cfg.ReconstructionDataId 		required	`ID of data object <../concepts.html#data>`_ to store the result The content of this data is used as the initial reconstruction.
+cfg.option.SinogramMaskId 		optional	If specified, `data object ID <../concepts.html#data>`_ of a projection-data-sized volume to be used as a mask. It should only have values 0.0 and 1.0. See the section on [Masks] for details.
+cfg.option.ReconstructionMaskId 	optional	If specified, `data object ID <../concepts.html#data>`_ of a volume-data-sized volume to be used as a mask. It should only have values 0.0 and 1.0. See the section on [Masks] for details.
 cfg.option.MinConstraint 		optional	If specified, all values below MinConstraint will be set to MinConstraint. This can be used to enforce non-negative reconstructions, for example.
 cfg.option.MaxConstraint 		optional	If specified, all values above MaxConstraint will be set to MaxConstraint.
 cfg.option.GPUindex 			optional	The index (zero-based) of the GPU to use. (default: 0)

@@ -1,14 +1,8 @@
 2D Data Objects
 ===============
 
-astra_mex_data2d
-----------------
-
-astra_mex_data2d is used to manage 2D data objects. It is a wrapper around the MEX file astra_mex_data2d_c.
-
-2D data objects come in two varieties: volume data and projection data (sinograms).
-
-astra_mex_data2d contains the following commands.
+Data objects come in two varieties: volume data and projection data
+(sinograms), and can be manipulated using the following commands:
 
 *    create
 *    link (python)

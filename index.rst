@@ -17,7 +17,7 @@ The ASTRA Toolbox
 
 .. image:: images/license-shield.svg
 
-The ASTRA Toolbox is a MATLAB and Python toolbox of high-performance GPU primitives for 2D and 3D tomography.
+The ASTRA Toolbox is a Python and MATLAB toolbox of high-performance GPU primitives for 2D and 3D tomography.
 
 We support 2D parallel and fan beam geometries, and 3D parallel and cone beam. All of them have highly flexible source/detector positioning.
 

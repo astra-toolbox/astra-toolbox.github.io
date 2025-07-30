@@ -105,8 +105,8 @@ data elements.
 
 NB: MinConstraint/MaxConstraint will affect even masked voxels.
 
-astra_struct
-------------
+ASTRA configuration structure
+-----------------------------
 
 .. tabs::
   .. group-tab:: Python
@@ -140,15 +140,13 @@ The most common usage is for creating algorithm configuration structs. See the p
 on [2D CPU Algorithms], [2D GPU Algorithms], [3D GPU Algorithms] for available
 algorithms, and the pages for the individual algorithms for the options they support.
 
-astra_mex_matrix
-----------------
+Projection matrix objects
+-------------------------
 
-astra_mex_matrix is used to manage sparse matrices. These can be created by the ASTRA toolbox itself to obtain
-explicit weight matrices (see [astra_mex_projector]), or you can create them yourself for use with the sparse_matrix projection geometry.
-
-It is a wrapper around the MEX file astra_mex_matrix_c.
-
-astra_mex_matrix contains the following commands:
+Matrix objects can be created by the ASTRA toolbox to obtain explicit weight
+matrices (see `here <proj2d.html#api>`_), or you can define them yourself for
+use with the ``sparse_matrix`` projection geometry. Matrix objects can be
+manipulated using the following commands:
 
 *    create
 *    get

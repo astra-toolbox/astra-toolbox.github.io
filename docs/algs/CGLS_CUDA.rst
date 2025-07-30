@@ -3,9 +3,10 @@ CGLS_CUDA
 
 This is a GPU implementation of the Conjugate Gradient Least Squares (CGLS) algorithm for 2D data sets. It takes projection data and an initial reconstruction as input, and returns the reconstruction after a specified number of iterations.
 
-The internal state of the CGLS algorithm is reset every time astra_mex_algorithm('iterate')
-is called. This implies that running CGLS for N iterations and then running it for
-another N iterations may yield different results from running it 2N iterations at once.
+The internal state of the CGLS algorithm is reset every time
+``astra.algorithm.run``/``astra_mex_algorithm('iterate')`` is called. This
+implies that running CGLS for N iterations and then running it for another N
+iterations may yield different results from running it 2N iterations at once.
 
 Supported geometries: parallel, parallel_vec, fanflat, fanflat_vec.
 
@@ -14,9 +15,9 @@ Configuration options
 ================================	========	====
 name 					type 		description
 ================================	========	====
-cfg.ProjectionDataId 			required 	The astra_mex_data2d ID of the projection data
-cfg.ReconstructionDataId 		required 	The astra_mex_data2d ID of the reconstruction data. The content of this when starting CGLS is used as the initial reconstruction.
-cfg.option.ReconstructionMaskId 	optional 	If specified, the astra_mex_data2d ID of a volume-data-sized volume to be used as a mask.
+cfg.ProjectionDataId 			required 	`Projection data object ID <../concepts.html#data>`_
+cfg.ReconstructionDataId 		required 	`ID of data object <../concepts.html#data>`_ to store the result. The content of this data is used as the initial reconstruction.
+cfg.option.ReconstructionMaskId 	optional 	If specified, `data object ID <../concepts.html#data>`_ of a volume-data-sized volume to be used as a mask.
 cfg.option.GPUindex 			optional 	Specifies which GPU to use. Default = 0.
 cfg.option.DetectorSuperSampling 	optional 	For the forward projection, DetectorSuperSampling rays will be used. This should only be used if your detector pixels are larger than the voxels in the reconstruction volume. Defaults to 1.
 cfg.option.PixelSuperSampling 		optional 	For the backward projection, PixelSuperSampling^2 rays will be used. This should only be used if your voxels in the reconstruction volume are larger than the detector pixels. Defaults to 1.

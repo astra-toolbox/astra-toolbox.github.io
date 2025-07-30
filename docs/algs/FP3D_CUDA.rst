@@ -10,8 +10,8 @@ Configuration options
 ================================	========	==================================
 name 					type 		description
 ================================	========	==================================
-cfg.ProjectionDataId 			required 	The astra_mex_data2d ID of the projection data. The forward projection is added to this data.
-cfg.VolumeDataId 			required 	The astra_mex_data2d ID of the reconstruction data.
+cfg.ProjectionDataId 			required 	`Data object ID <../concepts.html#data>`_ to store the result. The computed forward projection is added to this data.
+cfg.VolumeDataId 			required 	`Volume data object ID <../concepts.html#data>`_
 cfg.option.DetectorSuperSampling 	optional 	Specifies the amount of detector supersampling, i.e., how many rays are cast per detector.
 cfg.option.GPUindex 			optional 	Specifies which GPU to use. Default = 0.
 ================================	========	==================================

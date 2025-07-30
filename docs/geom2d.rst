@@ -238,7 +238,7 @@ Create a 2D projection geometry defined by its system matrix:
 * det_width: unused, but has to be present (for compatibility reasons)
 * det_count: number of detectors in a single projection
 * angles: a vector, the length of which is the number of projections. The contents are unused.
-* matrix_id: a astra_mex_matrix ID of a sparse matrix of the right dimensions.
+* matrix_id: a `astra.matrix/astra_mex_matrix <misc.html#projection-matrix-objects>`_ object ID of a sparse matrix of the right dimensions.
 
 The matrix is an ID returned by
 

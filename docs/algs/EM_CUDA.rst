@@ -11,8 +11,8 @@ Configuration options
 ================================	========	======
 name 					type 		description
 ================================	========	======
-cfg.ProjectionDataId 			required 	The astra_mex_data2d ID of the projection data
-cfg.ReconstructionDataId 		required 	The astra_mex_data2d ID of the reconstruction data. The content of this when starting SIRT is used as the initial reconstruction.
+cfg.ProjectionDataId 			required 	`Projection data object ID <../concepts.html#data>`_
+cfg.ReconstructionDataId 		required 	`ID of data object <../concepts.html#data>`_ to store the result. The content of this data is used as the initial reconstruction.
 cfg.option.GPUindex 			optional 	Specifies which GPU to use. Default = 0.
 cfg.option.DetectorSuperSampling 	optional 	Specifies the amount of detector supersampling, i.e. how many rays are cast per detector.
 cfg.option.PixelSuperSampling 		optional 	Specifies the amount of pixel supersampling, i.e. how many (one dimension) subpixels are generated from a single parent pixel.

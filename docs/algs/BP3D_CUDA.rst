@@ -11,8 +11,8 @@ Configuration options
 ================================	========	====
 name 					type 		description
 ================================	========	====
-cfg.ProjectionDataId 			required	The astra_mex_data3d ID of the projection data
-cfg.ReconstructionDataId 		required	The astra_mex_data3d ID of the reconstruction data. The content of this when starting SIRT3D_CUDA is used as the initial reconstruction.
+cfg.ProjectionDataId 			required	`Projection data object ID <../concepts.html#data>`_
+cfg.ReconstructionDataId 		required	`ID of data object <../concepts.html#data>`_ to store the result. The content of this data is overwritten.
 cfg.option.GPUindex 			optional	The index (zero-based) of the GPU to use. (default: 0)
 cfg.option.VoxelSuperSampling 		optional	For the backward projection, VoxelSuperSampling^3 rays will be used. This should only be used if your voxels in the reconstruction volume are larger than the detector pixels. (default: 1)
 ================================	========	====

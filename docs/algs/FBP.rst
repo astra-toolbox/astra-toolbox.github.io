@@ -10,11 +10,12 @@ Configuration options
 +-------------------------------+----------+---------------------------------------------------------+
 | name                          | type     | description                                             |
 +===============================+==========+=========================================================+
-| cfg.ProjectionDataId          | required | The astra_mex_data2d ID of the projection data          |
+| cfg.ProjectionDataId          | required | `Projection data object ID <../concepts.html#data>`_    |
 +-------------------------------+----------+---------------------------------------------------------+
-| cfg.ReconstructionDataId      | required | The astra_mex_data2d ID of the reconstruction data.     |
+| cfg.ReconstructionDataId      | required | `ID of data object <../concepts.html#data>`_ to store   |
+|                               |          | the result.                                             |
 |                               |          |                                                         |
-|                               |          | The content of this is overwritten.                     |
+|                               |          | The content of this data is overwritten.                |
 +-------------------------------+----------+---------------------------------------------------------+
 | cfg.FilterType                | optional | | Type of projection filter. Options:                   |
 |                               |          | | * 'none'                                              |
@@ -44,11 +45,11 @@ Configuration options
 |                               |          | | * 'rsinogram' (real space filter, every projection    |
 |                               |          | | direction has its own filter)                         |
 +-------------------------------+----------+---------------------------------------------------------+
-| cfg.FilterSinogramId          | optional | The astra_mex_data2d ID of the filter data for          |
+| cfg.FilterSinogramId          | optional | The `data object ID <../concepts.html#data>`_ of the    |
 |                               |          |                                                         |
-|                               |          | 'projection', 'sinogram', 'rprojection'  and            |
+|                               |          | filter data for 'projection', 'sinogram', 'rprojection' |
 |                               |          |                                                         |
-|                               |          | 'rsinogram' filter types.                               |
+|                               |          | and 'rsinogram' filter types.                           |
 +-------------------------------+----------+---------------------------------------------------------+
 | cfg.FilterParameter           | optional | Parameter value for the 'tukey', 'gaussian',            |
 |                               |          |                                                         |

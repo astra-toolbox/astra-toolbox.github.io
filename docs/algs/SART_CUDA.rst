@@ -10,9 +10,9 @@ Configuration options
 ================================	========	====
 name 					type 		description
 ================================	========	====
-cfg.ProjectionDataId 			required 	The astra_mex_data2d ID of the projection data
-cfg.ReconstructionDataId 		required 	The astra_mex_data2d ID of the reconstruction data. The content of this when starting SART is used as the initial reconstruction.
-cfg.option.ReconstructionMaskId 	optional 	If specified, the astra_mex_data2d ID of a volume-data-sized volume to be used as a mask.
+cfg.ProjectionDataId 			required 	`Projection data object ID <../concepts.html#data>`_
+cfg.ReconstructionDataId 		required 	`ID of data object <../concepts.html#data>`_ to store the result. The content of this data is used as the initial reconstruction.
+cfg.option.ReconstructionMaskId 	optional 	If specified, `data object ID <../concepts.html#data>`_ of a volume-data-sized volume to be used as a mask.
 cfg.option.MinConstraint 		optional 	If specified, all values below MinConstraint will be set to MinConstraint. This can, for example, be used to enforce non-negative reconstructions.
 cfg.option.MaxConstraint 		optional 	If specified, all values above MaxConstraint will be set to MaxConstraint.
 cfg.option.ProjectionOrder 		optional 	This specifies the order in which the projections are used. Possible values are: 'random' (default), 'sequential', and 'custom'. If 'custom' is specified, the option.ProjectionOrderList is required.

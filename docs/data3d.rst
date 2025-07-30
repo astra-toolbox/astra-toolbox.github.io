@@ -1,14 +1,8 @@
 3D Data Objects
 ===============
 
-astra_mex_data3d
-----------------
-
-astra_mex_data3d is used to manage 3D data objects. It is a wrapper around the MEX file astra_mex_data3d_c.
-
-3D data objects come in two varieties: volume data and projection data.
-
-astra_mex_data3d has the following commands.
+Data objects come in two varieties: volume data and projection data
+(sinograms), and can be manipulated using the following commands:
 
 *    create
 *    link (python)
