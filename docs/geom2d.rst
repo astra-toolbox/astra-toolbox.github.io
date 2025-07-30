@@ -38,10 +38,12 @@ In the first form, the volume contains an equal number of rows and columns. In t
 
 Note: For usage with GPU code, the volume must be centered around the origin and pixels must be square. This is not always explicitly checked in all functions, so not following these requirements may have unpredictable results.
 
+
 Projection Geometries
 ---------------------
 
-**parallel**
+parallel
+~~~~~~~~
 
 Create a 2D parallel beam geometry:
 
@@ -60,7 +62,9 @@ Create a 2D parallel beam geometry:
 * det_count: number of detector pixels in a single projection
 * angles: projection angles in radians
 
-**fanflat**
+
+fanflat
+~~~~~~~
 
 Create a 2D flat fan beam geometry:
 
@@ -81,7 +85,9 @@ Create a 2D flat fan beam geometry:
 * source_origin: distance between the source and the center of rotation
 * origin_det: distance between the center of rotation and the detector array
 
-**parallel_vec**
+
+parallel_vec
+~~~~~~~~~~~~
 
 Create a 2D parallel beam geometry specified by 2D vectors:
 
@@ -151,7 +157,9 @@ This conversion is also available as a function in the toolbox:
 
       proj_geom_vec = astra_geom_2vec(proj_geom);
 
-**fanflat_vec**
+
+fanflat_vec
+~~~~~~~~~~~
 
 Create a 2D flat fan beam geometry specified by 2D vectors:
 
@@ -220,7 +228,9 @@ This conversion is also available as a function in the toolbox:
 
       proj_geom_vec = astra_geom_2vec(proj_geom);
 
-**sparse_matrix**
+
+sparse_matrix
+~~~~~~~~~~~~~
 
 Create a 2D projection geometry defined by its system matrix:
 

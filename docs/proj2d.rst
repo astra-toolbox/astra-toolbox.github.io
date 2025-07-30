@@ -47,7 +47,8 @@ Parallel beam
 
 The projectors in this section can be used with the parallel projection geometry.
 
-**line**
+line
+~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -63,7 +64,9 @@ The projectors in this section can be used with the parallel projection geometry
 The weight of a ray/pixel pair is given by the length of the
 intersection of the pixel and the ray, considered as a zero-thickness line.
 
-**strip**
+
+strip
+~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -80,7 +83,9 @@ The weight of a ray/pixel pair is given by the area of the
 intersection of the pixel and the ray, considered as a strip with the same
 width as a detector pixel.
 
-**linear**
+
+linear
+~~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -100,10 +105,12 @@ pixels of the intersection of the ray and the column/row.
 
 This is also known as the Joseph kernel, or a slice-interpolated kernel.
 
+
 Fan beam
 --------
 
-**line_fanflat**
+line_fanflat
+~~~~~~~~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -120,7 +127,9 @@ The weight of a ray/pixel pair is given by the length of the
 intersection of the pixel and the ray, considered as a zero-thickness line.
 This projector can be used with the fanflat and fanflat_vec geometries.
 
-**strip_fanflat**
+
+strip_fanflat
+~~~~~~~~~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -141,10 +150,12 @@ be used with the fanflat geometry.
 NB: This mathematical model does not properly take into account the fan beam
 magnification effect.
 
+
 Miscellaneous
 -------------
 
-**sparse_matrix**
+sparse_matrix
+~~~~~~~~~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -160,7 +171,9 @@ Miscellaneous
 This projector uses a sparse matrix projection geometry. See the
 documentation for that geometry for details.
 
-**cuda**
+
+cuda
+~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -179,19 +192,12 @@ with parallel, parallel_vec, fanflat and fanflat_vec projection geometries.
 
 NB: This functionality has not yet been implemented everywhere.
 
+
 API
 ---
 
-*    create
-*    matrix
-*    volume_geometry
-*    projection_geometry
-*    is_cuda
-*    delete
-*    clear
-*    info
-
-**create**
+create
+~~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -208,7 +214,9 @@ Create a projector from a config object. This is called internally by
 `astra.create_projector/astra_create_projector <#creation>`_, which is the
 recommended way to create most projectors.
 
-**matrix**
+
+matrix
+~~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -256,7 +264,9 @@ It has to be freed after use with
 
 NB: Such a matrix can be very large for large geometries.
 
-**volume_geometry**
+
+volume_geometry
+~~~~~~~~~~~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -273,7 +283,9 @@ Get the volume geometry attached to the given projector object.
 
 NB: This is not fully implemented yet and the return value may not accurately represent the geometry.
 
-**projection_geometry**
+
+projection_geometry
+~~~~~~~~~~~~~~~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -290,7 +302,9 @@ Get the projection geometry attached to the given projector object.
 
 NB: This is not fully implemented yet and the return value may not accurately represent the geometry.
 
-**is_cuda**
+
+is_cuda
+~~~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -305,7 +319,9 @@ NB: This is not fully implemented yet and the return value may not accurately re
 
 Return if the the projector is a CUDA projector.
 
-**delete**
+
+delete
+~~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -322,7 +338,9 @@ Return if the the projector is a CUDA projector.
 
 Free a single or multiple projector(s).
 
-**clear**
+
+clear
+~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -337,7 +355,9 @@ Free a single or multiple projector(s).
 
 Free all projectors.
 
-**info**
+
+info
+~~~~
 
 .. tabs::
   .. group-tab:: Python

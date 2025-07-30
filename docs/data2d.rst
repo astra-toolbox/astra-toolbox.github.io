@@ -4,20 +4,8 @@
 Data objects come in two varieties: volume data and projection data
 (sinograms), and can be manipulated using the following commands:
 
-*    create
-*    link (python)
-*    get
-*    get_shared (python)
-*    get_single (matlab)
-*    set / store
-*    get_geometry
-*    change_geometry
-*    delete
-*    clear
-*    info
-*    shepp_logan (python)
-
-**create**
+create
+------
 
 .. tabs::
   .. group-tab:: Python
@@ -63,7 +51,9 @@ Initializer may be:
 
 If an initializer is not present, the volume is initialized to zero.
 
-**link**
+
+link
+----
 
 .. tabs::
   .. group-tab:: Python
@@ -73,16 +63,17 @@ If an initializer is not present, the volume is initialized to zero.
       id = astra.data2d.link('-vol', vol_geom, array)
 
   .. group-tab:: Matlab
-    .. code-block:: matlab
 
-      N/A
+      Only available in Python interface.
 
 Creates an Astra data object that shares its memory with the specified numpy.ndarray. The ndarray
 must be contiguous, have float32 dtype, and be of the right shape. Changes to the ndarray will be
 visible to Astra, and vice versa. This increments the reference count of the underlying memory, so
 it is safe to delete the linked ndarray while the Astra object still exists.
 
-**get**
+
+get
+---
 
 .. tabs::
   .. group-tab:: Python
@@ -99,7 +90,9 @@ it is safe to delete the linked ndarray while the Astra object still exists.
 
     This fetches the data object as a 2D matrix of class double.
 
-**get_shared**
+
+get_shared
+----------
 
 .. tabs::
   .. group-tab:: Python
@@ -114,14 +107,16 @@ it is safe to delete the linked ndarray while the Astra object still exists.
 
   .. group-tab:: Matlab
 
-    N/A
+    Only available in Python interface.
 
-**get_single**
+
+get_single
+----------
 
 .. tabs::
   .. group-tab:: Python
 
-      N/A
+      Only available in Matlab interface.
 
   .. group-tab:: Matlab
     .. code-block:: matlab
@@ -130,7 +125,9 @@ it is safe to delete the linked ndarray while the Astra object still exists.
 
     This fetches the data object as a 2D matrix of class single.
 
-**set / store**
+
+set / store
+-----------
 
 .. tabs::
   .. group-tab:: Python
@@ -150,7 +147,9 @@ must be the same as the existing data object.
 
 Set and store are synonyms in the Matlab interface.
 
-**get_geometry**
+
+get_geometry
+------------
 
 .. tabs::
   .. group-tab:: Python
@@ -167,7 +166,9 @@ This gets the (volume or projection) geometry attached to the object.
 
 NB: This is not fully implemented yet and the return value may not accurately represent the geometry.
 
-**change_geometry**
+
+change_geometry
+---------------
 
 .. tabs::
   .. group-tab:: Python
@@ -184,7 +185,9 @@ This changes the (volume or projection) geometry attached to the object.
 It cannot change the dimensions of the data object. This can be used
 to change the pixel dimensions or projection angles, for example.
 
-**delete**
+
+delete
+------
 
 .. tabs::
   .. group-tab:: Python
@@ -199,7 +202,9 @@ to change the pixel dimensions or projection angles, for example.
 
 Free the memory of a data object.
 
-**clear**
+
+clear
+-----
 
 .. tabs::
   .. group-tab:: Python
@@ -214,7 +219,9 @@ Free the memory of a data object.
 
 Free all data objects.
 
-**info**
+
+info
+----
 
 .. tabs::
   .. group-tab:: Python
@@ -229,7 +236,9 @@ Free all data objects.
 
 Print basic information about all allocated data objects.
 
-**shepp_logan**
+
+shepp_logan
+-----------
 
 .. versionadded:: 2.2
 
@@ -240,8 +249,7 @@ Print basic information about all allocated data objects.
       id, data = astra.data2d.shepp_logan(vol_geom, modified)
 
   .. group-tab:: Matlab
-    .. code-block:: matlab
 
-      N/A
+      Only available in Python interface.
 
 Creates a Shepp-Logan transform. ``modified=True`` creates a phantom with improved contrast (default).

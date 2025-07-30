@@ -4,19 +4,8 @@
 Data objects come in two varieties: volume data and projection data
 (sinograms), and can be manipulated using the following commands:
 
-*    create
-*    link (python)
-*    get
-*    get_shared (python)
-*    get_single (matlab)
-*    set / store
-*    dimensions
-*    delete
-*    clear
-*    info
-*    shepp_logan (python)
-
-**create**
+create
+------
 
 .. tabs::
   .. group-tab:: Python
@@ -62,7 +51,9 @@ Initializer may be:
 
 If an initializer is not present, the volume is initialized to zero.
 
-**link**
+
+link
+----
 
 .. tabs::
   .. group-tab:: Python
@@ -85,7 +76,9 @@ underlying memory, so deleting the original array will not destroy the created A
 .. versionchanged:: 2.2
    Accept any 3D array supporting DLPack protocol. Before, only NumPy arrays were supported.
 
-**get**
+
+get
+---
 
 .. tabs::
   .. group-tab:: Python
@@ -100,7 +93,9 @@ underlying memory, so deleting the original array will not destroy the created A
 
 This fetches the data object as a 3D matrix. In Matlab, it will be of class double. In Python, of dtype float32.
 
-**get_shared**
+
+get_shared
+----------
 
 .. tabs::
   .. group-tab:: Python
@@ -115,14 +110,16 @@ This fetches the data object as a 3D matrix. In Matlab, it will be of class doub
 
   .. group-tab:: Matlab
 
-    N/A
+    Only available in Python interface.
 
-**get_single**
+
+get_single
+----------
 
 .. tabs::
   .. group-tab:: Python
 
-    N/A
+    Only available in Matlab interface.
 
   .. group-tab:: Matlab
     .. code-block:: matlab
@@ -131,7 +128,9 @@ This fetches the data object as a 3D matrix. In Matlab, it will be of class doub
 
 This fetches the data object as a 3D matrix of class single.
 
-**set / store**
+
+set / store
+-----------
 
 .. tabs::
   .. group-tab:: Python
@@ -150,7 +149,9 @@ must be the same as when used as the existing data object.
 
 Set and store are synonyms in the Matlab interface.
 
-**dimensions**
+
+dimensions
+----------
 
 .. tabs::
   .. group-tab:: Python
@@ -165,7 +166,9 @@ Set and store are synonyms in the Matlab interface.
 
 Get the dimensions of a data object.
 
-**get_geometry**
+
+get_geometry
+------------
 
 .. tabs::
   .. group-tab:: Python
@@ -182,7 +185,9 @@ This gets the (volume or projection) geometry attached to the object.
 
 NB: This is not fully implemented yet and the return value may not accurately represent the geometry.
 
-**change_geometry**
+
+change_geometry
+---------------
 
 .. tabs::
   .. group-tab:: Python
@@ -199,7 +204,9 @@ This changes the (volume or projection) geometry attached to the object.
 It cannot change the dimensions of the data object. This can be used
 to change the pixel dimensions or projection angles, for example.
 
-**delete**
+
+delete
+------
 
 .. tabs::
   .. group-tab:: Python
@@ -215,7 +222,9 @@ to change the pixel dimensions or projection angles, for example.
 
 Free the memory of a data object.
 
-**clear**
+
+clear
+-----
 
 .. tabs::
   .. group-tab:: Python
@@ -230,7 +239,9 @@ Free the memory of a data object.
 
 Free all data objects.
 
-**info**
+
+info
+----
 
 .. tabs::
   .. group-tab:: Python
@@ -245,7 +256,9 @@ Free all data objects.
 
 Print basic information about all allocated data objects.
 
-**shepp_logan**
+
+shepp_logan
+-----------
 
 .. versionadded:: 2.2
 
@@ -256,9 +269,8 @@ Print basic information about all allocated data objects.
       id, data = astra.data3d.shepp_logan(vol_geom, modified)
 
   .. group-tab:: Matlab
-    .. code-block:: matlab
 
-      N/A
+      Only available in Python interface.
 
 Creates a Shepp-Logan transform. ``modified=True`` creates a phantom with improved contrast (default).
 

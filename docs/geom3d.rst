@@ -34,10 +34,12 @@ Specify the extent of the 3D volume (note that rows are oriented along the Y axi
 
 This can be used to control the voxel size, including specifying anisotropic voxels (note that the FDK algorithm does not currently support anisotropic voxels and will raise an exception).
 
+
 Projection geometries
 ---------------------
 
-**parallel3d**
+parallel3d
+~~~~~~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -58,7 +60,9 @@ Create a 3D parallel beam geometry.
 *    det_col_count: number of detector columns in a single projection
 *    angles: projection angles in radians
 
-**cone**
+
+cone
+~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -81,7 +85,9 @@ Create a 3D cone beam geometry.
 *    source_origin: distance between the source and the center of rotation
 *    origin_det: distance between the center of rotation and the detector array
 
-**parallel3d_vec**
+
+parallel3d_vec
+~~~~~~~~~~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -174,7 +180,9 @@ This conversion is also available as a function in the toolbox:
 
       proj_geom_vec = astra_geom_2vec(proj_geom);
 
-**cone_vec**
+
+cone_vec
+~~~~~~~~
 
 .. tabs::
   .. group-tab:: Python

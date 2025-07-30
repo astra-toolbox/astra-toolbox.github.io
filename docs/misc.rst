@@ -140,6 +140,7 @@ The most common usage is for creating algorithm configuration structs. See the
 pages for `individual algorithms <algs/index.html>`_for the options they
 support.
 
+
 Projection matrix objects
 -------------------------
 
@@ -148,15 +149,8 @@ matrices (see `here <proj2d.html#api>`_), or you can define them yourself for
 use with the ``sparse_matrix`` projection geometry. Matrix objects can be
 manipulated using the following commands:
 
-*    create
-*    get
-*    get_size
-*    store
-*    delete
-*    clear
-*    info
-
-**create**
+create
+~~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -168,6 +162,9 @@ manipulated using the following commands:
     .. code-block:: matlab
 
       id = astra_mex_matrix('create', S);
+
+get
+~~~
 
 Create an ASTRA sparse matrix object from a Python sparse matrix of type scipy.sparse.csr_matrix or a Matlab sparse matrix.
 
@@ -184,7 +181,9 @@ Create an ASTRA sparse matrix object from a Python sparse matrix of type scipy.s
 
 Return an ASTRA sparse matrix object as a Python sparse matrix of type scipy.sparse.csr_matrix or a Matlab sparse matrix.
 
-**get_size**
+
+get_size
+~~~~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -199,7 +198,9 @@ Return an ASTRA sparse matrix object as a Python sparse matrix of type scipy.spa
 
 Get the size (rows,columns) of the sparse matrix object.
 
-**store**
+
+store
+~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -218,7 +219,9 @@ NB: This does not re-allocate memory: the number of rows and
 non-zero entries may not be larger than they were when
 the object was first created.
 
-**delete**
+
+delete
+~~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -234,7 +237,9 @@ the object was first created.
 
 Free a single sparse matrix.
 
-**clear**
+
+clear
+~~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -249,7 +254,9 @@ Free a single sparse matrix.
 
 Free all sparse matrices.
 
-**info**
+
+info
+~~~~
 
 .. tabs::
   .. group-tab:: Python
@@ -263,4 +270,3 @@ Free all sparse matrices.
       astra_mex_matrix('info')
 
 Print basic information about all allocated sparse matrix objects.
-
