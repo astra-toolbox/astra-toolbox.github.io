@@ -13,7 +13,7 @@ Create a 3D volume geometry:
      vol_geom = astra.create_vol_geom([n_rows, n_cols, n_slices])
      vol_geom = astra.create_vol_geom(n_rows, n_cols, n_slices)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
      vol_geom = astra_create_vol_geom([n_rows, n_cols, n_slices]);
@@ -27,7 +27,7 @@ Specify the extent of the 3D volume (note that rows are oriented along the Y axi
 
       vol_geom = astra.create_vol_geom(n_rows, n_cols, n_slices, min_x, max_x, min_y, max_y, min_z, max_z)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       vol_geom = astra_create_vol_geom(n_rows, n_cols, n_slices, min_x, max_x, min_y, max_y, min_z, max_z);
@@ -47,7 +47,7 @@ parallel3d
 
       proj_geom = astra.create_proj_geom('parallel3d', det_spacing_x, det_spacing_y, det_row_count, det_col_count, angles)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_geom = astra_create_proj_geom('parallel3d', det_spacing_x, det_spacing_y, det_row_count, det_col_count, angles);
@@ -70,7 +70,7 @@ cone
 
       proj_geom = astra.create_proj_geom('cone',  det_spacing_x, det_spacing_y, det_row_count, det_col_count, angles, source_origin, origin_det)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_geom = astra_create_proj_geom('cone',  det_spacing_x, det_spacing_y, det_row_count, det_col_count, angles, source_origin, origin_det);
@@ -95,7 +95,7 @@ parallel3d_vec
 
       proj_geom = astra.create_proj_geom('parallel3d_vec',  det_row_count, det_col_count, vectors)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_geom = astra_create_proj_geom('parallel3d_vec',  det_row_count, det_col_count, vectors);
@@ -144,7 +144,7 @@ type "parallel3d" into such a 12-element row:
       vectors[i,10] = 0
       vectors[i,11] = proj_geom['DetectorSpacingY']
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       % ray direction
@@ -175,7 +175,7 @@ This conversion is also available as a function in the toolbox:
 
       proj_geom_vec = astra.geom_2vec(proj_geom)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_geom_vec = astra_geom_2vec(proj_geom);
@@ -190,7 +190,7 @@ cone_vec
 
       proj_geom = astra.create_proj_geom('cone_vec',  det_row_count, det_col_count, vectors)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_geom = astra_create_proj_geom('cone_vec',  det_row_count, det_col_count, vectors);
@@ -239,7 +239,7 @@ type "cone" into such a 12-element row:
       vectors[i,10] = 0
       vectors[i,11] = proj_geom['DetectorSpacingY']
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       % source

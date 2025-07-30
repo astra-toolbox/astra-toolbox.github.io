@@ -15,7 +15,7 @@ Create a 2D volume geometry:
       vol_geom = astra.create_vol_geom(n_rows, n_cols)
       vol_geom = astra.create_vol_geom(n_rows, n_cols, min_x, max_x, min_y, max_y)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       vol_geom = astra_create_vol_geom(n_rows_and_cols);
@@ -31,7 +31,7 @@ In the first form, the volume contains an equal number of rows and columns. In t
 
       vol_geom = astra.create_vol_geom(y, x, -x/2, x/2, -y/2, y/2)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       vol_geom = astra_create_vol_geom(y, x, -x/2, x/2, -y/2, y/2);
@@ -53,7 +53,7 @@ Create a 2D parallel beam geometry:
 
       proj_geom = astra.create_proj_geom('parallel', det_spacing, det_count, angles)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_geom = astra_create_proj_geom('parallel', det_spacing, det_count, angles);
@@ -74,7 +74,7 @@ Create a 2D flat fan beam geometry:
 
       proj_geom = astra.create_proj_geom('fanflat', det_spacing, det_count, angles, source_origin, origin_det)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_geom = astra_create_proj_geom('fanflat', det_spacing, det_count, angles, source_origin, origin_det);
@@ -97,7 +97,7 @@ Create a 2D parallel beam geometry specified by 2D vectors:
 
       proj_geom = astra.create_proj_geom('parallel_vec', det_count, vectors)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_geom = astra_create_proj_geom('parallel_vec', det_count, vectors);
@@ -129,7 +129,7 @@ type "parallel" into such a 6-element row:
       vectors[i,4] = numpy.cos(proj_geom['ProjectionAngles'][i]) * proj_geom['DetectorWidth']
       vectors[i,5] = numpy.sin(proj_geom['ProjectionAngles'][i]) * proj_geom['DetectorWidth']
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       % source
@@ -152,7 +152,7 @@ This conversion is also available as a function in the toolbox:
 
       proj_geom_vec = astra.geom_2vec(proj_geom)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_geom_vec = astra_geom_2vec(proj_geom);
@@ -169,7 +169,7 @@ Create a 2D flat fan beam geometry specified by 2D vectors:
 
       proj_geom = astra.create_proj_geom('fanflat_vec', det_count, vectors)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_geom = astra_create_proj_geom('fanflat_vec', det_count, vectors);
@@ -200,7 +200,7 @@ To illustrate, this is a script to convert a single projection in a projection g
       vectors[i,4] = numpy.cos(proj_geom['ProjectionAngles'][i]) * proj_geom['DetectorWidth']
       vectors[i,5] = numpy.sin(proj_geom['ProjectionAngles'][i]) * proj_geom['DetectorWidth']
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       % source
@@ -223,7 +223,7 @@ This conversion is also available as a function in the toolbox:
 
       proj_geom_vec = astra.geom_2vec(proj_geom)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_geom_vec = astra_geom_2vec(proj_geom);
@@ -240,7 +240,7 @@ Create a 2D projection geometry defined by its system matrix:
 
       proj_geom = astra.create_proj_geom('sparse_matrix', det_width, det_count, angles, matrix_id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_geom = astra_create_proj_geom('sparse_matrix', det_width, det_count, angles, matrix_id);
@@ -258,7 +258,7 @@ The matrix is an ID returned by
 
       matrix_id = astra.matrix.create(scipy_sparse_csr_matrix)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       matrix_id = astra_mex_matrix('create', matlab_sparse_matrix);
@@ -271,5 +271,5 @@ corresponds to the first detector pixel of the first projection, and the second 
 matrix corresponds to the second detector pixel of the first projection.
 
 The columns of the sparse matrix are ordered by row: The first column of the matrix
-corresponds to pixel (0,0) in Python (which is (1,1) in Matlab) and the second
-column to pixel (0,1) in Python (which is (1,2) in Matlab) in the volume.
+corresponds to pixel (0,0) in Python (which is (1,1) in MATLAB) and the second
+column to pixel (0,1) in Python (which is (1,2) in MATLAB) in the volume.

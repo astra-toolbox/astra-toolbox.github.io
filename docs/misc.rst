@@ -10,7 +10,7 @@ Testing the ASTRA installation
 
       astra.test()
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_test
@@ -29,7 +29,7 @@ Setting GPU index
       astra.set_gpu_index(index)
       astra.set_gpu_index([index1, index2, ...])
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex('set_gpu_index', index);
@@ -74,16 +74,16 @@ accelerate sequential computation:
           projections = list(executor.map(forward_project_slice, phantom_data))
       projections = np.stack(projections, axis=0)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
 
-      Matlab doesn't support executing external libraries in multithreaded environments.
+      MATLAB doesn't support executing external libraries in multithreaded environments.
 
 **WARNING!** No special care is taken about race conditions, so the user has to ensure that the
 outputs of algorithms are not accessed simultaneously.
 
-Matlab, on the other hand, doesn't support executing external libraries in multithreaded
+MATLAB, on the other hand, doesn't support executing external libraries in multithreaded
 environments, so the only option is much less lightweight process-based concurrent execution. The
-simplest approach is to just start several copies of Matlab in batch mode.
+simplest approach is to just start several copies of MATLAB in batch mode.
 
 Masks
 -----
@@ -114,7 +114,7 @@ ASTRA configuration structure
 
       cfg = astra.astra_dict('NAME')
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       cfg = astra_struct('NAME');
@@ -130,7 +130,7 @@ passed to astra functions such as
       id = astra.algorithm.create(cfg)
       id = astra.projector.create(cfg)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       id = astra_mex_algorithm('create', cfg);
@@ -158,7 +158,7 @@ create
 
       id = astra.matrix.create(S)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       id = astra_mex_matrix('create', S);
@@ -166,7 +166,7 @@ create
 get
 ~~~
 
-Create an ASTRA sparse matrix object from a Python sparse matrix of type scipy.sparse.csr_matrix or a Matlab sparse matrix.
+Create an ASTRA sparse matrix object from a Python sparse matrix of type scipy.sparse.csr_matrix or a MATLAB sparse matrix.
 
 .. tabs::
   .. group-tab:: Python
@@ -174,12 +174,12 @@ Create an ASTRA sparse matrix object from a Python sparse matrix of type scipy.s
 
       S = astra.matrix.get(id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       S = astra_mex_matrix('get', id);
 
-Return an ASTRA sparse matrix object as a Python sparse matrix of type scipy.sparse.csr_matrix or a Matlab sparse matrix.
+Return an ASTRA sparse matrix object as a Python sparse matrix of type scipy.sparse.csr_matrix or a MATLAB sparse matrix.
 
 
 get_size
@@ -191,7 +191,7 @@ get_size
 
       s = astra.matrix.get_size(id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       s = astra_mex_matrix('get_size', id);
@@ -208,12 +208,12 @@ store
 
       astra.matrix.store(id, S)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_matrix('store', id, S);
 
-Store a new Python or Matlab sparse matrix in an ASTRA sparse matrix object.
+Store a new Python or MATLAB sparse matrix in an ASTRA sparse matrix object.
 
 NB: This does not re-allocate memory: the number of rows and
 non-zero entries may not be larger than they were when
@@ -230,7 +230,7 @@ delete
       astra.matrix.delete(id)
       astra.matrix.delete([id1, id2, ...])
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_matrix('delete', id)
@@ -247,7 +247,7 @@ clear
 
       astra.matrix.clear()
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_matrix('clear')
@@ -264,7 +264,7 @@ info
 
       astra.matrix.info()
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_matrix('info')

@@ -44,7 +44,7 @@ Latest News
 
 * 17 Jan 2020: In the latest development version of ASTRA (`1.9.9.dev <news.html#version-1-9-9dev-changes-in-output-scaling-of-projectors>`_), we have made some consistency improvements to the grey value output ranges of the FP and BP operations.
 
-* 9 Jul 2019: Windows Matlab/Python packages of the current `1.9.0.dev <news.html#version-1-9-0-dev>`_ version of ASTRA git master are now available for download below. These require CUDA 9.0+.
+* 9 Jul 2019: Windows MATLAB/Python packages of the current `1.9.0.dev <news.html#version-1-9-0-dev>`_ version of ASTRA git master are now available for download below. These require CUDA 9.0+.
 
 * We now have development Python packages available from ASTRA git master on conda. Quick installation instructions: ``conda install -c astra-toolbox/label/dev astra-toolbox`` .
 

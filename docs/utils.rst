@@ -11,7 +11,7 @@ Create sinogram
       id, sinogram = astra.create_sino(data, projector_id)
       id = astra.create_sino(data, projector_id, returnData=False)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       id = astra_create_sino(data, projector_id);
@@ -43,7 +43,7 @@ Create backprojection
       id, volume = astra.create_backprojection(data, projector_id)
       id = astra.create_backprojection(data, projector_id, returnData=False)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       id = astra_create_backprojection(data, projector_id);
@@ -74,7 +74,7 @@ Create sinogram (CUDA)
 
       N/A
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       id = astra_create_sino_cuda(data, proj_geom, vol_geom);
@@ -101,7 +101,7 @@ Create backprojection (CUDA)
 
       N/A
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       volume = astra_create_backprojection_cuda(data, proj_geom, vol_geom);
@@ -129,7 +129,7 @@ Create 3D sinogram (CUDA)
       id, volume = astra.create_sino3d_gpu(data, proj_geom, vol_geom)
       id = astra.create_sino3d_gpu(data, proj_geom, vol_geom, returnData=False)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       id = astra_create_sino3d_cuda(data, proj_geom, vol_geom);
@@ -159,7 +159,7 @@ Create 3D backprojection (CUDA)
       id, volume = astra.create_backprojection3d_gpu(data, proj_geom, vol_geom)
       id = astra.create_backprojection3d_gpu(data, proj_geom, vol_geom, returnData=False)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       id = astra_create_backprojection3d_cuda(data, proj_geom, vol_geom);
@@ -190,7 +190,7 @@ Convert geometry to vector representation
 
       proj_geom_vec = astra.geom_2vec(proj_geom)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_geom_vec = astra_geom_2vec(proj_geom);
@@ -209,7 +209,7 @@ Geometry post-alignment
       proj_geom = astra.geom_postalignment(proj_geom, factorU)
       proj_geom = astra.geom_postalignment(proj_geom, [factorU, factorV])
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_geom = astra_geom_postalignment(proj_geom, factorU)
@@ -234,13 +234,13 @@ Get geometry size
       s = astra.geom_size(geom)
       s = astra.geom_size(geom, dim)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       s = astra_geom_size(geom);
       s = astra_geom_size(geom, dim);
 
-Get the size of Matlab arrays for data objects with a given geometry.
+Get the size of MATLAB arrays for data objects with a given geometry.
 All geometries (2D, 3D, volume, projection) are supported.
 
 The size returned is the size needed for arrays passed to the 2D/3D data

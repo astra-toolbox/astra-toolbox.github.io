@@ -30,7 +30,7 @@ of the ray source and detector. The available types of projection geometries are
       projection_geometry = astra.create_proj_geom('parallel', detector_spacing, detector_pixel_count, angles)
 
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       n_rows = 256;
@@ -45,7 +45,7 @@ of the ray source and detector. The available types of projection geometries are
 Data
 ----
 
-Data in ASTRA Toolbox is represented by objects separate from Python/Matlab, and
+Data in ASTRA Toolbox is represented by objects separate from Python/MATLAB, and
 come in four varieties: 2D/3D volume data, and 2D/3D projection data. They can
 be manipulated with `astra.data2d/astra_mex_data2d <data2d.html>`_ and
 `astra.data3d/astra_mex_data3d <data2d.html>`_ commands. Each data object has a
@@ -67,13 +67,13 @@ commands.
       astra.data2d.delete(volume_data_id)
       astra.data2d.delete(projection_data_id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       volume_data = rand(256, 256);
       projection_data = rand(180, 256);
 
-      % Create ASTRA data object from Matlab arrays
+      % Create ASTRA data object from MATLAB arrays
       volume_data_id = astra_mex_data2d('create', '-vol', volume_geometry, volume_data);
       projection_data_id = astra_mex_data2d('create', '-sino', projection_geometry, projection_data);
 
@@ -108,7 +108,7 @@ result can then be retrieved from the corresponding ASTRA data object using
 
       sinogram = astra.data2d.get(projection_data_id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
 	  config = astra_struct('FP_CUDA');
@@ -132,7 +132,7 @@ algorithm objects may additionally reserve GPU memory.
 
       astra.algorithm.delete(algorithm_id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
 	  astra_mex_algorithm('delete', algorithm_id);

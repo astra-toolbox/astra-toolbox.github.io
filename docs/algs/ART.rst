@@ -18,7 +18,7 @@ cfg.option.ReconstructionMaskId optional 	If specified, `data object ID <../conc
 cfg.option.MinConstraint 	optional 	If specified, all values below MinConstraint will be set to MinConstraint. This can, for example, be used to enforce non-negative reconstructions.
 cfg.option.MaxConstraint 	optional 	If specified, all values above MaxConstraint will be set to MaxConstraint.
 cfg.option.RayOrder 		optional 	This specifies the order in which the projections are used. Possible values are: 'sequential' (default) and 'custom'. If 'custom' is specified, the option.RayOrderList is required.
-cfg.option.RayOrderList 	optional 	Required if option.RayOrder = 'custom', ignored otherwise. A matlab vector containing the custom order in which the projections are used.
+cfg.option.RayOrderList 	optional 	Required if option.RayOrder = 'custom', ignored otherwise. A MATLAB vector containing the custom order in which the projections are used.
 =============================== ========	================================================================================
 
 Example
@@ -67,7 +67,7 @@ Example
       astra.algorithm.delete(art_id)
 
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
 	%% create phantom

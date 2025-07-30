@@ -14,7 +14,7 @@ create
       id = astra.data3d.create('-vol', vol_geom)
       id = astra.data3d.create('-vol', vol_geom, initializer)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       id = astra_mex_data3d('create', '-vol', vol_geom);
@@ -25,7 +25,7 @@ This creates an initialized 3D volume data object for the geometry vol_geom.
 Initializer may be:
 
 *    a scalar: the object is initialized with this constant value.
-*    a matrix: the object is initialized with the contents of this matrix. The matrix must be of size (n_slices, n_rows, n_cols) in Python, or (n_cols, n_rows, n_slices) in Matlab, as defined in the volume geometry. In Python, it must be convertible to dtype float32. In Matlab, it must be of class single, double or logical.
+*    a matrix: the object is initialized with the contents of this matrix. The matrix must be of size (n_slices, n_rows, n_cols) in Python, or (n_cols, n_rows, n_slices) in MATLAB, as defined in the volume geometry. In Python, it must be convertible to dtype float32. In MATLAB, it must be of class single, double or logical.
 
 If an initializer is not present, the volume is initialized to zero.
 
@@ -36,7 +36,7 @@ If an initializer is not present, the volume is initialized to zero.
      id = astra.data3d.create('-proj3d', proj_geom)
      id = astra.data3d.create('-proj3d', proj_geom, initializer)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
      id = astra_mex_data3d('create', '-proj3d', proj_geom);
@@ -47,7 +47,7 @@ This creates an initialized 3D projection data object for the geometry proj_geom
 Initializer may be:
 
 *    a scalar: the object is initialized with this constant value.
-*    a matrix: the object is initialized with the contents of this matrix. The matrix must be of size (det_row_count, n_angles, det_col_count) in Python, or (det_col_count, n_angles, det_row_count) in Matlab, as defined in the projection geometry. In Python, it must be convertible to dtype float32. In Matlab, it must be of class single, double or logical.
+*    a matrix: the object is initialized with the contents of this matrix. The matrix must be of size (det_row_count, n_angles, det_col_count) in Python, or (det_col_count, n_angles, det_row_count) in MATLAB, as defined in the projection geometry. In Python, it must be convertible to dtype float32. In MATLAB, it must be of class single, double or logical.
 
 If an initializer is not present, the volume is initialized to zero.
 
@@ -62,7 +62,7 @@ link
       id = astra.data3d.link('-sino', proj_geom, array)
       id = astra.data3d.link('-vol', vol_geom, array)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
 
     :ref:`matlab_linking`
 
@@ -86,12 +86,12 @@ get
 
       A = astra.data3d.get(id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       A = astra_mex_data3d('get', id);
 
-This fetches the data object as a 3D matrix. In Matlab, it will be of class double. In Python, of dtype float32.
+This fetches the data object as a 3D matrix. In MATLAB, it will be of class double. In Python, of dtype float32.
 
 
 get_shared
@@ -108,7 +108,7 @@ get_shared
     object while the resulting Python object still exists will lead to undefined behaviour and
     potentially memory corruption and crashes.
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
 
     Only available in Python interface.
 
@@ -119,9 +119,9 @@ get_single
 .. tabs::
   .. group-tab:: Python
 
-    Only available in Matlab interface.
+    Only available in MATLAB interface.
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
        A = astra_mex_data3d('get_single', id);
@@ -138,7 +138,7 @@ set / store
 
       astra.data3d.store(id, A)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_data3d('set', id, A);
@@ -147,7 +147,7 @@ set / store
 This stores the matrix A in the data object. The dimensions of A
 must be the same as when used as the existing data object.
 
-Set and store are synonyms in the Matlab interface.
+Set and store are synonyms in the MATLAB interface.
 
 
 dimensions
@@ -159,7 +159,7 @@ dimensions
 
       s = astra.data3d.dimensions(id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       s = astra_mex_data3d('dimensions', id);
@@ -176,7 +176,7 @@ get_geometry
 
       geom = astra.data3d.get_geometry(id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       geom = astra_mex_data3d('get_geometry', id);
@@ -195,7 +195,7 @@ change_geometry
 
       astra.data3d.change_geometry(id, geom)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_data3d('change_geometry', id, geom);
@@ -215,7 +215,7 @@ delete
       astra.data3d.delete(id)
       astra.data3d.delete([id1, id2, ...])
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_data3d('delete', id);
@@ -232,7 +232,7 @@ clear
 
       astra.data3d.clear()
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_data3d('clear');
@@ -249,7 +249,7 @@ info
 
       astra.data3d.info()
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_data3d('info')
@@ -268,7 +268,7 @@ shepp_logan
 
       id, data = astra.data3d.shepp_logan(vol_geom, modified)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
 
       Only available in Python interface.
 
@@ -277,7 +277,7 @@ Creates a Shepp-Logan transform. ``modified=True`` creates a phantom with improv
 
 .. _matlab_linking:
 
-Linking data in Matlab
+Linking data in MATLAB
 ----------------------
 
 .. code-block:: matlab
@@ -288,7 +288,7 @@ Linking data in Matlab
 NB: This must be called on astra_mex_data3d_c, and does not work properly
 when using the wrapper astra_mex_data3d.
 
-This creates a data object that directly uses a matlab array as storage
+This creates a data object that directly uses a MATLAB array as storage
 instead of allocating its own memory. The array must be of the same
 dimensions as those required for initializers in astra_mex_data3d('create').
 Additionally, it must be of class 'single'.
@@ -297,29 +297,29 @@ The optional argument 'readonly' (default: false), controls the exact
 behaviour of this operation. See the two sections below for details.
 
 The optional argument 'Z' (default: 0) allows creating a data object that is smaller
-in the third dimension than the Matlab array. The data object will be mapped
-to slices starting at slice Z. NB: Z is zero-based, unlike matlab array indexing.
+in the third dimension than the MATLAB array. The data object will be mapped
+to slices starting at slice Z. NB: Z is zero-based, unlike MATLAB array indexing.
 
 **Read-only link mode:**
 
 The data object becomes an additional reference to the
-array, effectively behaving the same as a Matlab assignment
+array, effectively behaving the same as a MATLAB assignment
 'internal_data = A;' (if 'A' is passed as the 'array' argument). If the array
-A is changed inside Matlab, a copy will be made and the changes to A will not
+A is changed inside MATLAB, a copy will be made and the changes to A will not
 be visible to this data object.
 
 The data object's read-only state is not enforced by the astra toolbox. Using
 it as output for algorithms is allowed, but the exact effects depend on
-Matlab's internal reference counting mechanics.
+MATLAB's internal reference counting mechanics.
 
 **Read-write link mode:**
 
 The passed array is 'unshared' and the data object
-obtains a second reference to this array. There is no direct Matlab
+obtains a second reference to this array. There is no direct MATLAB
 script equivalent to this, but effectively the data object and the passed array
 will share memory. Any changes to the data object from inside the toolbox will
-be visible in Matlab.
+be visible in MATLAB.
 
-If the passed array is modified in Matlab, this link is broken (by matlab's
+If the passed array is modified in MATLAB, this link is broken (by MATLAB's
 reference counting mechanism), and the changes will not be visible to
 the astra data object.

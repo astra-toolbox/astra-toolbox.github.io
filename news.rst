@@ -4,7 +4,7 @@ News
 2025-04-16: Version 2.3.1
 -------------------------
 * Fix GPULink missing in astra.data3d module
-* Fix crash in Matlab when calling astra_mex_direct
+* Fix crash in MATLAB when calling astra_mex_direct
 * Fix missing accelerated virtual GPU code for CUDA architectures > 8.6 in Linux packages
 
 2025-02-22: Version 2.3
@@ -102,9 +102,9 @@ Specific changes:
 * Fix geometry memory leak in 3D FP/BP
 * Fix FDK short scan weighting
 * Add preliminary support for building on macOS
-* Add experimental support for using externally managed GPU memory from python
+* Add experimental support for using externally managed GPU memory from Python
   (see samples/python/s021_pygpu.py)
-* Our Linux conda python packages now have variants depending on the
+* Our Linux conda Python packages now have variants depending on the
   cudatoolkit version
 * Add basic post-install tests test_CUDA/test_noCUDA (see README)
 
@@ -116,8 +116,8 @@ Specific changes:
 * Add support for non-cubic voxels in volume geometry
 * Fix certain projections parallel to XZ or YZ planes
 * Fix accumulating multiple raylengths in SART
-* For matlab OpTomo, make output type match input type
-* For python OpTomo, add FP/BP functions with optional 'out' argument
+* For MATLAB OpTomo, make output type match input type
+* For Python OpTomo, add FP/BP functions with optional 'out' argument
 * Fix problems with non-US locales
 * Windows binary release now requires CUDA 8.0
 * Major changes to the way 'make install' works when building from source
@@ -143,7 +143,7 @@ Specific changes:
 
 2015-05-29: Version 1.6
 -----------------------
-* Integrate and improve python interface
+* Integrate and improve Python interface
 * Integrate opSpot-based opTomo operator
 * Build fixes for newer platforms
 * Various consistency and bug fixes
@@ -190,7 +190,7 @@ Daniël M. Pelt from CWI has released a Python interface for the ASTRA Toolbox.
 
 2012-10-24: Version 1.1
 -----------------------
-* Add support for matlab single arrays in mex interface
+* Add support for MATLAB single arrays in mex interface
 
 2012-08-22: Version 1.0
 -----------------------

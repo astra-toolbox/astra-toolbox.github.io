@@ -15,7 +15,7 @@ Creation
 
       id = astra.create_projector(...)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       id = astra_create_projector(...);
@@ -24,7 +24,7 @@ Create a projector object. Projectors determine the (implicit) weight matrix of
 the geometries. All CPU reconstruction algorithms require a projector.
 
 This script is a wrapper around astra.projector.create (Python) /
-astra_mex_projector('create', ...) (Matlab) with a more convenient interface.
+astra_mex_projector('create', ...) (MATLAB) with a more convenient interface.
 See below for specifics.
 
 The allocated object must be freed after use with a call to
@@ -35,7 +35,7 @@ The allocated object must be freed after use with a call to
 
       astra.projector.delete(id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_projector('delete', id)
@@ -56,7 +56,7 @@ line
 
       proj_id = astra.create_projector('line', proj_geom, vol_geom)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_id = astra_create_projector('line', proj_geom, vol_geom);
@@ -74,7 +74,7 @@ strip
 
       proj_id = astra.create_projector('strip', proj_geom, vol_geom)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_id = astra_create_projector('strip', proj_geom, vol_geom);
@@ -93,7 +93,7 @@ linear
 
       proj_id = astra.create_projector('linear', proj_geom, vol_geom)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_id = astra_create_projector('linear', proj_geom, vol_geom);
@@ -118,7 +118,7 @@ line_fanflat
 
       proj_id = astra.create_projector('line_fanflat', proj_geom, vol_geom)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_id = astra_create_projector('line_fanflat', proj_geom, vol_geom);
@@ -137,7 +137,7 @@ strip_fanflat
 
       proj_id = astra.create_projector('strip_fanflat', proj_geom, vol_geom)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_id = astra_create_projector('strip_fanflat', proj_geom, vol_geom);
@@ -163,7 +163,7 @@ sparse_matrix
 
       proj_id = astra.create_projector('sparse_matrix', proj_geom, vol_geom)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_id = astra_create_projector('sparse_matrix', proj_geom, vol_geom);
@@ -181,7 +181,7 @@ cuda
 
       proj_id = astra.create_projector('cuda', proj_geom, vol_geom)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_id = astra_create_projector('cuda', proj_geom, vol_geom);
@@ -205,7 +205,7 @@ create
 
      id = astra.projector.create(cfg)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
      id = astra_mex_projector('create', cfg);
@@ -224,7 +224,7 @@ matrix
 
       matrix_id = astra.projector.matrix(projector_id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       matrix_id = astra_mex_projector('matrix', projector_id);
@@ -236,7 +236,7 @@ This is only implemented for 2D CPU projectors.
 
 The returned matrix_id can be further manipulated with
 `astra.matrix/astra_mex_matrix <misc.html#projection-matrix-objects>`_. In
-particular, it can be retrieved as a Python scipy or Matlab sparse matrix with
+particular, it can be retrieved as a Python scipy or MATLAB sparse matrix with
 
 .. tabs::
   .. group-tab:: Python
@@ -244,7 +244,7 @@ particular, it can be retrieved as a Python scipy or Matlab sparse matrix with
 
       S = astra.matrix.get(matrix_id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       S = astra_mex_matrix('get', matrix_id);
@@ -257,7 +257,7 @@ It has to be freed after use with
 
       astra.matrix.delete(matrix_id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_matrix('delete', matrix_id);
@@ -274,7 +274,7 @@ volume_geometry
 
       vol_geom = astra.projector.volume_geometry(id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       vol_geom = astra_mex_projector('volume_geometry', id);
@@ -293,7 +293,7 @@ projection_geometry
 
       proj_geom = astra.projector.projection_geometry(id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       proj_geom = astra_mex_projector('projection_geometry', id);
@@ -312,7 +312,7 @@ is_cuda
 
       c = astra.projector.is_cuda(id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       c = astra_mex_projector('is_cuda', id);
@@ -330,7 +330,7 @@ delete
       astra.projector.delete(id)
       astra.projector.delete([id1, id2, ...])
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_projector('delete', id)
@@ -348,7 +348,7 @@ clear
 
      astra.projector.clear()
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
      astra_mex_projector('clear')
@@ -365,7 +365,7 @@ info
 
       astra.projector.info()
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_projector('info')

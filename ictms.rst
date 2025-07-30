@@ -96,6 +96,6 @@ Exercises for the 3D session
 Notes
 -----
 
-- While the code examples during this workshop will use Python, ASTRA also has a Matlab interface which is very similar to the Python interface, and (almost) all discussed topics also directly apply to the Matlab version.
+- While the code examples during this workshop will use Python, ASTRA also has a MATLAB interface which is very similar to the Python interface, and (almost) all discussed topics also directly apply to the MATLAB version.
 
-- If you install ASTRA in a different way, do please also install the ``astra_plot`` package. You can download it manually (for both Matlab and Python) `from our website <https://www.astra-toolbox.com/files/misc/astra_plot_ICTMS_201907.zip>`_.
+- If you install ASTRA in a different way, do please also install the ``astra_plot`` package. You can download it manually (for both MATLAB and Python) `from our website <https://www.astra-toolbox.com/files/misc/astra_plot_ICTMS_201907.zip>`_.

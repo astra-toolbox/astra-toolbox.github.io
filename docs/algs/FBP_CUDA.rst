@@ -117,7 +117,7 @@ Example
       astra.algorithm.delete(fbp_id)
 
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
 	%% create phantom

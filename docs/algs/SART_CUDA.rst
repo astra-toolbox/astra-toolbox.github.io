@@ -16,7 +16,7 @@ cfg.option.ReconstructionMaskId 	optional 	If specified, `data object ID <../con
 cfg.option.MinConstraint 		optional 	If specified, all values below MinConstraint will be set to MinConstraint. This can, for example, be used to enforce non-negative reconstructions.
 cfg.option.MaxConstraint 		optional 	If specified, all values above MaxConstraint will be set to MaxConstraint.
 cfg.option.ProjectionOrder 		optional 	This specifies the order in which the projections are used. Possible values are: 'random' (default), 'sequential', and 'custom'. If 'custom' is specified, the option.ProjectionOrderList is required.
-cfg.option.ProjectionOrderList 		optional 	Required if option.ProjectionOrder = 'custom', ignored otherwise. A matlab vector containing the custom order in which the projections are used.
+cfg.option.ProjectionOrderList 		optional 	Required if option.ProjectionOrder = 'custom', ignored otherwise. A MATLAB vector containing the custom order in which the projections are used.
 cfg.option.GPUindex 			optional 	Specifies which GPU to use. Default = 0.
 cfg.option.DetectorSuperSampling 	optional 	Specifies the amount of detector supersampling, i.e. how many rays are cast per detector.
 cfg.option.PixelSuperSampling 		optional 	Specifies the amount of pixel supersampling, i.e. how many (one dimension) subpixels are generated from a single parent pixel.
@@ -68,7 +68,7 @@ Example
       astra.algorithm.delete(sart_id)
 
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
 	%% create phantom

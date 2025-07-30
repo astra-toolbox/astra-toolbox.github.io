@@ -14,7 +14,7 @@ create
       id = astra.data2d.create('-vol', vol_geom)
       id = astra.data2d.create('-vol', vol_geom, initializer)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       id = astra_mex_data2d('create', '-vol', vol_geom);
@@ -36,7 +36,7 @@ If an initializer is not present, the volume is initialized to zero.
       id = astra.data2d.create('-sino', proj_geom)
       id = astra.data2d.create('-sino', proj_geom, initializer)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       id = astra_mex_data2d('create', '-sino', proj_geom);
@@ -62,7 +62,7 @@ link
       id = astra.data2d.link('-sino', proj_geom, array)
       id = astra.data2d.link('-vol', vol_geom, array)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
 
       Only available in Python interface.
 
@@ -83,7 +83,7 @@ get
 
     This fetches the data object as a 2D array with dtype float32.
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       A = astra_mex_data2d('get', id);
@@ -105,7 +105,7 @@ get_shared
     object while the resulting Python object still exists will lead to undefined behaviour and
     potentially memory corruption and crashes.
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
 
     Only available in Python interface.
 
@@ -116,9 +116,9 @@ get_single
 .. tabs::
   .. group-tab:: Python
 
-      Only available in Matlab interface.
+      Only available in MATLAB interface.
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       A = astra_mex_data2d('get_single', id);
@@ -136,7 +136,7 @@ set / store
       astra.data2d.store(id, A)
 
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_data2d('set', id, A)
@@ -145,7 +145,7 @@ set / store
 This stores the matrix A in the data object. The dimensions of A
 must be the same as the existing data object.
 
-Set and store are synonyms in the Matlab interface.
+Set and store are synonyms in the MATLAB interface.
 
 
 get_geometry
@@ -157,7 +157,7 @@ get_geometry
 
       geom = astra.data2d.get_geometry(id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       geom = astra_mex_data2d('get_geometry', id);
@@ -176,7 +176,7 @@ change_geometry
 
       astra.data2d.change_geometry(id, geom)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_data2d('change_geometry', id, geom);
@@ -195,7 +195,7 @@ delete
 
       astra.data2d.delete(id)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_data2d('delete', id);
@@ -212,7 +212,7 @@ clear
 
       astra.data2d.clear()
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_data2d('clear');
@@ -229,7 +229,7 @@ info
 
       astra.data2d.info()
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex_data2d('info')
@@ -248,7 +248,7 @@ shepp_logan
 
       id, data = astra.data2d.shepp_logan(vol_geom, modified)
 
-  .. group-tab:: Matlab
+  .. group-tab:: MATLAB
 
       Only available in Python interface.
 
