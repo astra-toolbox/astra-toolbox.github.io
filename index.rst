@@ -90,23 +90,12 @@ Copyright
 
 2014-2025, CWI, Amsterdam  http://www.cwi.nl/
 
-Contents
---------
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    news
    downloads/index
    docs/index
    apiref/index
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
