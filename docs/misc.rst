@@ -136,9 +136,9 @@ passed to astra functions such as
       id = astra_mex_algorithm('create', cfg);
       id = astra_mex_projector('create', cfg);
 
-The most common usage is for creating algorithm configuration structs. See the pages
-on [2D CPU Algorithms], [2D GPU Algorithms], [3D GPU Algorithms] for available
-algorithms, and the pages for the individual algorithms for the options they support.
+The most common usage is for creating algorithm configuration structs. See the
+pages for `individual algorithms <algs/index.html>`_for the options they
+support.
 
 Projection matrix objects
 -------------------------
