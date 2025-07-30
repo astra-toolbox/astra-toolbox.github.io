@@ -1,10 +1,6 @@
 3D Geometries
 =============
 
-In all 3D geometries, the coordinate system is defined around the reconstruction volume. The center of the reconstruction volume is the origin, and the sides of the voxels in the volume have length 1.
-
-All dimensions in the projection geometries are relative to this unit length.
-
 Volume geometries
 -----------------
 
