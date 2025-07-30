@@ -77,7 +77,11 @@ The ASTRA Toolbox is open source under the GPLv3 license.
 Contact
 -------
 
-email: astra@astra-toolbox.com website: http://www.astra-toolbox.com/
+* General questions and discussions: https://github.com/astra-toolbox/astra-toolbox/discussions
+
+* Bug reports and feature requests: https://github.com/astra-toolbox/astra-toolbox/issues
+
+* Email: astra@astra-toolbox.com
 
 Copyright
 ---------
