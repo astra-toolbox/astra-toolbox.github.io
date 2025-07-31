@@ -14,71 +14,66 @@ a circular scanning geometry will likely lead to artifacts in the reconstruction
 
 Configuration options
 ---------------------
-+-------------------------------+----------+-----------------------------------------------------------+
-| name                          | type     | description                                               |
-+===============================+==========+===========================================================+
-| cfg.ProjectionDataId          | required | `Projection data object ID <../concepts.html#data>`_.     |
-+-------------------------------+----------+-----------------------------------------------------------+
-| cfg.ReconstructionDataId      | required | `ID of data object <../concepts.html#data>`_ to store     |
-|                               |          | the result.                                               |
-|                               |          |                                                           |
-|                               |          | The content of this data is overwritten.                  |
-+-------------------------------+----------+-----------------------------------------------------------+
-| cfg.FilterType                | optional | | Type of projection filter. Options:                     |
-|                               |          | | * 'none'                                                |
-|                               |          | | * 'ram-lak' (default)                                   |
-|                               |          | | * 'shepp-logan'                                         |
-|                               |          | | * 'cosine'                                              |
-|                               |          | | * 'hamming'                                             |
-|                               |          | | * 'hann'                                                |
-|                               |          | | * 'tukey'                                               |
-|                               |          | | * 'lanczos'                                             |
-|                               |          | | * 'triangular'                                          |
-|                               |          | | * 'gaussian'                                            |
-|                               |          | | * 'barlett-hann'                                        |
-|                               |          | | * 'blackman'                                            |
-|                               |          | | * 'nuttall'                                             |
-|                               |          | | * 'blackman-harris'                                     |
-|                               |          | | * 'blackman-nuttall'                                    |
-|                               |          | | * 'flat-top'                                            |
-|                               |          | | * 'kaiser'                                              |
-|                               |          | | * 'parzen'                                              |
-|                               |          | | * 'projection' (Fourier space filter, all projection    |
-|                               |          | | directions share one filter)                            |
-|                               |          | | * 'sinogram' (Fourier space filter, every projection    |
-|                               |          | | direction has its own filter)                           |
-|                               |          | | * 'rprojection' (real space filter, all projection      |
-|                               |          | | directions share one filter)                            |
-|                               |          | | * 'rsinogram' (real space filter, every projection      |
-|                               |          | | direction has its own filter)                           |
-+-------------------------------+----------+-----------------------------------------------------------+
-| cfg.FilterSinogramId          | optional | The `data object ID <../concepts.html#data>`_ of the      |
-|                               |          |                                                           |
-|                               |          | filter data for 'projection', 'sinogram', 'rprojection'   |
-|                               |          |                                                           |
-|                               |          | and 'rsinogram' filter types.                             |
-+-------------------------------+----------+-----------------------------------------------------------+
-| cfg.FilterParameter           | optional | Parameter value for the 'tukey', 'gaussian',              |
-|                               |          |                                                           |
-|                               |          | 'blackman' and 'kaiser' filter types.                     |
-+-------------------------------+----------+-----------------------------------------------------------+
-| cfg.FilterD                   | optional | "D" parameter value for 'shepp-logan', 'cosine',          |
-|                               |          |                                                           |
-|                               |          | 'hamming' and 'hann'  filter types.                       |
-+-------------------------------+----------+-----------------------------------------------------------+
-| cfg.option.ShortScan          | optional | If enabled, do Parker weighting to support non-360-degree |
-|                               |          |                                                           |
-|                               |          | data. This needs an angle range of at least 180 degrees   |
-|                               |          |                                                           |
-|                               |          | plus twice the cone angle. (default: false)               |
-+-------------------------------+----------+-----------------------------------------------------------+
-| cfg.option.VoxelSuperSampling | optional | For the backward projection, VoxelSuperSampling^3 rays    |
-|                               |          |                                                           |
-|                               |          | will be used. This should only be used if voxels in the   |
-|                               |          |                                                           |
-|                               |          | reconstruction volume are larger than the detector        |
-|                               |          |                                                           |
-|                               |          | pixels. (default: 1)                                      |
-+-------------------------------+----------+-----------------------------------------------------------+
-| cfg.option.GPUindex           | optional | The index (zero-based) of the GPU to use. (default: 0)    |
-+-------------------------------+----------+-----------------------------------------------------------+
+
+.. list-table::
+  :header-rows: 1
+
+  * - Name
+    - Description
+
+  * - ProjectionDataId
+    - `Projection data object ID <../concepts.html#data>`_.
+
+  * - ReconstructionDataId
+    - `ID of data object <../concepts.html#data>`_ to store the result. The
+      content of this data is overwritten.
+
+  * - *option.FilterType*
+    - | Type of projection filter. Options:
+      | * 'none'
+      | * 'ram-lak' (default)
+      | * 'shepp-logan'
+      | * 'cosine'
+      | * 'hamming'
+      | * 'hann'
+      | * 'tukey'
+      | * 'lanczos'
+      | * 'triangular'
+      | * 'gaussian'
+      | * 'barlett-hann'
+      | * 'blackman'
+      | * 'nuttall'
+      | * 'blackman-harris'
+      | * 'blackman-nuttall'
+      | * 'flat-top'
+      | * 'kaiser'
+      | * 'parzen'
+      | * 'projection' (Fourier space filter, all projection directions share one filter)
+      | * 'sinogram' (Fourier space filter, every projection direction has its own filter)
+      | * 'rprojection' (real space filter, all projection directions share one filter)
+      | * 'rsinogram' (real space filter, every projection direction has its own filter)
+
+  * - *option.FilterParameter*
+    - Parameter value for the 'tukey', 'gaussian', 'blackman' and 'kaiser'
+      filter types.
+
+  * - *option.FilterD*
+    - "D" parameter value for 'shepp-logan', 'cosine', 'hamming' and 'hann'
+      filter types.
+
+  * - *option.FilterSinogramId*
+    - The `data object ID <../concepts.html#data>`_ of the filter data for
+      'projection', 'sinogram', 'rprojection' and 'rsinogram' filter types.
+
+  * - *option.ShortScan*
+    - If enabled, do Parker weighting to support non-360-degree data. This needs
+      an angle range of at least 180 degrees plus twice the fan angle (default:
+      false).
+
+  * - *option.VoxelSuperSampling*
+    - Each voxel in the volume will be subdivided by this factor along each
+      dimension. This should only be used if voxels in the volume are
+      larger than the detector pixels (default: 1).
+
+  * - *option.GPUindex*
+    - The index of the GPU to use (default: 0).

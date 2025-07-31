@@ -8,11 +8,23 @@ data.
 Configuration options
 ---------------------
 
-================================	========	====
-name 					type 		description
-================================	========	====
-cfg.ProjectionDataId 			required	`Projection data object ID <../concepts.html#data>`_
-cfg.ReconstructionDataId 		required	`ID of data object <../concepts.html#data>`_ to store the result. The content of this data is overwritten.
-cfg.option.GPUindex 			optional	The index (zero-based) of the GPU to use. (default: 0)
-cfg.option.VoxelSuperSampling 		optional	For the backward projection, VoxelSuperSampling^3 rays will be used. This should only be used if your voxels in the reconstruction volume are larger than the detector pixels. (default: 1)
-================================	========	====
+.. list-table::
+  :header-rows: 1
+
+  * - Name
+    - Description
+
+  * - ProjectionDataId
+    - `Projection data object ID <../concepts.html#data>`_.
+
+  * - ReconstructionDataId
+    - `ID of data object <../concepts.html#data>`_ to store the result. The
+      content of this data is overwritten.
+
+  * - *option.VoxelSuperSampling*
+    - Each voxel in the volume will be subdivided by this factor along each
+      dimension. This should only be used if voxels in the volume are
+      larger than the detector pixels (default: 1).
+
+  * - *option.GPUindex*
+    - The index of the GPU to use (default: 0).

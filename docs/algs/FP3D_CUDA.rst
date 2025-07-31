@@ -7,11 +7,24 @@ Supported geometries: parallel3d, parallel3d_vec, cone, cone_vec.
 
 Configuration options
 ---------------------
-================================	========	==================================
-name 					type 		description
-================================	========	==================================
-cfg.ProjectionDataId 			required 	`Data object ID <../concepts.html#data>`_ to store the result. The computed forward projection is added to this data.
-cfg.VolumeDataId 			required 	`Volume data object ID <../concepts.html#data>`_
-cfg.option.DetectorSuperSampling 	optional 	Specifies the amount of detector supersampling, i.e., how many rays are cast per detector.
-cfg.option.GPUindex 			optional 	Specifies which GPU to use. Default = 0.
-================================	========	==================================
+
+.. list-table::
+  :header-rows: 1
+
+  * - Name
+    - Description
+
+  * - ProjectionDataId
+    - `Data object ID <../concepts.html#data>`_ to store the result. The
+      computed forward projection is added to this data.
+
+  * - VolumeDataId
+    - `Volume data object ID <../concepts.html#data>`_.
+
+  * - *option.DetectorSuperSampling*
+    - Each detector pixel will be subdivided by this factor along each
+      dimension. This should only be used if detector pixels are larger than the
+      voxels in the volume (default: 1).
+
+  * - *option.GPUindex*
+    - The index of the GPU to use (default: 0).

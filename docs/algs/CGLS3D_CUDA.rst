@@ -15,16 +15,35 @@ Supported geometries: all 3D geometries.
 Configuration options
 ---------------------
 
-================================	========	====
-name 					type 		description
-================================	========	====
-cfg.ProjectionDataId 			required	`Projection data object ID <../concepts.html#data>`_
-cfg.ReconstructionDataId 		required	`ID of data object <../concepts.html#data>`_ to store the result. The content of this data is used as the initial reconstruction.
-cfg.option.ReconstructionMaskId 	optional	If specified, the `data object ID <../concepts.html#data>`_ of a volume-data-sized volume to be used as a mask. It should only have values 0.0 and 1.0. See the section on `masks <../misc.html#masks>`_ for details.
-cfg.option.GPUindex 			optional	The index (zero-based) of the GPU to use. (default: 0)
-cfg.option.DetectorSuperSampling 	optional	For the forward projection, DetectorSuperSampling^2 rays will be used. This should only be used if your detector pixels are larger than the voxels in the reconstruction volume. (default: 1)
-cfg.option.VoxelSuperSampling 		optional	For the backward projection, VoxelSuperSampling^3 rays will be used. This should only be used if your voxels in the reconstruction volume are larger than the detector pixels. (default: 1)
-================================	========	====
+.. list-table::
+  :header-rows: 1
+
+  * - Name
+    - Description
+
+  * - ProjectionDataId
+    - `Projection data object ID <../concepts.html#data>`_.
+
+  * - ReconstructionDataId
+    - `ID of data object <../concepts.html#data>`_ to store the result. The
+      content of this data is used as the initial reconstruction.
+
+  * - *option.ReconstructionMaskId*
+    - If specified, `data object ID <../concepts.html#data>`_ of a
+      volume-data-sized volume to be used as a `mask <../misc.html#masks>`_.
+
+  * - *option.DetectorSuperSampling*
+    - During forward projection, each detector pixel will be subdivided by this
+      factor along each dimension. This should only be used if detector pixels
+      are larger than the voxels in the volume (default: 1).
+
+  * - *option.VoxelSuperSampling*
+    - During backprojection, each voxel in the volume will be subdivided by this
+      factor along each dimension. This should only be used if voxels in the
+      volume are larger than the detector pixels (default: 1).
+
+  * - *option.GPUindex*
+    - The index of the GPU to use (default: 0).
 
 Extra features
 --------------

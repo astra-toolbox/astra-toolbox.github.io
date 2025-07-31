@@ -7,19 +7,46 @@ Supported geometries: parallel, parallel_vec, fanflat, fanflat_vec, matrix.
 
 Configuration options
 ---------------------
-=============================== ========	================================================================================
-name 				type 		description
-=============================== ========	================================================================================
-cfg.ProjectorId 		required 	`Projector object ID <../proj2d.html>`_
-cfg.ProjectionDataId 		required 	`Projection data object ID <../concepts.html#data>`_
-cfg.ReconstructionDataId 	required 	`ID of data object <../concepts.html#data>`_ to store the result. The content of this when starting ART is used as the initial reconstruction.
-cfg.option.SinogramMaskId 	optional 	If specified, `data object ID <../concepts.html#data>`_ of a projection-data-sized volume to be used as a mask.
-cfg.option.ReconstructionMaskId optional 	If specified, `data object ID <../concepts.html#data>`_ of a volume-data-sized volume to be used as a mask.
-cfg.option.MinConstraint 	optional 	If specified, all values below MinConstraint will be set to MinConstraint. This can, for example, be used to enforce non-negative reconstructions.
-cfg.option.MaxConstraint 	optional 	If specified, all values above MaxConstraint will be set to MaxConstraint.
-cfg.option.RayOrder 		optional 	This specifies the order in which the projections are used. Possible values are: 'sequential' (default) and 'custom'. If 'custom' is specified, the option.RayOrderList is required.
-cfg.option.RayOrderList 	optional 	Required if option.RayOrder = 'custom', ignored otherwise. A MATLAB vector containing the custom order in which the projections are used.
-=============================== ========	================================================================================
+
+.. list-table::
+  :header-rows: 1
+
+  * - Name
+    - Description
+
+  * - ProjectorId
+    - `Projector object ID <../proj2d.html>`_.
+
+  * - ProjectionDataId
+    - `Projection data object ID <../concepts.html#data>`_.
+
+  * - ReconstructionDataId
+    - `ID of data object <../concepts.html#data>`_ to store the result. The
+      content of this when starting ART is used as the initial reconstruction.
+
+  * - *option.RayOrder*
+    - This specifies the order in which the projections are used. Possible
+      values are: 'sequential' (default) and 'custom'. If 'custom' is specified,
+      the option.RayOrderList is required.
+
+  * - *option.RayOrderList*
+    - Required if option.RayOrder = 'custom', ignored otherwise. An 1D array
+      containing the custom order in which the projections are used.
+
+  * - *option.MinConstraint*
+    - If specified, all values below MinConstraint will be set to MinConstraint.
+      This can, for example, be used to enforce non-negative reconstructions.
+
+  * - *option.MaxConstraint*
+    - If specified, all values above MaxConstraint will be set to MaxConstraint.
+
+  * - *option.SinogramMaskId*
+    - If specified, `data object ID <../concepts.html#data>`_ of a
+      projection-data-sized volume to be used as a `mask <../misc.html#masks>`_.
+
+  * - *option.ReconstructionMaskId*
+    - If specified, `data object ID <../concepts.html#data>`_ of a
+      volume-data-sized volume to be used as a `mask <../misc.html#masks>`_.
 
 Example
 -------

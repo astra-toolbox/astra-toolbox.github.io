@@ -8,15 +8,29 @@ Supported geometries: parallel, parallel_vec, fanflat, fanflat_vec, matrix.
 Configuration options
 ---------------------
 
-========================== ======== =======================================================================================================
-name                       type     description
-========================== ======== =======================================================================================================
-cfg.ProjectorId            required `Projector object ID <../proj2d.html>`_
-cfg.ProjectionDataId       required `ID of data object <../concepts.html#data>`_ to store the result. The content of this data is overwritten.
-cfg.VolumeDataId           required `Volume data object ID <../concepts.html#data>`_
-cfg.option.SinogramMaskId  optional If specified, the `data object ID <../concepts.html#data>`_ of a projection-data-sized volume to be used as a mask.
-cfg.option.VolumeMaskId    optional If specified, the `data object ID <../concepts.html#data>`_ of a volume-data-sized volume to be used as a mask.
-========================== ======== =======================================================================================================
+.. list-table::
+  :header-rows: 1
+
+  * - Name
+    - Description
+
+  * - ProjectorId
+    - `Projector object ID <../proj2d.html>`_.
+
+  * - ProjectionDataId
+    - `Data object ID <../concepts.html#data>`_ to store the result. The
+      computed forward projection is added to this data.
+
+  * - VolumeDataId
+    - `Volume data object ID <../concepts.html#data>`_.
+
+  * - *option.SinogramMaskId*
+    - If specified, `data object ID <../concepts.html#data>`_ of a
+      projection-data-sized volume to be used as a `mask <../misc.html#masks>`_.
+
+  * - *option.VolumeMaskId*
+    - If specified, the `data object ID <../concepts.html#data>`_ of a
+      volume-data-sized volume to be used as a mask.
 
 Example
 -------
