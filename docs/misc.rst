@@ -95,7 +95,7 @@ The projection data elements corresponding to locations with SinogramMask
 value 0.0 will be ignored during the reconstruction. Similarly,
 the reconstruction data elements corresponding to locations with
 ReconstructionMask value 0.0 will be ignored during the reconstruction, and
-their values will be preserved. (Mostly, see note on constraints below.)
+their values will be preserved (mostly, see notes below).
 
 The algorithm will behave as if the rows and columns corresponding to the
 masked voxels and projection data elements have been removed from the
@@ -104,6 +104,10 @@ to match the projection of the non-masked voxels to the non-masked projection
 data elements.
 
 NB: MinConstraint/MaxConstraint will affect even masked voxels.
+
+NB: FP and BP algorithms (CPU versions) overwrite the output, so the values
+outside the sinogram/reconstruction masks, respectively, will be set to zero
+instead of being ignored.
 
 ASTRA configuration structure
 -----------------------------
