@@ -118,6 +118,7 @@ Example
 Extra features
 --------------
 
-EM_CUDA supports astra.algorithm.get_res_norm() / astra_mex_algorithm('get_res_norm') to get the
-2-norm of the difference between the projection data and the projection of the reconstruction. (The
-square root of the sum of squares of differences.)
+EM_CUDA supports ``astra.algorithm.get_res_norm()`` /
+``astra_mex_algorithm('get_res_norm')`` command to get the 2-norm of the
+residual for the reconstruction (the square root of the sum of squares of
+differences between the input and the projection of the result).
