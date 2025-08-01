@@ -54,6 +54,7 @@ Configuration options
   * - *option.GPUindex*
     - The index of the GPU to use (default: 0).
 
+
 Example
 -------
 
@@ -63,71 +64,94 @@ Example
 
       import astra
       import matplotlib.pyplot as plt
-      import numpy
+      import numpy as np
 
-      # create geometries and projector
-      proj_geom = astra.create_proj_geom('parallel', 1.0, 256, numpy.linspace(0, numpy.pi, 180, endpoint=False))
-      vol_geom = astra.create_vol_geom(256,256)
-      proj_id = astra.create_projector('cuda', proj_geom, vol_geom)
+      # Create geometries and projector
+      N = 256
+      N_ANGLES = 180
+      det_spacing = 1.0
+      angles = np.linspace(0, np.pi, N_ANGLES)
+      proj_geom = astra.create_proj_geom('parallel', det_spacing, N, angles)
+      vol_geom = astra.create_vol_geom(N, N)
+      projector_id = astra.create_projector('cuda', proj_geom, vol_geom)
 
-      # generate phantom image
-      V_exact_id, V_exact = astra.data2d.shepp_logan(vol_geom)
+      # Generate phantom image
+      phantom_id, phantom = astra.data2d.shepp_logan(vol_geom)
 
-      # create forward projection
-      sinogram_id, sinogram = astra.create_sino(V_exact, proj_id)
+      # Create forward projection
+      sinogram_id, sinogram = astra.create_sino(phantom_id, projector_id)
 
-      # reconstruct
-      recon_id = astra.data2d.create('-vol', vol_geom, 0)
+      # Reconstruct
+      recon_id = astra.data2d.create('-vol', vol_geom)
       cfg = astra.astra_dict('SART_CUDA')
-      cfg['ProjectorId'] = proj_id
       cfg['ProjectionDataId'] = sinogram_id
       cfg['ReconstructionDataId'] = recon_id
-      cfg['option'] = { }
-      cfg['option']['ProjectionOrder'] =  'custom'
-      # set projection order to 0, 5, 10, ..., 175, 1, 6, 11, ...., 176, 2, 7, .....
-      cfg['option']['ProjectionOrderList'] = numpy.array(range(180)).reshape(-1,5).T.reshape(-1)
+      cfg['option'] = {'ProjectionOrder': 'custom'}
+      # Set projection order to 0, 5, 10, ..., 175, 1, 6, 11, ..., 176, 2, 7, ...
+      cfg['option']['ProjectionOrderList'] = np.concatenate([
+          np.arange(0, 5, N_ANGLES),
+          np.arange(1, 5, N_ANGLES),
+          np.arange(2, 5, N_ANGLES),
+          np.arange(3, 5, N_ANGLES),
+          np.arange(4, 5, N_ANGLES)
+      ])
+      algorithm_id = astra.algorithm.create(cfg)
 
-      sart_id = astra.algorithm.create(cfg)
-      astra.algorithm.run(sart_id, 10*180)
-      V = astra.data2d.get(recon_id)
-      plt.gray()
-      plt.imshow(V)
-      plt.show()
+      astra.algorithm.run(algorithm_id, iterations=10 * N_ANGLES)
 
-      # garbage disposal
-      astra.data2d.delete([sinogram_id, recon_id, V_exact_id])
-      astra.projector.delete(proj_id)
-      astra.algorithm.delete(sart_id)
+      reconstruction = astra.data2d.get(recon_id)
+      plt.imshow(reconstruction, cmap='gray')
+
+      # Clean up
+      astra.data2d.delete([sinogram_id, recon_id, phantom_id])
+      astra.projector.delete(projector_id)
+      astra.algorithm.delete(algorithm_id)
 
 
   .. group-tab:: MATLAB
     .. code-block:: matlab
 
-	%% create phantom
-	V_exact = phantom(256);
+      %% Create phantom
+      N = 256;
+      phantom = phantom(N);
 
-	%% create geometries
-	proj_geom = astra_create_proj_geom('parallel', 1.0, 256, linspace2(0,pi,180));
-	vol_geom = astra_create_vol_geom(256,256);
+      %% Create geometries and projector
+      det_spacing = 1.0;
+      N_ANGLES = 180;
+      angles = linspace(0, pi, N_ANGLES);
+      proj_geom = astra_create_proj_geom('parallel', det_spacing, N, angles);
+      vol_geom = astra_create_vol_geom(N, N);
+      projector_id = astra_create_projector('cuda', proj_geom, vol_geom);
 
-	%% create forward projection
-	[sinogram_id, sinogram] = astra_create_sino_cuda(V_exact, proj_geom, vol_geom);
+      %% Create forward projection
+      [sinogram_id, sinogram] = astra_create_sino(phantom, projector_id);
 
-	%% reconstruct
-	recon_id = astra_mex_data2d('create', '-vol', vol_geom, 0);
-	cfg = astra_struct('SART_CUDA');
-	cfg.ProjectionDataId = sinogram_id;
-	cfg.ReconstructionDataId = recon_id;
-	cfg.option.ProjectionOrder = 'custom';
-	cfg.option.ProjectionOrderList = [0:5:175 1:5:176 2:5:177 3:5:178 4:5:179];
-	sart_id = astra_mex_algorithm('create', cfg);
-	astra_mex_algorithm('iterate', sart_id, 10*180);
-	V = astra_mex_data2d('get', recon_id);
-	imshow(V, []);
+      %% Reconstruct
+      recon_id = astra_mex_data2d('create', '-vol', vol_geom);
+      cfg = astra_struct('SART_CUDA');
+      cfg.ProjectionDataId = sinogram_id;
+      cfg.ReconstructionDataId = recon_id;
+      cfg.option.ProjectionOrder = 'custom';
+      % Set projection order to 0, 5, 10, ..., 175, 1, 6, 11, ..., 176, 2, 7, ...
+      cfg.option.ProjectionOrderList = horzcat( ...
+          1:5:N_ANGLES, ...
+          2:5:N_ANGLES, ...
+          3:5:N_ANGLES, ...
+          4:5:N_ANGLES, ...
+          5:5:N_ANGLES  ...
+      ) - 1;
+      algorithm_id = astra_mex_algorithm('create', cfg);
 
-	%% garbage disposal
-	astra_mex_data2d('delete', sinogram_id, recon_id);
-	astra_mex_algorithm('delete', sart_id);
+      astra_mex_algorithm('iterate', algorithm_id, 10 * N_ANGLES);
+
+      reconstruction = astra_mex_data2d('get', recon_id);
+      imshow(reconstruction, []);
+
+      %% Clean up
+      astra_mex_data2d('delete', sinogram_id, recon_id);
+      astra_mex_projector('delete', projector_id);
+      astra_mex_algorithm('delete', algorithm_id);
+
 
 Extra features
 --------------

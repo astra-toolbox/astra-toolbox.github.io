@@ -71,6 +71,7 @@ Configuration options
   * - *option.GPUindex*
     - The index of the GPU to use (default: 0).
 
+
 Example
 -------
 
@@ -80,62 +81,72 @@ Example
 
       import astra
       import matplotlib.pyplot as plt
-      import numpy
+      import numpy as np
 
-      # create geometries and projector
-      proj_geom = astra.create_proj_geom('parallel', 1.0, 256, numpy.linspace(0, numpy.pi, 180, endpoint=False))
-      vol_geom = astra.create_vol_geom(256,256)
-      proj_id = astra.create_projector('cuda', proj_geom, vol_geom)
+      # Create geometries and projector
+      N = 256
+      N_ANGLES = 180
+      det_spacing = 1.0
+      angles = np.linspace(0, np.pi, N_ANGLES)
+      proj_geom = astra.create_proj_geom('parallel', det_spacing, N, angles)
+      vol_geom = astra.create_vol_geom(N, N)
+      projector_id = astra.create_projector('cuda', proj_geom, vol_geom)
 
-      # generate phantom image
-      V_exact_id, V_exact = astra.data2d.shepp_logan(vol_geom)
+      # Generate phantom image
+      phantom_id, phantom = astra.data2d.shepp_logan(vol_geom)
 
-      # create forward projection
-      sinogram_id, sinogram = astra.create_sino(V_exact, proj_id)
+      # Create forward projection
+      sinogram_id, sinogram = astra.create_sino(phantom_id, projector_id)
 
-      # reconstruct
-      recon_id = astra.data2d.create('-vol', vol_geom, 0)
+      # Reconstruct
+      recon_id = astra.data2d.create('-vol', vol_geom, data=1.0)
       cfg = astra.astra_dict('FBP_CUDA')
-      cfg['ProjectorId'] = proj_id
       cfg['ProjectionDataId'] = sinogram_id
       cfg['ReconstructionDataId'] = recon_id
-      fbp_id = astra.algorithm.create(cfg)
-      astra.algorithm.run(fbp_id)
-      V = astra.data2d.get(recon_id)
-      plt.gray()
-      plt.imshow(V)
-      plt.show()
+      algorithm_id = astra.algorithm.create(cfg)
 
-      # garbage disposal
-      astra.data2d.delete([sinogram_id, recon_id, V_exact_id])
-      astra.projector.delete(proj_id)
-      astra.algorithm.delete(fbp_id)
+      astra.algorithm.run(algorithm_id)
+
+      reconstruction = astra.data2d.get(recon_id)
+      plt.imshow(reconstruction, cmap='gray')
+
+      # Clean up
+      astra.data2d.delete([sinogram_id, recon_id, phantom_id])
+      astra.projector.delete(projector_id)
+      astra.algorithm.delete(algorithm_id)
 
 
   .. group-tab:: MATLAB
     .. code-block:: matlab
 
-	%% create phantom
-	V_exact = phantom(256);
+      %% Create phantom
+      N = 256;
+      phantom = phantom(N);
 
-	%% create geometries
-	proj_geom = astra_create_proj_geom('parallel', 1.0, 256, linspace2(0,pi,180));
-	vol_geom = astra_create_vol_geom(256,256);
+      %% Create geometries and projector
+      det_spacing = 1.0;
+      N_ANGLES = 180;
+      angles = linspace(0, pi, N_ANGLES);
+      proj_geom = astra_create_proj_geom('parallel', det_spacing, N, angles);
+      vol_geom = astra_create_vol_geom(N, N);
+      projector_id = astra_create_projector('cuda', proj_geom, vol_geom);
 
-	%% create forward projection
-	[sinogram_id, sinogram] = astra_create_sino_cuda(V_exact, proj_geom, vol_geom);
+      %% Create forward projection
+      [sinogram_id, sinogram] = astra_create_sino(phantom, projector_id);
 
-	%% reconstruct
-	recon_id = astra_mex_data2d('create', '-vol', vol_geom, 0);
-	cfg = astra_struct('FBP_CUDA');
-	cfg.ProjectionDataId = sinogram_id;
-	cfg.ReconstructionDataId = recon_id;
-	fbp_id = astra_mex_algorithm('create', cfg);
-	astra_mex_algorithm('run', fbp_id);
-	V = astra_mex_data2d('get', recon_id);
-	imshow(V, []);
+      %% Reconstruct
+      recon_id = astra_mex_data2d('create', '-vol', vol_geom, 1.0);
+      cfg = astra_struct('FBP_CUDA');
+      cfg.ProjectionDataId = sinogram_id;
+      cfg.ReconstructionDataId = recon_id;
+      algorithm_id = astra_mex_algorithm('create', cfg);
 
-	%% garbage disposal
-	astra_mex_data2d('delete', sinogram_id, recon_id);
-	astra_mex_algorithm('delete', fbp_id);
+      astra_mex_algorithm('run', algorithm_id);
 
+      reconstruction = astra_mex_data2d('get', recon_id);
+      imshow(reconstruction, []);
+
+      %% Clean up
+      astra_mex_data2d('delete', sinogram_id, recon_id);
+      astra_mex_projector('delete', projector_id);
+      astra_mex_algorithm('delete', algorithm_id);

@@ -32,39 +32,79 @@ Configuration options
     - If specified, the `data object ID <../concepts.html#data>`_ of a
       volume-data-sized volume to be used as a mask.
 
+
 Example
 -------
 
-.. code-block:: matlab
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
 
-	%% create geometries and projector
-	proj_geom = astra_create_proj_geom('parallel', 1.0, 256, linspace2(0,pi,180));
-	vol_geom = astra_create_vol_geom(256,256);
-	proj_id = astra_create_projector('linear', proj_geom, vol_geom);
+      import astra
+      import matplotlib.pyplot as plt
+      import numpy as np
 
-	%% store volume
-	V = phantom(256);
-	volume_id = astra_mex_data2d('create', '-vol', vol_geom, V);
+      # Create geometries and projector
+      N = 256
+      N_ANGLES = 180
+      det_spacing = 1.0
+      angles = np.linspace(0, np.pi, N_ANGLES)
+      proj_geom = astra.create_proj_geom('parallel', det_spacing, N, angles)
+      vol_geom = astra.create_vol_geom(N, N)
+      projector_id = astra.create_projector('linear', proj_geom, vol_geom)
 
-	%% create forward projection
-	sinogram_id = astra_mex_data2d('create', '-sino', proj_geom, 0);
-	cfg = astra_struct('FP');
-	cfg.ProjectorId = proj_id;
-	cfg.ProjectionDataId = sinogram_id;
-	cfg.VolumeDataId = volume_id;
-	fp_id = astra_mex_algorithm('create', cfg);
-	astra_mex_algorithm('run', fp_id);
-	sinogram = astra_mex_data2d('get', sinogram_id);
-	imshow(sinogram, []);
+      # Generate phantom image
+      phantom_id, phantom = astra.data2d.shepp_logan(vol_geom)
 
-	%% garbage disposal
-	astra_mex_data2d('delete', sinogram_id, volume_id);
-	astra_mex_projector('delete', proj_id);
-	astra_mex_algorithm('delete', fp_id);
+      # Calculate forward projection
+      projection_id = astra.data2d.create('-sino', proj_geom)
+      cfg = astra.astra_dict('FP')
+      cfg['ProjectorId'] = projector_id
+      cfg['ProjectionDataId'] = projection_id
+      cfg['VolumeDataId'] = phantom_id
+      algorithm_id = astra.algorithm.create(cfg)
 
-This functionality can also be found in the astra function:
+      astra.algorithm.run(algorithm_id)
 
-.. code-block:: matlab
+      projection = astra.data2d.get(projection_id)
+      plt.imshow(projection, cmap='gray')
 
-  [sinogram_id, sinogram] = astra_create_sino(V, proj_id);
-  [sinogram_id, sinogram] = astra_create_sino(V_id, proj_id);
+      # Clean up
+      astra.data2d.delete([projection_id, phantom_id])
+      astra.projector.delete(projector_id)
+      astra.algorithm.delete(algorithm_id)
+
+
+  .. group-tab:: MATLAB
+    .. code-block:: matlab
+
+      %% Create phantom
+      N = 256;
+      phantom = phantom(N);
+
+      %% Create geometries and projector
+      det_spacing = 1.0;
+      N_ANGLES = 180;
+      angles = linspace(0, pi, N_ANGLES);
+      proj_geom = astra_create_proj_geom('parallel', det_spacing, N, angles);
+      vol_geom = astra_create_vol_geom(N, N);
+      projector_id = astra_create_projector('linear', proj_geom, vol_geom);
+
+      %% Calculate forward projection
+      phantom_id = astra_mex_data2d('create', '-vol', vol_geom, phantom);
+      projection_id = astra_mex_data2d('create', '-sino', proj_geom);
+      cfg = astra_struct('FP');
+      cfg.ProjectorId = projector_id;
+      cfg.ProjectionDataId = projection_id;
+      cfg.VolumeDataId = phantom_id;
+      algorithm_id = astra_mex_algorithm('create', cfg);
+
+      astra_mex_algorithm('run', algorithm_id);
+
+      projection = astra_mex_data2d('get', projection_id);
+      imshow(projection, []);
+
+      %% Clean up
+      astra_mex_data2d('delete', phantom_id, projection_id);
+      astra_mex_projector('delete', projector_id);
+      astra_mex_algorithm('delete', algorithm_id);
