@@ -1,6 +1,18 @@
 News
 ====
 
+2025-08-04: Version 2.4
+-----------------------
+* Add support for curved detectors (cyl_cone_vec 3D geometry type).
+* Add initial experimental support for building with AMD HIP instead of CUDA.
+* Improve performance of automatic splitting for FDK/FP3D/BP3D when data doesn't fit in GPU memory
+* Add conda packages for CUDA 12.9
+* Fix non-deterministic results when FBP_CUDA was used with fanflat_vec geometries (e.g. when
+  post-alignment was applied).
+* Fix crash when trying to delete linked 3D data in MATLAB.
+* Fix Python samples.
+* Modernize Python build system.
+
 2025-04-16: Version 2.3.1
 -------------------------
 * Fix GPULink missing in astra.data3d module

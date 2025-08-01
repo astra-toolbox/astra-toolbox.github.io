@@ -30,6 +30,8 @@ The source code of the ASTRA Toolbox is available on `GitHub <https://github.com
 Latest News
 -----------
 
+* 4 Aug 2025: `ASTRA v2.4 <news.html#version-2-4>`_ released.
+
 * 16 Apr 2025: `ASTRA v2.3.1 <news.html#version-2-3-1>`_ released.
 
 * 22 Feb 2025: `ASTRA v2.3 <news.html#version-2-3>`_ released.
@@ -54,7 +56,7 @@ Downloads
 Main downloads of the latest official release.
 
 
-.. include:: downloads/2.3.1/downloads.txt
+.. include:: downloads/2.4.0/downloads.txt
 
 References
 ----------

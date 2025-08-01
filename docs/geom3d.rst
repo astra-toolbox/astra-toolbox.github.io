@@ -263,3 +263,39 @@ type "cone" into such a 12-element row:
       vectors(i,12) = proj_geom.DetectorSpacingY;
 
 
+cyl_cone_vec
+~~~~~~~~~~~~
+
+.. versionadded:: 2.4
+
+.. caution:: This is an experimental feature, and the parameters or implementation may change in future releases.
+
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      proj_geom = astra.create_proj_geom('cyl_cone_vec',  det_row_count, det_col_count, vectors)
+
+  .. group-tab:: MATLAB
+    .. code-block:: matlab
+
+      proj_geom = astra_create_proj_geom('cyl_cone_vec',  det_row_count, det_col_count, vectors);
+
+Create a 3D cylindrical detector cone beam geometry specified by 3D vectors. U axis of the detector
+will be curved.
+
+*    det_row_count: number of detector rows in a single projection
+*    det_col_count: number of detector columns in a single projection
+*    vectors: a matrix containing the actual geometry.
+
+Each row of vectors corresponds to a single projection, and consists of:
+
+.. code-block:: matlab
+
+ ( srcX, srcY, srcZ, dX, dY, dZ, uX, uY, uZ, vX, vY, vZ, R )
+
+* src : the ray source
+* d   : the center of the detector
+* u   : the vector from detector pixel (0,0) to (0,1)
+* v   : the vector from detector pixel (0,0) to (1,0)
+* R   : curvature radius of the cylindrical detector (U axis will be curved)
