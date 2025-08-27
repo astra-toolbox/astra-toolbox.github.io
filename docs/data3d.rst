@@ -282,11 +282,8 @@ Linking data in MATLAB
 
 .. code-block:: matlab
 
- id = astra_mex_data3d_c('link', '-vol', vol_geom, array, readonly, Z);
- id = astra_mex_data3d_c('link', '-proj3d', proj_geom, array, readonly, Z);
-
-NB: This must be called on astra_mex_data3d_c, and does not work properly
-when using the wrapper astra_mex_data3d.
+ id = astra_mex_data3d('link', '-vol', vol_geom, array, readonly, Z);
+ id = astra_mex_data3d('link', '-proj3d', proj_geom, array, readonly, Z);
 
 This creates a data object that directly uses a MATLAB array as storage
 instead of allocating its own memory. The array must be of the same
