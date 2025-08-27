@@ -311,6 +311,10 @@ MATLAB's internal reference counting mechanics.
 
 **Read-write link mode:**
 
+.. warning::
+
+  Functionality required for this link mode was removed from MATLAB since version 2020a.
+
 The passed array is 'unshared' and the data object
 obtains a second reference to this array. There is no direct MATLAB
 script equivalent to this, but effectively the data object and the passed array
