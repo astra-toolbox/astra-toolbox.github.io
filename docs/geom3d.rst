@@ -45,17 +45,17 @@ parallel3d
   .. group-tab:: Python
     .. code-block:: python
 
-      proj_geom = astra.create_proj_geom('parallel3d', det_spacing_x, det_spacing_y, det_row_count, det_col_count, angles)
+      proj_geom = astra.create_proj_geom('parallel3d', det_col_spacing, det_row_spacing, det_row_count, det_col_count, angles)
 
   .. group-tab:: MATLAB
     .. code-block:: matlab
 
-      proj_geom = astra_create_proj_geom('parallel3d', det_spacing_x, det_spacing_y, det_row_count, det_col_count, angles);
+      proj_geom = astra_create_proj_geom('parallel3d', det_col_spacing, det_row_spacing, det_row_count, det_col_count, angles);
 
 Create a 3D parallel beam geometry.
 
-*    det_spacing_x: distance between the centers of two horizontally adjacent detector pixels
-*    det_spacing_y: distance between the centers of two vertically adjacent detector pixels
+*    det_col_spacing: distance between the centers of two horizontally adjacent detector pixels
+*    det_row_spacing: distance between the centers of two vertically adjacent detector pixels
 *    det_row_count: number of detector rows in a single projection
 *    det_col_count: number of detector columns in a single projection
 *    angles: projection angles in radians
@@ -68,17 +68,17 @@ cone
   .. group-tab:: Python
     .. code-block:: python
 
-      proj_geom = astra.create_proj_geom('cone',  det_spacing_x, det_spacing_y, det_row_count, det_col_count, angles, source_origin, origin_det)
+      proj_geom = astra.create_proj_geom('cone',  det_col_spacing, det_row_spacing, det_row_count, det_col_count, angles, source_origin, origin_det)
 
   .. group-tab:: MATLAB
     .. code-block:: matlab
 
-      proj_geom = astra_create_proj_geom('cone',  det_spacing_x, det_spacing_y, det_row_count, det_col_count, angles, source_origin, origin_det);
+      proj_geom = astra_create_proj_geom('cone',  det_col_spacing, det_row_spacing, det_row_count, det_col_count, angles, source_origin, origin_det);
 
 Create a 3D cone beam geometry.
 
-*    det_spacing_x: distance between the centers of two horizontally adjacent detector pixels
-*    det_spacing_y: distance between the centers of two vertically adjacent detector pixels
+*    det_col_spacing: distance between the centers of two horizontally adjacent detector pixels
+*    det_row_spacing: distance between the centers of two vertically adjacent detector pixels
 *    det_row_count: number of detector rows in a single projection
 *    det_col_count: number of detector columns in a single projection
 *    angles: projection angles in radians
