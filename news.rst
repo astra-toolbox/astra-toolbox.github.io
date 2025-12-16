@@ -1,6 +1,20 @@
 News
 ====
 
+2025-12-16: Version 2.4.1
+-------------------------
+* Fix DLPack support for certain arrays with dimensions of size 1
+* Fix using FBP from a multi-threaded script
+* Fix a memory leak in the CPU parallel beam blob kernel
+* Add conda packages for CUDA 13 and for Python 3.14
+
+  **WARNING:** CUDA 13 packages no longer support GTX 9* and 10* GPUs. For those, you can
+  force CUDA 12 packages using ``conda install -c astra-toolbox -c nvidia astra-toolbox
+  cuda-version=12`` command.
+
+* Our conda and pip packages for CUDA 12 and for CUDA 13 no longer depend on a specific
+  minor version of CUDA
+
 2025-08-04: Version 2.4
 -----------------------
 * Add support for curved detectors (cyl_cone_vec 3D geometry type).
