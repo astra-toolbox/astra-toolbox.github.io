@@ -19,34 +19,78 @@ This will run quick tests of basic CPU/GPU functionality, and report on
 the results. As a part of this it will report if GPU functionality is
 available.
 
-Setting GPU index
------------------
+
+Working with large data
+-----------------------
+
+In case the data size is so large that it doesn't fit into the GPU memory, ASTRA will
+automatically split and process the data in subsets. This functionality is only
+available for FP3D, BP3D and FDK algorithms.
+
+**WARNING!** At the moment, if the input/output data is a `linked <data3d.html#link>`_
+GPU tensor, the automatic splitting will not work correctly.
+
+**WARNING!** Other GPU libraries, such as PyTorch, often allocate more GPU memory then
+they actually need to speed up computations. This significantly reduces the memory
+available to ASTRA, and usually it's a good idea to shrink the memory pool on the
+external library side (e.g. with ``torch.cuda.empty_cache``) before calling ASTRA if you
+get out-of-memory errors.
+
+
+Choosing the GPU to use
+-----------------------
+
+On systems equipped with several GPUs, you can specify which GPU will be used by ASTRA
+with:
 
 .. tabs::
   .. group-tab:: Python
     .. code-block:: python
 
       astra.set_gpu_index(index)
-      astra.set_gpu_index([index1, index2, ...])
 
   .. group-tab:: MATLAB
     .. code-block:: matlab
 
       astra_mex('set_gpu_index', index);
+
+**WARNING!** In `multithreading`_ contexts (Python), the GPU index will be set globally,
+so it can't be used to reliably restrict a thread to a given GPU. Instead, you can avoid
+calling ``astra.set_gpu_index`` whatsoever, and instead set the desired GPU with an
+external library where the device context is thread-local, e.g. using
+``torch.cuda.set_device``.
+
+
+Using several GPUs cooperatively
+--------------------------------
+
+ASTRA can utilize several GPUs simultaneously for a single algorithm to speed up the
+computation. To do that, you can define the desired set of GPUs to be used:
+
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+      astra.set_gpu_index([index1, index2, ...])
+
+  .. group-tab:: MATLAB
+    .. code-block:: matlab
+
       astra_mex('set_gpu_index', [index1 index2 ...]);
 
-This lets ASTRA use the GPU with the specified index or indices. Not all ASTRA functionality supports
-using multiple GPUs. In that case the GPU specified first will be used.
+**WARNING!** At the moment, only FP3D, BP3D and FDK algorithms support this
+functionality. For the rest, the first GPU in the specified index list will be used as
+the fallback.
 
 
 Multithreading
 --------------
 
-In Python, Astra supports concurrent execution of its algorithms in multiple threads. This
-functionality can be used in scenarios such as executing an algorithm with different inputs on
-different GPUs simultaneously, or even on the same GPU in case it's under-utilized by default. For
-instance, here is how one can compute a fan-parallel projection using multithreaded execution to
-accelerate sequential computation:
+In Python, Astra supports concurrent execution of its algorithms in multiple threads.
+This functionality is useful to process different inputs on different GPUs simultaneously.
+Another use case is processing data blocks on the *same* GPU in parallel, which is useful
+when a single ASTRA call under-utilizes the GPU. For instance, here is how one can
+compute a fan-parallel projection using multithreading:
 
 .. tabs::
   .. group-tab:: Python
@@ -57,13 +101,13 @@ accelerate sequential computation:
       from concurrent.futures import ThreadPoolExecutor
 
       N = 512
-      vol_geometry_full = astra.create_vol_geom(N, N, N)
+      vol_geom_full = astra.create_vol_geom(N, N, N)
       vol_geom_slice = astra.create_vol_geom(N, N)
       angles = np.linspace(0, 2*np.pi, N, endpoint=False)
       proj_geom_slice = astra.create_proj_geom('fanflat', 1.0, N, angles, N, N)
       projector = astra.create_projector('cuda', proj_geom_slice, vol_geom_slice)
 
-      phantom_id, phantom_data = astra.data3d.shepp_logan(vol_geometry_full)
+      phantom_id, phantom_data = astra.data3d.shepp_logan(vol_geom_full)
 
       def forward_project_slice(vol_slice):
           slice_proj_id, slice_proj_data = astra.create_sino(vol_slice, projector)
@@ -81,9 +125,10 @@ accelerate sequential computation:
 **WARNING!** No special care is taken about race conditions, so the user has to ensure that the
 outputs of algorithms are not accessed simultaneously.
 
-MATLAB, on the other hand, doesn't support executing external libraries in multithreaded
-environments, so the only option is much less lightweight process-based concurrent execution. The
-simplest approach is to just start several copies of MATLAB in batch mode.
+**WARNING!** MATLAB doesn't support executing external libraries in multithreaded
+environments, so the only option is much less lightweight process-based concurrent
+execution. The simplest approach is to just start several copies of MATLAB in batch
+mode.
 
 Masks
 -----
@@ -103,9 +148,9 @@ projection matrix entirely. In other words, it will iteratively try
 to match the projection of the non-masked voxels to the non-masked projection
 data elements.
 
-NB: MinConstraint/MaxConstraint will affect even masked voxels.
+**WARNING!** MinConstraint/MaxConstraint will affect even masked voxels.
 
-NB: FP and BP algorithms (CPU versions) overwrite the output, so the values
+**WARNING!** FP and BP algorithms (CPU versions) overwrite the output, so the values
 outside the sinogram/reconstruction masks, respectively, will be set to zero
 instead of being ignored.
 
@@ -141,7 +186,7 @@ passed to astra functions such as
       id = astra_mex_projector('create', cfg);
 
 The most common usage is for creating algorithm configuration structs. See the
-pages for `individual algorithms <algs/index.html>`_for the options they
+pages for `individual algorithms <algs/index.html>`_ for the options they
 support.
 
 
