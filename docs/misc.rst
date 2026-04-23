@@ -27,14 +27,18 @@ In case the data size is so large that it doesn't fit into the GPU memory, ASTRA
 automatically split and process the data in subsets. This functionality is only
 available for FP3D, BP3D and FDK algorithms.
 
-**WARNING!** At the moment, if the input/output data is a `linked <data3d.html#link>`_
-GPU tensor, the automatic splitting will not work correctly.
+.. warning::
 
-**WARNING!** Other GPU libraries, such as PyTorch, often allocate more GPU memory then
-they actually need to speed up computations. This significantly reduces the memory
-available to ASTRA, and usually it's a good idea to shrink the memory pool on the
-external library side (e.g. with ``torch.cuda.empty_cache``) before calling ASTRA if you
-get out-of-memory errors.
+  At the moment, if the input/output data is a `linked <data3d.html#link>`_
+  GPU tensor, the automatic splitting will not work correctly.
+
+.. tip::
+
+  Other GPU libraries, such as PyTorch, often allocate more GPU memory then
+  they actually need to speed up computations. This significantly reduces the memory
+  available to ASTRA, and usually it's a good idea to shrink the memory pool on the
+  external library side (e.g. with ``torch.cuda.empty_cache``) before calling ASTRA if you
+  get out-of-memory errors.
 
 
 Choosing the GPU to use
@@ -54,11 +58,13 @@ with:
 
       astra_mex('set_gpu_index', index);
 
-**WARNING!** In `multithreading`_ contexts (Python), the GPU index will be set globally,
-so it can't be used to reliably restrict a thread to a given GPU. Instead, you can avoid
-calling ``astra.set_gpu_index`` whatsoever, and instead set the desired GPU with an
-external library where the device context is thread-local, e.g. using
-``torch.cuda.set_device``.
+.. warning::
+
+  In `multithreading`_ contexts (Python), the GPU index will be set globally,
+  so it can't be used to reliably restrict a thread to a given GPU. Instead, you can avoid
+  calling ``astra.set_gpu_index`` whatsoever, and instead set the desired GPU with an
+  external library where the device context is thread-local, e.g. using
+  ``torch.cuda.set_device``.
 
 
 Using several GPUs cooperatively
@@ -78,9 +84,11 @@ computation. To do that, you can define the desired set of GPUs to be used:
 
       astra_mex('set_gpu_index', [index1 index2 ...]);
 
-**WARNING!** At the moment, only FP3D, BP3D and FDK algorithms support this
-functionality. For the rest, the first GPU in the specified index list will be used as
-the fallback.
+.. warning::
+
+  At the moment, only FP3D, BP3D and FDK algorithms support this
+  functionality. For the rest, the first GPU in the specified index list will be used as
+  the fallback.
 
 
 Multithreading
@@ -122,13 +130,17 @@ compute a fan-parallel projection using multithreading:
 
       MATLAB doesn't support executing external libraries in multithreaded environments.
 
-**WARNING!** No special care is taken about race conditions, so the user has to ensure that the
-outputs of algorithms are not accessed simultaneously.
+.. warning::
 
-**WARNING!** MATLAB doesn't support executing external libraries in multithreaded
-environments, so the only option is much less lightweight process-based concurrent
-execution. The simplest approach is to just start several copies of MATLAB in batch
-mode.
+  No special care is taken about race conditions, so the user has to ensure that the
+  outputs of algorithms are not accessed simultaneously.
+
+.. warning::
+
+  MATLAB doesn't support executing external libraries in multithreaded
+  environments, so the only option is much less lightweight process-based concurrent
+  execution. The simplest approach is to just start several copies of MATLAB in batch
+  mode.
 
 Masks
 -----
@@ -148,11 +160,15 @@ projection matrix entirely. In other words, it will iteratively try
 to match the projection of the non-masked voxels to the non-masked projection
 data elements.
 
-**WARNING!** MinConstraint/MaxConstraint will affect even masked voxels.
+.. warning::
 
-**WARNING!** FP and BP algorithms (CPU versions) overwrite the output, so the values
-outside the sinogram/reconstruction masks, respectively, will be set to zero
-instead of being ignored.
+  MinConstraint/MaxConstraint will affect even masked voxels.
+
+.. warning::
+
+  FP and BP algorithms (CPU versions) overwrite the output, so the values
+  outside the sinogram/reconstruction masks, respectively, will be set to zero
+  instead of being ignored.
 
 ASTRA configuration structure
 -----------------------------

@@ -8,7 +8,8 @@ News
 * Fix a memory leak in the CPU parallel beam blob kernel
 * Add conda packages for CUDA 13 and for Python 3.14
 
-  **WARNING:** CUDA 13 packages no longer support GTX 9* and 10* GPUs. For those, you can
+.. warning::
+  CUDA 13 packages no longer support GTX 9* and 10* GPUs. For those, you can
   force CUDA 12 packages using ``conda install -c astra-toolbox -c nvidia astra-toolbox
   cuda-version=12`` command.
 

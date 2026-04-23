@@ -45,9 +45,11 @@ columns along the X axis):
 
 This can be used to control the voxel size, including specifying anisotropic voxels.
 
-**WARNING:** 2D CUDA algorithms expect the volume to be centered around the origin and pixels
-to be square. This is not always explicitly checked in all functions, so not following
-these requirements may have unpredictable results.
+.. warning::
+
+  The 2D CUDA algorithms expect the volume to be centered around the origin and pixels
+  to be square. This is not always explicitly checked in all functions, so not following
+  these requirements may have unpredictable results.
 
 
 Projection geometries
