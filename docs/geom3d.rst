@@ -1,8 +1,8 @@
 3D Geometries
 =============
 
-Volume geometries
------------------
+Volume geometry
+---------------
 
 Create a 3D volume geometry:
 
@@ -25,7 +25,12 @@ Specify the extent of the 3D volume (note that rows are oriented along the Y axi
   .. group-tab:: Python
     .. code-block:: python
 
-      vol_geom = astra.create_vol_geom(n_rows, n_cols, n_slices, min_x, max_x, min_y, max_y, min_z, max_z)
+      vol_geom = astra.create_vol_geom(
+          n_rows, n_cols, n_slices,
+          min_x, max_x,
+          min_y, max_y,
+          min_z, max_z
+      )
 
   .. group-tab:: MATLAB
     .. code-block:: matlab
@@ -54,11 +59,11 @@ parallel3d
 
 Create a 3D parallel beam geometry.
 
-*    det_col_spacing: distance between the centers of two horizontally adjacent detector pixels
-*    det_row_spacing: distance between the centers of two vertically adjacent detector pixels
-*    det_row_count: number of detector rows in a single projection
-*    det_col_count: number of detector columns in a single projection
-*    angles: projection angles in radians
+* ``det_col_spacing`` : distance between the centers of two horizontally adjacent detector pixels
+* ``det_row_spacing`` : distance between the centers of two vertically adjacent detector pixels
+* ``det_row_count`` : number of detector rows in a single projection
+* ``det_col_count`` : number of detector columns in a single projection
+* ``angles`` : projection angles in radians
 
 
 cone
@@ -68,22 +73,22 @@ cone
   .. group-tab:: Python
     .. code-block:: python
 
-      proj_geom = astra.create_proj_geom('cone',  det_col_spacing, det_row_spacing, det_row_count, det_col_count, angles, source_origin, origin_det)
+      proj_geom = astra.create_proj_geom('cone',  det_col_spacing, det_row_spacing, det_row_count, det_col_count, angles, source_origin_distance, origin_detector_distance)
 
   .. group-tab:: MATLAB
     .. code-block:: matlab
 
-      proj_geom = astra_create_proj_geom('cone',  det_col_spacing, det_row_spacing, det_row_count, det_col_count, angles, source_origin, origin_det);
+      proj_geom = astra_create_proj_geom('cone',  det_col_spacing, det_row_spacing, det_row_count, det_col_count, angles, source_origin_distance, origin_detector_distance);
 
 Create a 3D cone beam geometry.
 
-*    det_col_spacing: distance between the centers of two horizontally adjacent detector pixels
-*    det_row_spacing: distance between the centers of two vertically adjacent detector pixels
-*    det_row_count: number of detector rows in a single projection
-*    det_col_count: number of detector columns in a single projection
-*    angles: projection angles in radians
-*    source_origin: distance between the source and the center of rotation
-*    origin_det: distance between the center of rotation and the detector array
+* ``det_col_spacing`` : distance between the centers of two horizontally adjacent detector pixels
+* ``det_row_spacing`` : distance between the centers of two vertically adjacent detector pixels
+* ``det_row_count`` : number of detector rows in a single projection
+* ``det_col_count`` : number of detector columns in a single projection
+* ``angles`` : projection angles in radians
+* ``source_origin_distance`` : distance between the source and the center of rotation
+* ``origin_detector_distance`` : distance between the center of rotation and the detector array
 
 
 parallel3d_vec
@@ -102,22 +107,22 @@ parallel3d_vec
 
 Create a 3D parallel beam geometry specified by 3D vectors.
 
-*    det_row_count: number of detector rows in a single projection
-*    det_col_count: number of detector columns in a single projection
-*    vectors: a matrix containing the actual geometry.
+* ``det_row_count`` : number of detector rows in a single projection
+* ``det_col_count`` : number of detector columns in a single projection
+* ``vectors`` : a matrix defining the geometry
 
 Each row of vectors corresponds to a single projection, and consists of:
 
-.. code-block:: matlab
+.. code-block::
 
-  ( rayX, rayY, rayZ, dX, dY, dZ, uX, uY, uZ, vX, vY, vZ )
+  ( dirX, dirY, dirZ, dX, dY, dZ, uX, uY, uZ, vX, vY, vZ )
 
-* ray : the ray direction
-* d   : the center of the detector
-* u   : the vector from detector pixel (0,0) to (0,1)
-* v   : the vector from detector pixel (0,0) to (1,0)
+* ``dir`` : the illumination direction
+* ``d`` : the detector center coordinate
+* ``u`` : the vector from detector pixel (0,0) to (0,1)
+* ``v`` : the vector from detector pixel (0,0) to (1,0)
 
-To illustrate this, here is a script to convert a single projection in a projection geometry of
+To illustrate this, here is a script to convert a single projection in a geometry of
 type "parallel3d" into such a 12-element row:
 
 .. tabs::
@@ -197,9 +202,9 @@ cone_vec
 
 Create a 3D cone beam geometry specified by 3D vectors.
 
-*    det_row_count: number of detector rows in a single projection
-*    det_col_count: number of detector columns in a single projection
-*    vectors: a matrix containing the actual geometry.
+* ``det_row_count`` : number of detector rows in a single projection
+* ``det_col_count`` : number of detector columns in a single projection
+* ``vectors`` : a matrix defining the geometry
 
 Each row of vectors corresponds to a single projection, and consists of:
 
@@ -207,12 +212,12 @@ Each row of vectors corresponds to a single projection, and consists of:
 
  ( srcX, srcY, srcZ, dX, dY, dZ, uX, uY, uZ, vX, vY, vZ )
 
-* src : the ray source
-* d   : the center of the detector
-* u   : the vector from detector pixel (0,0) to (0,1)
-* v   : the vector from detector pixel (0,0) to (1,0)
+* ``src`` : the illumination source position
+* ``d`` : the detector center coordinate
+* ``u`` : the vector from detector pixel (0,0) to (0,1)
+* ``v`` : the vector from detector pixel (0,0) to (1,0)
 
-To illustrate this, here is a script to convert a single projection in a projection geometry of
+To illustrate this, here is a script to convert a single projection in a geometry of
 type "cone" into such a 12-element row:
 
 .. tabs::
@@ -284,9 +289,9 @@ cyl_cone_vec
 Create a 3D cylindrical detector cone beam geometry specified by 3D vectors. U axis of the detector
 will be curved.
 
-*    det_row_count: number of detector rows in a single projection
-*    det_col_count: number of detector columns in a single projection
-*    vectors: a matrix containing the actual geometry.
+* ``det_row_count`` : number of detector rows in a single projection
+* ``det_col_count`` : number of detector columns in a single projection
+* ``vectors`` : a matrix defining the geometry
 
 Each row of vectors corresponds to a single projection, and consists of:
 
@@ -294,8 +299,8 @@ Each row of vectors corresponds to a single projection, and consists of:
 
  ( srcX, srcY, srcZ, dX, dY, dZ, uX, uY, uZ, vX, vY, vZ, R )
 
-* src : the ray source
-* d   : the center of the detector
-* u   : the vector from detector pixel (0,0) to (0,1)
-* v   : the vector from detector pixel (0,0) to (1,0)
-* R   : curvature radius of the cylindrical detector (U axis will be curved)
+* ``src`` : the illumination source position
+* ``d`` : the detector center coordinate
+* ``u`` : the vector from detector pixel (0,0) to (0,1), tangential to the curved detector surface
+* ``v`` : the vector from detector pixel (0,0) to (1,0)
+* ``R`` : curvature radius of the cylindrical detector (U axis will be curved)

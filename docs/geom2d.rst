@@ -1,8 +1,8 @@
 2D Geometries
 =============
 
-Volume Geometries
------------------
+Volume geometry
+---------------
 
 Create a 2D volume geometry:
 
@@ -13,7 +13,6 @@ Create a 2D volume geometry:
       vol_geom = astra.create_vol_geom(n_rows_and_cols)
       vol_geom = astra.create_vol_geom((n_rows, n_cols))
       vol_geom = astra.create_vol_geom(n_rows, n_cols)
-      vol_geom = astra.create_vol_geom(n_rows, n_cols, min_x, max_x, min_y, max_y)
 
   .. group-tab:: MATLAB
     .. code-block:: matlab
@@ -21,25 +20,37 @@ Create a 2D volume geometry:
       vol_geom = astra_create_vol_geom(n_rows_and_cols);
       vol_geom = astra_create_vol_geom([n_rows n_cols]);
       vol_geom = astra_create_vol_geom(n_rows, n_cols);
-      vol_geom = astra_create_vol_geom(n_rows, n_cols, min_x, max_x, min_y, max_y);
 
-In the first form, the volume contains an equal number of rows and columns. In the first, second and third forms, volume pixels are squares with sides of unit length, and the volume is centered around the origin. In the fourth, longer form, the extents of the volume can be specified arbitrarily (note that rows are oriented along Y axis, and columns along X axis). The long form corresponding to the default short form is:
+In the first form, the volume contains an equal number of rows and columns. In the
+first, second and third forms, voxels are squares with sides of unit length, and the
+volume is centered around the origin.
+
+Specify the extent of the 2D volume (note that rows are oriented along the Y axis and
+columns along the X axis):
 
 .. tabs::
   .. group-tab:: Python
     .. code-block:: python
 
-      vol_geom = astra.create_vol_geom(y, x, -x/2, x/2, -y/2, y/2)
+      vol_geom = astra.create_vol_geom(
+          n_rows, n_cols,
+          min_x, max_x,
+          min_y, max_y
+      )
 
   .. group-tab:: MATLAB
     .. code-block:: matlab
 
-      vol_geom = astra_create_vol_geom(y, x, -x/2, x/2, -y/2, y/2);
+      vol_geom = astra_create_vol_geom(n_rows, n_cols, min_x, max_x, min_y, max_y);
 
-Note: For usage with GPU code, the volume must be centered around the origin and pixels must be square. This is not always explicitly checked in all functions, so not following these requirements may have unpredictable results.
+This can be used to control the voxel size, including specifying anisotropic voxels.
+
+**WARNING:** 2D CUDA algorithms expect the volume to be centered around the origin and pixels
+to be square. This is not always explicitly checked in all functions, so not following
+these requirements may have unpredictable results.
 
 
-Projection Geometries
+Projection geometries
 ---------------------
 
 parallel
@@ -58,9 +69,9 @@ Create a 2D parallel beam geometry:
 
       proj_geom = astra_create_proj_geom('parallel', det_spacing, det_count, angles);
 
-* det_spacing: distance between the centers of two adjacent detector pixels
-* det_count: number of detector pixels in a single projection
-* angles: projection angles in radians
+* ``det_spacing`` : distance between the centers of two adjacent detector elements
+* ``det_count`` : number of detector elements in a single projection
+* ``angles`` : projection angles in radians
 
 
 fanflat
@@ -72,18 +83,18 @@ Create a 2D flat fan beam geometry:
   .. group-tab:: Python
     .. code-block:: python
 
-      proj_geom = astra.create_proj_geom('fanflat', det_spacing, det_count, angles, source_origin, origin_det)
+      proj_geom = astra.create_proj_geom('fanflat', det_spacing, det_count, angles, source_origin_distance, origin_detector_distance)
 
   .. group-tab:: MATLAB
     .. code-block:: matlab
 
-      proj_geom = astra_create_proj_geom('fanflat', det_spacing, det_count, angles, source_origin, origin_det);
+      proj_geom = astra_create_proj_geom('fanflat', det_spacing, det_count, angles, source_origin_distance, origin_detector_distance);
 
-* det_spacing: distance between the centers of two adjacent detector pixels
-* det_count: number of detector pixels in a single projection
-* angles: projection angles in radians
-* source_origin: distance between the source and the center of rotation
-* origin_det: distance between the center of rotation and the detector array
+* ``det_spacing`` : distance between the centers of two adjacent detector elements
+* ``det_count`` : number of detector elements in a single projection
+* ``angles`` : projection angles in radians
+* ``source_origin_distance`` : distance between the source and the center of rotation
+* ``origin_detector_distance`` : distance between the center of rotation and the detector array
 
 
 parallel_vec
@@ -102,15 +113,20 @@ Create a 2D parallel beam geometry specified by 2D vectors:
 
       proj_geom = astra_create_proj_geom('parallel_vec', det_count, vectors);
 
-* det_count: number of detectors in a single projection
-* vectors: a matrix containing the actual geometry.
-  Each row of vectors corresponds to a single projection, and consists of:
-  ( rayX, rayY, dX, dY, uX, uY )
-* ray : the ray direction
-* d : the center of the detector
-* u : the vector between the centers of detector pixels 0 and 1
+* ``det_count`` : number of detector elements in a single projection
+* ``vectors`` : a matrix defining the geometry
 
-To illustrate this, here is a script to convert a single projection in a projection geometry of
+Each row of vectors corresponds to a single projection, and consists of:
+
+.. code-block::
+
+  ( dirX, dirY, dX, dY, uX, uY )
+
+* ``dir`` : the illumination direction
+* ``d`` : the detector center coordinate
+* ``u`` : the vector between the centers of detector elements 0 and 1
+
+To illustrate this, here is a script to convert a single projection in a geometry of
 type "parallel" into such a 6-element row:
 
 .. tabs::
@@ -125,7 +141,7 @@ type "parallel" into such a 6-element row:
       vectors[i,2] = 0
       vectors[i,3] = 0
 
-      # vector from detector pixel 0 to 1
+      # vector from detector element 0 to 1
       vectors[i,4] = numpy.cos(proj_geom['ProjectionAngles'][i]) * proj_geom['DetectorWidth']
       vectors[i,5] = numpy.sin(proj_geom['ProjectionAngles'][i]) * proj_geom['DetectorWidth']
 
@@ -140,7 +156,7 @@ type "parallel" into such a 6-element row:
       vectors(i,3) = 0;
       vectors(i,4) = 0;
 
-      % vector from detector pixel 0 to 1
+      % vector from detector element 0 to 1
       vectors(i,5) = cos(proj_geom.ProjectionAngles(i)) * proj_geom.DetectorWidth;
       vectors(i,6) = sin(proj_geom.ProjectionAngles(i)) * proj_geom.DetectorWidth;
 
@@ -174,15 +190,20 @@ Create a 2D flat fan beam geometry specified by 2D vectors:
 
       proj_geom = astra_create_proj_geom('fanflat_vec', det_count, vectors);
 
-* det_count: number of detectors in a single projection
-* vectors: a matrix containing the actual geometry.
-  Each row of vectors corresponds to a single projection, and consists of:
-  ( srcX, srcY, dX, dY, uX, uY )
-* src : the ray source
-* d : the center of the detector
-* u : the vector between the centers of detector pixels 0 and 1
+* ``det_count`` : number of detector elements in a single projection
+* ``vectors`` : a matrix defining the geometry
 
-To illustrate, this is a script to convert a single projection in a projection geometry of type "fanflat" into such a 6-element row:
+Each row of vectors corresponds to a single projection, and consists of:
+
+.. code-block::
+
+  ( srcX, srcY, dX, dY, uX, uY )
+
+* ``src`` : the illumination source position
+* ``d`` : the detector center coordinate
+* ``u`` : the vector between the centers of detector elements 0 and 1
+
+To illustrate, this is a script to convert a single projection in a geometry of type "fanflat" into such a 6-element row:
 
 .. tabs::
   .. group-tab:: Python
@@ -196,7 +217,7 @@ To illustrate, this is a script to convert a single projection in a projection g
       vectors[i,2] = -numpy.sin(proj_geom['ProjectionAngles'][i]) * proj_geom['DistanceOriginDetector']
       vectors[i,3] = numpy.cos(proj_geom['ProjectionAngles'][i]) * proj_geom['DistanceOriginDetector']
 
-      # vector from detector pixel 0 to 1
+      # vector from detector element 0 to 1
       vectors[i,4] = numpy.cos(proj_geom['ProjectionAngles'][i]) * proj_geom['DetectorWidth']
       vectors[i,5] = numpy.sin(proj_geom['ProjectionAngles'][i]) * proj_geom['DetectorWidth']
 
@@ -211,7 +232,7 @@ To illustrate, this is a script to convert a single projection in a projection g
       vectors(i,3) = -sin(proj_geom.ProjectionAngles(i)) * proj_geom.DistanceOriginDetector;
       vectors(i,4) = cos(proj_geom.ProjectionAngles(i)) * proj_geom.DistanceOriginDetector;
 
-      % vector from detector pixel 0 to 1
+      % vector from detector element 0 to 1
       vectors(i,5) = cos(proj_geom.ProjectionAngles(i)) * proj_geom.DetectorWidth;
       vectors(i,6) = sin(proj_geom.ProjectionAngles(i)) * proj_geom.DetectorWidth;
 
@@ -245,10 +266,10 @@ Create a 2D projection geometry defined by its system matrix:
 
       proj_geom = astra_create_proj_geom('sparse_matrix', det_width, det_count, angles, matrix_id);
 
-* det_width: unused, but has to be present (for compatibility reasons)
-* det_count: number of detectors in a single projection
-* angles: a vector, the length of which is the number of projections. The contents are unused.
-* matrix_id: a `astra.matrix/astra_mex_matrix <misc.html#projection-matrix-objects>`_ object ID of a sparse matrix of the right dimensions.
+* ``det_width`` : unused, but has to be present (for compatibility reasons)
+* ``det_count`` : number of detectors in a single projection
+* ``angles`` : a vector, the length of which is the number of projections. The contents are unused.
+* ``matrix_id`` : a `astra.matrix/astra_mex_matrix <misc.html#projection-matrix-objects>`_ object ID of a sparse matrix of the right dimensions.
 
 The matrix is an ID returned by
 
