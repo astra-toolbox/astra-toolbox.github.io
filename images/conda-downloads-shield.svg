@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="144" height="20" aria-label="conda downloads: 390k" role="img" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
- <title>conda downloads: 390k</title>
+<svg width="144" height="20" aria-label="conda downloads: 492k" role="img" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <title>conda downloads: 492k</title>
  <linearGradient id="s" x2="0" y2="53.666" gradientTransform="scale(2.6833 .37268)" gradientUnits="userSpaceOnUse">
   <stop stop-color="#bbb" stop-opacity=".1" offset="0"/>
   <stop stop-opacity=".1" offset="1"/>
@@ -16,13 +16,13 @@
  <g font-family="Verdana, Geneva, 'DejaVu Sans', sans-serif" font-size="110px" text-anchor="middle" text-rendering="geometricPrecision">
   <text transform="scale(.1)" x="545" y="150" fill="#010101" fill-opacity=".3" aria-hidden="true" textLength="970">conda downloads</text>
   <text transform="scale(.1)" x="545" y="140" fill="#ffffff" textLength="970">conda downloads</text>
-  <text transform="scale(.1)" x="1245" y="150" fill="#010101" fill-opacity=".3" aria-hidden="true" textLength="270">390k</text>
-  <text transform="scale(.1)" x="1245" y="140" fill="#ffffff" textLength="270">390k</text>
+  <text transform="scale(.1)" x="1245" y="150" fill="#010101" fill-opacity=".3" aria-hidden="true" textLength="270">492k</text>
+  <text transform="scale(.1)" x="1245" y="140" fill="#ffffff" textLength="270">492k</text>
  </g>
  <metadata>
   <rdf:RDF>
    <cc:Work rdf:about="">
-    <dc:title>conda downloads: 390k</dc:title>
+    <dc:title>conda downloads: 492k</dc:title>
    </cc:Work>
   </rdf:RDF>
  </metadata>
