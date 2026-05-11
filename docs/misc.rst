@@ -41,6 +41,8 @@ available for FP3D, BP3D and FDK algorithms.
   get out-of-memory errors.
 
 
+.. _set-single-gpu:
+
 Choosing the GPU to use
 -----------------------
 
@@ -58,14 +60,7 @@ with:
 
       astra_mex('set_gpu_index', index);
 
-.. warning::
-
-  In `multithreading`_ contexts (Python), the GPU index will be set globally,
-  so it can't be used to reliably restrict a thread to a given GPU. Instead, you can avoid
-  calling ``astra.set_gpu_index`` whatsoever, and instead set the desired GPU with an
-  external library where the device context is thread-local, e.g. using
-  ``torch.cuda.set_device``.
-
+.. _set-multi-gpu:
 
 Using several GPUs cooperatively
 --------------------------------
@@ -90,11 +85,21 @@ computation. To do that, you can define the desired set of GPUs to be used:
   functionality. For the rest, the first GPU in the specified index list will be used as
   the fallback.
 
+.. warning::
+
+  In `multithreading`_ contexts (Python), the GPU indices will be
+  set globally (only) when specifying multiple indices, so it cannot be used to
+  reliably restrict a thread to a given set of GPUs. If this is required, you can
+  pass the set of GPUs as an option when creating the Astra projector or
+  algorithm object.
+
+
 
 Multithreading
 --------------
 
-In Python, Astra supports concurrent execution of its algorithms in multiple threads.
+In Python, Astra supports concurrent execution of its algorithms in multiple threads. This
+is enabled by Astra dropping the Python global interpreter lock while executing an Astra algorithm.
 This functionality is useful to process different inputs on different GPUs simultaneously.
 Another use case is processing data blocks on the *same* GPU in parallel, which is useful
 when a single ASTRA call under-utilizes the GPU. For instance, here is how one can
@@ -132,8 +137,10 @@ compute a fan-parallel projection using multithreading:
 
 .. warning::
 
-  No special care is taken about race conditions, so the user has to ensure that the
-  outputs of algorithms are not accessed simultaneously.
+  No special care is taken about race conditions, so the user has to
+  ensure that the outputs of algorithms are not accessed before they are
+  finished, objects are created before they are used, and objects are not deleted
+  while still in use by other threads.
 
 .. warning::
 
@@ -141,6 +148,28 @@ compute a fan-parallel projection using multithreading:
   environments, so the only option is much less lightweight process-based concurrent
   execution. The simplest approach is to just start several copies of MATLAB in batch
   mode.
+
+Python free threading
+---------------------
+
+Since Python 3.13, there is a separate Python interpreter that disables the global interpreter lock, called
+`free threading <https://docs.python.org/3/howto/free-threading-python.html>`_.
+Astra supports this mode, and most Astra functions are thread-safe.
+
+There are two exceptions to the thread-safety of Astra calls: setting logging
+parameters via the astra.log module is not thread-safe, and neither is
+:ref:`passing multiple GPU indices to astra.set_gpu_index <set-multi-gpu>`.
+
+On the other hand, using :ref:`astra.set_gpu_index with a single GPU index <set-single-gpu>` is
+thread-safe, and will set the active GPU only for the current thread.
+
+.. warning::
+
+  No special care is taken about race conditions, so the user has to
+  ensure that the outputs of algorithms are not accessed before they are
+  finished, objects are created before they are used, and objects are not deleted
+  while still in use by other threads.
+
 
 Masks
 -----
