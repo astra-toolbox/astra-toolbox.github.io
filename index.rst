@@ -58,7 +58,7 @@ Downloads
 Main downloads of the latest official release.
 
 
-.. include:: downloads/2.4.0/downloads.txt
+.. include:: downloads/2.4.1/downloads.txt
 
 References
 ----------
