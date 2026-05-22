@@ -23,9 +23,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash -el {0}  # For Conda activation scripts to work correctly
     steps:
     - name: Checkout
       uses: actions/checkout@v4
