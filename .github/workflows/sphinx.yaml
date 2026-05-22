@@ -2,7 +2,6 @@ name: Build and deploy docs to GitHub Pages
 
 on:
   - push
-  - pull_request
   # Allow running this workflow manually from the Actions tab
   - workflow_dispatch
 
@@ -46,5 +45,5 @@ jobs:
         path: '_build/html/'
     - name: Deploy to GitHub pages
       id: deployment
-      if: ${{ github.ref == 'refs/heads/master' && github.event_name != 'pull_request' }}
+      if: ${{ github.ref == 'refs/heads/master' }}
       uses: actions/deploy-pages@v4
