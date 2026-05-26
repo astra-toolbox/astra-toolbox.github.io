@@ -47,9 +47,7 @@ This can be used to control the voxel size, including specifying anisotropic vox
 
 .. warning::
 
-  The 2D CUDA algorithms expect the volume to be centered around the origin and pixels
-  to be square. This is not always explicitly checked in all functions, so not following
-  these requirements may have unpredictable results.
+  Some projectors (including the 2D CUDA projector) require pixels to be square.
 
 
 Projection geometries
