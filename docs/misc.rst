@@ -145,8 +145,12 @@ compute a fan-parallel projection using multithreading:
 Masks
 -----
 
-Various reconstruction algorithms support projection data and reconstruction
-volume masks. These behave as follows.
+Various reconstruction algorithms support binary projection data and
+reconstruction volume masks. These behave as follows.
+
+The projection data and reconstruction masks are specified in SinogramMask and
+ReconstructionMask, respectively. Each element of these masks must be either
+0.0 or 1.0.
 
 The projection data elements corresponding to locations with SinogramMask
 value 0.0 will be ignored during the reconstruction. Similarly,
