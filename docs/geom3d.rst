@@ -301,6 +301,7 @@ Each row of vectors corresponds to a single projection, and consists of:
 
 * ``src`` : the illumination source position
 * ``d`` : the detector center coordinate
-* ``u`` : the vector from detector pixel (0,0) to (0,1), tangential to the curved detector surface
+* ``u`` : the vector tangential to the curved detector surface at the center of the
+          detector; with length equal to the arc length covered by one column of the detector
 * ``v`` : the vector from detector pixel (0,0) to (1,0)
 * ``R`` : curvature radius of the cylindrical detector (U axis will be curved)
