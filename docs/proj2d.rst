@@ -1,10 +1,14 @@
 2D Projectors
 =============
 
-Projectors determine the (implicit) weight matrix of the geometries.
-All CPU reconstruction algorithms require a projector.
+Projectors define the parameters of the forward and backward projection operations,
+such as how projection weights are calculated, whether CUDA or CPU execution is used,
+and other parameters.
 
-Each projector is only suitable for specific projection geometries.
+All CPU reconstruction algorithms require a projector, and each projector is only
+suitable for either parallel or fanflat projection geometries. On the other hand,
+CUDA algorithms always use `"cuda" <#cuda-projector>`_ projector, which corresponds to
+accelerated `"linear" <#linear-projector>`_ (Joseph/slice-interpolated) projector type.
 
 Creation
 --------
@@ -13,21 +17,17 @@ Creation
   .. group-tab:: Python
     .. code-block:: python
 
-      id = astra.create_projector(...)
+      id = astra.create_projector(projector_type, proj_geom, vol_geom)
 
   .. group-tab:: MATLAB
     .. code-block:: matlab
 
-      id = astra_create_projector(...);
+      id = astra_create_projector(projector_type, proj_geom, vol_geom);
 
-Create a projector object. Projectors determine the (implicit) weight matrix of
-the geometries. All CPU reconstruction algorithms require a projector.
+This function is a wrapper around :ref:`create <create-projector-2d>` method with a more
+convenient interface.
 
-This script is a wrapper around astra.projector.create (Python) /
-astra_mex_projector('create', ...) (MATLAB) with a more convenient interface.
-See below for specifics.
-
-The allocated object must be freed after use with a call to
+The allocated object can be freed after use with a call to:
 
 .. tabs::
   .. group-tab:: Python
@@ -83,6 +83,8 @@ The weight of a ray/pixel pair is given by the area of the
 intersection of the pixel and the ray, considered as a strip with the same
 width as a detector pixel.
 
+
+.. _linear-projector:
 
 linear
 ~~~~~~
@@ -171,6 +173,7 @@ sparse_matrix
 This projector uses a sparse matrix projection geometry. See the
 documentation for that geometry for details.
 
+.. _cuda-projector:
 
 cuda
 ~~~~
@@ -186,15 +189,15 @@ cuda
 
       proj_id = astra_create_projector('cuda', proj_geom, vol_geom);
 
-This projector does not directly specify a weight matrix, but instead
-is intended to let algorithms use GPU/CUDA code. It can be used
-with parallel, parallel_vec, fanflat and fanflat_vec projection geometries.
-
-NB: This functionality has not yet been implemented everywhere.
+This projector corresponds to the `linear <#linear-projector>`_ (Joseph/slice-interpolated)
+projector type accelerated using GPU/CUDA. It can be used with parallel, parallel_vec,
+fanflat and fanflat_vec projection geometries.
 
 
 API
 ---
+
+.. _create-projector-2d:
 
 create
 ~~~~~~
@@ -203,16 +206,23 @@ create
   .. group-tab:: Python
     .. code-block:: python
 
-     id = astra.projector.create(cfg)
+       config = {
+           "type": "line",
+           "ProjectionGeometry": proj_geom,
+           "VolumeGeometry": vol_geom
+       }
+       id = astra.projector.create(config)
 
   .. group-tab:: MATLAB
     .. code-block:: matlab
 
-     id = astra_mex_projector('create', cfg);
+       config.type = 'line';
+       config.ProjectionGeometry = proj_geom;
+       config.VolumeGeometry = vol_geom;
+       id = astra_mex_projector('create', config);
 
 Create a projector from a config object. This is called internally by
-`astra.create_projector/astra_create_projector <#creation>`_, which is the
-recommended way to create most projectors.
+`create_projector <#creation>`_, which is the recommended way to create most projectors.
 
 
 matrix
