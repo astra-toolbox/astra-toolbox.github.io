@@ -193,6 +193,33 @@ This projector corresponds to the `linear <#linear-projector>`_ (Joseph/slice-in
 projector type accelerated using GPU/CUDA. It can be used with parallel, parallel_vec,
 fanflat and fanflat_vec projection geometries.
 
+The "cuda" projector type supports additional options that can be specified in the
+``options`` field in the config passed to the :ref:`create <create-projector>` method,
+or as ``options`` argument to the `create_projector <#creation>`_ function:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Name
+     - Description
+
+   * - *VoxelSuperSampling*
+     - Each voxel in the volume will be subdivided by this factor along each
+       dimension. This should only be used if voxels in the volume are
+       larger than the detector pixels (default: 1).
+
+   * - *DetectorSuperSampling*
+     - Each detector pixel in the projection will be subdivided by this factor along
+       each dimension. This should only be used if detector pixels are larger than the
+       voxels in the volume (default: 1).
+
+   * - *GPUIndex*
+     - The index of the GPU to use (default: 0).
+
+.. note::
+  Note that these options have lower priority than the options you can define when
+  configuring the `algorithms <algs/index.html>`_.
+
 
 API
 ---
