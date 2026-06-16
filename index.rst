@@ -60,29 +60,33 @@ Install
 Latest News
 -----------
 
-* 17 Jun 2026: `ASTRA v2.5.0 <news.html#version-2-5-0>`_ released.
+2026-06-17: Version 2.5.0
+~~~~~~~~~~~~~~~~~~~~~~~~~
+* Add support for 2D projectors in DLPack functionality.
 
-* 16 Dec 2025: `ASTRA v2.4.1 <news.html#version-2-4-1>`_ released.
+  This allows for zero-copy linking of CPU/GPU arrays from Python libraries supporting
+  the DLPack standard, including PyTorch, TensorFlow, CuPy and JAX. Previously, this was
+  only supported for 3D data.
 
-* 4 Aug 2025: `ASTRA v2.4 <news.html#version-2-4>`_ released.
+* Add ``direct_FP`` / ``direct_BP`` to ``astra.projector`` and ``astra.projector3d`` modules.
 
-* 16 Apr 2025: `ASTRA v2.3.1 <news.html#version-2-3-1>`_ released.
+  This allows for using ASTRA projectors directly on DLPack arrays, without creating an
+  ASTRA data or algorithm objects. See `2D Projectors <docs/proj2d.html#direct-fp-direct-bp>`_
+  and `3D Projectors <docs/proj3d.html#direct-fp-direct-bp>`_ docs for more information.
 
-* 22 Feb 2025: `ASTRA v2.3 <news.html#version-2-3>`_ released.
+* Add experimental support for ROCm/HIP tensors in "direct" and "link" functionality
+* Major internal refactoring of data management and CUDA subsystems
+* Fix memory leaks in several places
+* Fix the crash in fanflat BP_CUDA with more than 2560 angles
+* Add PyPI distribution for Windows
+* Add support for CUDA 13 and Visual Studio 2022 on Windows
+* Add support and distribution for free-threading Python version (Linux only)
+* Update set_gpu_index and other GPU selection options for multi-threading contexts
+* Fix building on modern macOS
 
-* 12 Jul 2024: `ASTRA v2.2 <news.html#version-2-2>`_ released.
+`>>> More news <news.html>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* 31 Jan 2022: `ASTRA v2.1 <news.html#version-2-1>`_ released. This is the official release of the 2.0.9 development version.
-
-* 23 Dec 2021: There are now conda packages for development version 2.0.9 available in the ``astra-toolbox/label/dev`` conda channel to prepare for 2.1.0 in early 2022. This fixes a rare hang in our CUDA FFT code (and also speeds it up) in FBP_CUDA and FDK_CUDA, fixes GPULink support with unpadded rows, output gray value scaling for short-scan FDK, and conda compatibility issues with the conda-forge and nvidia conda channels.
-
-* 27 Oct 2021: `ASTRA v2.0 <news.html#version-2-0>`_ released. This official release wraps up all the consistency and compatibility improvements from the development releases over the past few years. See the news entry for more information on these gray value output range consistency improvements.
-
-* 17 Jan 2020: In the latest development version of ASTRA (`1.9.9.dev <news.html#version-1-9-9dev-changes-in-output-scaling-of-projectors>`_), we have made some consistency improvements to the grey value output ranges of the FP and BP operations.
-
-* 9 Jul 2019: Windows MATLAB/Python packages of the current `1.9.0.dev <news.html#version-1-9-0-dev>`_ version of ASTRA git master are now available for download below. These require CUDA 9.0+.
-
-* We now have development Python packages available from ASTRA git master on conda. Quick installation instructions: ``conda install -c astra-toolbox/label/dev astra-toolbox`` .
 
 References
 ----------
