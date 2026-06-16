@@ -1,5 +1,5 @@
-ASTRA utility scripts
-=====================
+Utility scripts
+===============
 
 Create sinogram
 ---------------
