@@ -9,6 +9,7 @@ Documentation
    geom2d
    geom3d
    proj2d
+   proj3d
    data2d
    data3d
    algs/index
