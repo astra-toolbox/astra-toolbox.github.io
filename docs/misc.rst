@@ -313,9 +313,9 @@ store
 
 Store a new Python or MATLAB sparse matrix in an ASTRA sparse matrix object.
 
-NB: This does not re-allocate memory: the number of rows and
-non-zero entries may not be larger than they were when
-the object was first created.
+.. warning::
+  This does not re-allocate memory: the number of rows and non-zero entries may not be
+  larger than they were when the object was first created.
 
 
 delete

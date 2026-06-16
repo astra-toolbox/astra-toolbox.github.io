@@ -149,8 +149,9 @@ intersection of the pixel and the ray. The ray is considered as a 2D cone
 from the source to the full width of the detector pixel. The projector can only
 be used with the fanflat geometry.
 
-NB: This mathematical model does not properly take into account the fan beam
-magnification effect.
+.. note::
+  This mathematical model does not properly take into account the fan beam
+  magnification effect.
 
 
 Miscellaneous
@@ -328,7 +329,8 @@ It has to be freed after use with
 
       astra_mex_matrix('delete', matrix_id);
 
-NB: Such a matrix can be very large for large geometries.
+.. warning::
+  Such a matrix can require significant memory for large geometries.
 
 
 volume_geometry
@@ -347,7 +349,9 @@ volume_geometry
 
 Get the volume geometry attached to the given projector object.
 
-NB: This is not fully implemented yet and the return value may not accurately represent the geometry.
+.. note::
+  The returned geometry may slightly deviate from the original geometry because of
+  internal data type conversions.
 
 
 projection_geometry
@@ -366,7 +370,9 @@ projection_geometry
 
 Get the projection geometry attached to the given projector object.
 
-NB: This is not fully implemented yet and the return value may not accurately represent the geometry.
+.. note::
+  The returned geometry may slightly deviate from the original geometry because of
+  internal data type conversions.
 
 
 is_cuda

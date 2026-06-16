@@ -164,7 +164,9 @@ get_geometry
 
 This gets the (volume or projection) geometry attached to the object.
 
-NB: This is not fully implemented yet and the return value may not accurately represent the geometry.
+.. note::
+  The returned geometry may slightly deviate from the original geometry because of
+  internal data type conversions.
 
 
 change_geometry

@@ -91,11 +91,13 @@ If you want to build the Octave interface instead of the MATLAB interface, speci
 $HOME/astra/octave . On some Linux distributions building the Astra Octave interface will require
 the Octave development package to be installed (e.g., liboctave-dev on Ubuntu).
 
-NB: Each MATLAB version only supports a specific range of g++ versions. Despite this, if you have a
-newer g++ and if you get errors related to missing GLIBCXX_3.4.xx symbols, it is often possible to
-work around this requirement by deleting the version of libstdc++ supplied by MATLAB in
-MATLAB_PATH/bin/glnx86 or MATLAB_PATH/bin/glnxa64 (at your own risk), or setting
-``LD_PRELOAD=/usr/lib64/libstdc++.so.6`` (or similar) when starting MATLAB.
+.. note ::
+   Each MATLAB version only supports a specific range of g++ versions. Despite this, if
+   you have a newer g++ and if you get errors related to missing GLIBCXX_3.4.xx symbols,
+   it is often possible to work around this requirement by deleting the version of
+   libstdc++ supplied by MATLAB in MATLAB_PATH/bin/glnx86 or MATLAB_PATH/bin/glnxa64
+   (at your own risk), or setting ``LD_PRELOAD=/usr/lib64/libstdc++.so.6`` (or similar)
+   when starting MATLAB.
 
 For Python
 ^^^^^^^^^^
