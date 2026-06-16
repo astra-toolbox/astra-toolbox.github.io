@@ -1,8 +1,3 @@
-.. ASTRA Toolbox documentation master file, created by
-   sphinx-quickstart on Tue Jan  5 15:10:44 2016.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 The ASTRA Toolbox
 =================
 
@@ -17,15 +12,24 @@ The ASTRA Toolbox
 
 .. image:: images/license-shield.svg
 
-The ASTRA Toolbox is a Python and MATLAB toolbox of high-performance GPU primitives for 2D and 3D tomography.
+The ASTRA Toolbox is a Python and MATLAB toolbox of high-performance GPU primitives for
+2D and 3D tomography. Its features include:
 
-We support 2D parallel and fan beam geometries, and 3D parallel and cone beam. All of them have highly flexible source/detector positioning.
+* Support for 2D parallel and fan beam, as well as 3D parallel and cone beam geometries
+  with highly flexible source/detector positioning.
 
-A large number of 2D and 3D algorithms are available, including FBP, SIRT, SART, CGLS.
+* A number of 2D and 3D reconstruction algorithms, including FBP, SIRT, SART, CGLS.
 
-The basic forward and backward projection operations are GPU-accelerated, and directly callable from MATLAB and Python to enable building new algorithms.
+* GPU-accelerated forward and backward projection operations that are directly callable
+  from Python and MATLAB to enable building new algorithms.
+
+* Automatic splitting of data when it doesn't fit in GPU memory, and support for using
+  multiple GPUs simultaneously.
+
+* Zero-copy (GPU) data exchange with different Python libraries (NumPy, PyTorch, CuPy, JAX).
 
 The source code of the ASTRA Toolbox is available on `GitHub <https://github.com/astra-toolbox/astra-toolbox>`_.
+
 
 Latest News
 -----------
