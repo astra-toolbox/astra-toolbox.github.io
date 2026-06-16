@@ -76,7 +76,7 @@ Additional requirements: MATLAB (R2012a or higher)
 .. code-block:: bash
 
    cd build/linux
-   ./autogen.sh   # when building a git version
+   ./autogen.sh
    ./configure --with-cuda=/usr/local/cuda \
                --with-matlab=/usr/local/MATLAB/R2012a \
                --prefix=$HOME/astra \
@@ -107,7 +107,7 @@ Additional requirements: Python (3.x), setuptools, Cython, scipy
 .. code-block:: bash
 
    cd build/linux
-   ./autogen.sh   # when building a git version
+   ./autogen.sh
    ./configure --with-cuda=/usr/local/cuda \
                --with-python \
                --with-install-type=module
@@ -122,7 +122,7 @@ As a C++ library
 .. code-block:: bash
 
    cd build/linux
-   ./autogen.sh   # when building a git version
+   ./autogen.sh
    ./configure --with-cuda=/usr/local/cuda
    make
    make install-dev
