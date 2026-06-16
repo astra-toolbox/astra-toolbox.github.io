@@ -252,6 +252,35 @@ Create a projector from a config object. This is called internally by
 `create_projector <#creation>`_, which is the recommended way to create most projectors.
 
 
+direct_FP / direct_BP
+~~~~~~~~~~~~~~~~~~~~~
+
+.. tabs::
+  .. group-tab:: Python
+    .. code-block:: python
+
+       astra.projector.direct_FP(projector_id, volume_array, out=projection_array)
+       astra.projector.direct_BP(projector_id, projection_array, out=volume_array)
+
+  .. group-tab:: MATLAB
+
+       Not available in MATLAB.
+
+Perform a forward/backprojection of the given array and write the result to another
+array. Unlike the `forward projection algorithm <algs/FP_CUDA.html>`_, this function
+does not require separate data and algorithm objects to be created within ASTRA.
+Instead, it accepts any CPU/CUDA arrays supporting `DLPack standard
+<https://github.com/dmlc/dlpack>`_ (NumPy, PyTorch, JAX, etc.)
+
+.. note::
+  Output projection/volume array can only be passed as an ``out`` keyword argument to
+  avoid ambiguity.
+
+.. note::
+  Only "cuda" projector type is supported with CUDA arrays, but CPU arrays can be used
+  with any projector type including "cuda".
+
+
 matrix
 ~~~~~~
 
