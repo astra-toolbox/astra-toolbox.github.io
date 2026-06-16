@@ -333,42 +333,23 @@ It has to be freed after use with
   Such a matrix can require significant memory for large geometries.
 
 
-volume_geometry
-~~~~~~~~~~~~~~~
+volume_geometry / projection_geometry
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. tabs::
   .. group-tab:: Python
     .. code-block:: python
 
       vol_geom = astra.projector.volume_geometry(id)
-
-  .. group-tab:: MATLAB
-    .. code-block:: matlab
-
-      vol_geom = astra_mex_projector('volume_geometry', id);
-
-Get the volume geometry attached to the given projector object.
-
-.. note::
-  The returned geometry may slightly deviate from the original geometry because of
-  internal data type conversions.
-
-
-projection_geometry
-~~~~~~~~~~~~~~~~~~~
-
-.. tabs::
-  .. group-tab:: Python
-    .. code-block:: python
-
       proj_geom = astra.projector.projection_geometry(id)
 
   .. group-tab:: MATLAB
     .. code-block:: matlab
 
+      vol_geom = astra_mex_projector('volume_geometry', id);
       proj_geom = astra_mex_projector('projection_geometry', id);
 
-Get the projection geometry attached to the given projector object.
+Get the volume/projection geometry attached to the given projector object.
 
 .. note::
   The returned geometry may slightly deviate from the original geometry because of
