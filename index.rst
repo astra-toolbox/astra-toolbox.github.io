@@ -31,6 +31,32 @@ The ASTRA Toolbox is a Python and MATLAB toolbox of high-performance GPU primiti
 The source code of the ASTRA Toolbox is available on `GitHub <https://github.com/astra-toolbox/astra-toolbox>`_.
 
 
+Install
+-------
+
+.. tabs::
+   .. group-tab:: Python (conda)
+       .. code-block:: bash
+
+         conda install -c astra-toolbox -c nvidia astra-toolbox
+
+   .. group-tab:: Python (conda-forge)
+      .. code-block:: bash
+
+         conda install -c conda-forge astra-toolbox
+
+   .. group-tab:: Python (pip)
+      .. code-block:: bash
+
+         pip install astra-toolbox
+
+   .. group-tab:: MATLAB
+
+      On Windows, we provide precompiled binaries on the `downloads page <downloads/index.html>`_.
+      On Linux and macOS, the toolbox  needs to be built from source using the
+      `build instructions <docs/install.html#linux-from-source>`_.
+
+
 Latest News
 -----------
 
@@ -57,14 +83,6 @@ Latest News
 * 9 Jul 2019: Windows MATLAB/Python packages of the current `1.9.0.dev <news.html#version-1-9-0-dev>`_ version of ASTRA git master are now available for download below. These require CUDA 9.0+.
 
 * We now have development Python packages available from ASTRA git master on conda. Quick installation instructions: ``conda install -c astra-toolbox/label/dev astra-toolbox`` .
-
-Downloads
----------
-
-Main downloads of the latest official release.
-
-
-.. include:: downloads/2.5.0/downloads.txt
 
 References
 ----------
