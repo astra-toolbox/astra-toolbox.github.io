@@ -1,6 +1,30 @@
 News
 ====
 
+2026-06-17: Version 2.5.0
+-------------------------
+* Add support for 2D projectors in DLPack functionality.
+
+  This allows for zero-copy linking of CPU/GPU arrays from Python libraries supporting
+  the DLPack standard, including PyTorch, TensorFlow, CuPy and JAX. Previously, this was
+  only supported for 3D data.
+
+* Add ``direct_FP`` / ``direct_BP`` to ``astra.projector`` and ``astra.projector3d`` modules.
+
+  This allows for using ASTRA projectors directly on DLPack arrays, without creating an
+  ASTRA data or algorithm objects. See `2D Projectors <docs/proj2d.html#direct-fp-direct-bp>`_
+  and `3D Projectors <docs/proj3d.html#direct-fp-direct-bp>`_ docs for more information.
+
+* Add experimental support for ROCm/HIP tensors in "direct" and "link" functionality
+* Major internal refactoring of data management and CUDA subsystems
+* Fix memory leaks in several places
+* Fix the crash in fanflat BP_CUDA with more than 2560 angles
+* Add PyPI distribution for Windows
+* Add support for CUDA 13 and Visual Studio 2022 on Windows
+* Add support and distribution for free-threading Python version (Linux only)
+* Update set_gpu_index and other GPU selection options for multi-threading contexts
+* Fix building on modern macOS
+
 2025-12-16: Version 2.4.1
 -------------------------
 * Fix DLPack support for certain arrays with dimensions of size 1
