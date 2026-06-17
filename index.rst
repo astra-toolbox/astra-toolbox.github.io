@@ -1,7 +1,7 @@
 The ASTRA Toolbox
 =================
 
-.. image:: https://img.shields.io/github/stars/astra-toolbox/astra-toolbox?style=flat&logo=GitHub
+.. image:: images/github-stars-shield.svg
    :target: https://github.com/astra-toolbox/astra-toolbox
 
 .. image:: images/conda-downloads-shield.svg
