@@ -4,6 +4,10 @@
 Volume geometry
 ---------------
 
+.. figure:: ../images/geometry_illustrations/volume2d.svg
+  :alt: Illustration of the 2D volume geometry.
+  :align: center
+
 Create a 2D volume geometry:
 
 .. tabs::
@@ -56,6 +60,10 @@ Projection geometries
 parallel
 ~~~~~~~~
 
+.. figure:: ../images/geometry_illustrations/parallel.svg
+  :alt: Illustration of the 2D parallel beam geometry.
+  :align: center
+
 Create a 2D parallel beam geometry:
 
 .. tabs::
@@ -76,6 +84,10 @@ Create a 2D parallel beam geometry:
 
 fanflat
 ~~~~~~~
+
+.. figure:: ../images/geometry_illustrations/fanflat.svg
+  :alt: Illustration of the 2D flat fan beam geometry.
+  :align: center
 
 Create a 2D flat fan beam geometry:
 
@@ -99,6 +111,10 @@ Create a 2D flat fan beam geometry:
 
 parallel_vec
 ~~~~~~~~~~~~
+
+.. figure:: ../images/geometry_illustrations/parallel_vec.svg
+  :alt: Illustration of the 2D parallel beam geometry specified by vectors.
+  :align: center
 
 Create a 2D parallel beam geometry specified by 2D vectors:
 
@@ -176,6 +192,10 @@ This conversion is also available as a function in the toolbox:
 
 fanflat_vec
 ~~~~~~~~~~~
+
+.. figure:: ../images/geometry_illustrations/fanflat_vec.svg
+  :alt: Illustration of the 2D flat fan beam geometry specified by 2D vectors.
+  :align: center
 
 Create a 2D flat fan beam geometry specified by 2D vectors:
 

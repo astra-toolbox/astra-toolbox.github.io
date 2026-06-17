@@ -4,6 +4,10 @@
 Volume geometry
 ---------------
 
+.. figure:: ../images/geometry_illustrations/volume3d.svg
+  :alt: Illustration of the 3D volume geometry.
+  :align: center
+
 Create a 3D volume geometry:
 
 .. tabs::
@@ -46,6 +50,10 @@ Projection geometries
 parallel3d
 ~~~~~~~~~~
 
+.. figure:: ../images/geometry_illustrations/parallel3d.svg
+  :alt: Illustration of the 3D parallel beam projection geometry.
+  :align: center
+
 .. tabs::
   .. group-tab:: Python
     .. code-block:: python
@@ -68,6 +76,10 @@ Create a 3D parallel beam geometry.
 
 cone
 ~~~~
+
+.. figure:: ../images/geometry_illustrations/cone.svg
+  :alt: Illustration of the 3D cone beam projection geometry.
+  :align: center
 
 .. tabs::
   .. group-tab:: Python
@@ -93,6 +105,10 @@ Create a 3D cone beam geometry.
 
 parallel3d_vec
 ~~~~~~~~~~~~~~
+
+.. figure:: ../images/geometry_illustrations/parallel3d_vec.svg
+  :alt: Illustration of the 3D parallel beam projection geometry specified by vectors.
+  :align: center
 
 .. tabs::
   .. group-tab:: Python
@@ -189,6 +205,10 @@ This conversion is also available as a function in the toolbox:
 cone_vec
 ~~~~~~~~
 
+.. figure:: ../images/geometry_illustrations/cone_vec.svg
+  :alt: Illustration of the 3D cone beam projection geometry specified by vectors.
+  :align: center
+
 .. tabs::
   .. group-tab:: Python
     .. code-block:: python
@@ -270,6 +290,10 @@ type "cone" into such a 12-element row:
 
 cyl_cone_vec
 ~~~~~~~~~~~~
+
+.. figure:: ../images/geometry_illustrations/cone_cyl_vec.svg
+  :alt: Illustration of the 3D cylindrical detector cone beam projection geometry specified by vectors.
+  :align: center
 
 .. versionadded:: 2.4
 
